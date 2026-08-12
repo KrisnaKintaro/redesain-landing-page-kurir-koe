@@ -104,13 +104,10 @@ function initNavbarMasterLogic() {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // Reset semua link jadi default
             mobileLinks.forEach(l => {
                 l.classList.remove(...activeClasses);
                 l.classList.add(...defaultClasses);
             });
-            
-            // Set link yang diklik jadi aktif (kuning)
             link.classList.remove(...defaultClasses);
             link.classList.add(...activeClasses);
 
@@ -118,7 +115,16 @@ function initNavbarMasterLogic() {
             const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // FIX OFFSET STICKY NAVBAR
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - headerHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                
                 closeDrawer(); 
             }
         });

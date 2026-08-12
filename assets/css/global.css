@@ -1,24 +1,34 @@
-/* Custom Scrollbar biar senada sama tema */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-    background: #F8F9FA;
-}
-::-webkit-scrollbar-thumb {
-    background: #0054B7;
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #003d82;
+    background: #F8F9FA; /* Warna off-white biar nyatu sama background */
 }
 
-/* Base style tambahan (kalau butuh) */
+::-webkit-scrollbar-thumb {
+    background: #0054B7; /* Warna biru primary saat diam */
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+/* Berubah jadi kuning saat kursor berada di atasnya (hover) */
+::-webkit-scrollbar-thumb:hover {
+    background: #FAD812; 
+}
+
+/* Berubah/tetap kuning saat diklik dan ditahan untuk digeser (active) */
+::-webkit-scrollbar-thumb:active {
+    background: #FAD812; 
+}
+
+/* Base style tambahan */
 html {
     scroll-behavior: smooth;
 }
 
-/* Animasi Transisi SPA: Dipanggil saat komponen baru di-load di div#app */
+/* Animasi Transisi SPA */
 .fade-in {
     animation: fadeIn 0.4s ease-in-out forwards;
 }

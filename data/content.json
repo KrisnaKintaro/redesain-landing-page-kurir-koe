@@ -13,5 +13,10 @@
         { "title": "Instant Delivery", "desc": "Sampai dalam hitungan jam.", "icon": "fa-bolt" },
         { "title": "Sameday Service", "desc": "Dikirim dan sampai di hari yang sama.", "icon": "fa-clock" },
         { "title": "Regular Service", "desc": "Pengiriman aman ke seluruh pelosok Nusantara.", "icon": "fa-truck-fast" }
+    ],
+    "how_it_works": [
+        { "step": "1", "title": "Pesan Layanan", "desc": "Pilih layanan dan isi detail pengiriman melalui aplikasi atau website kami.", "icon": "fa-mobile-screen-button" },
+        { "step": "2", "title": "Kurir Menjemput", "desc": "Kurir terdekat akan langsung menjemput paket ke lokasi Anda.", "icon": "fa-box-archive" },
+        { "step": "3", "title": "Paket Sampai", "desc": "Paket diantar dengan aman, bisa dilacak secara real-time.", "icon": "fa-house-circle-check" }
     ]
 }

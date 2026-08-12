@@ -5,7 +5,7 @@ async function renderLogo() {
     // 2. Ambil data CMS dari State
     const data = window.State.get();
     
-    // Bikinn fallback (nilai default) kalau misal di CMS datanya belum diisi
+    // Bikin fallback (nilai default) kalau misal di CMS datanya belum diisi
     const namaPerusahaan = data.nama_perusahaan || "Kurir Koe"; 
     const logoUrl = data.logo_url || "./assets/images/logo_kurir_koe.webp";
 

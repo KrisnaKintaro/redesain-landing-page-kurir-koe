@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurir Koe - Solusi Pengiriman Terpercaya</title>
+    
+    <!-- Google Fonts: Inter (Font yang clean dan modern) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS CDN & Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0054B7',  
+                        accent: '#FAD812',   
+                        light: '#F8F9FA'     
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="./assets/css/global.css">
+</head>
+<body class="bg-light font-sans text-gray-800 antialiased">
+    
+    <!-- SPA Root Container: Semua komponen bakal di-inject ke dalam div ini -->
+    <div id="app" class="min-h-screen flex flex-col"></div>
+
+    <!-- Global Scripts -->
+    <script src="./assets/js/global.js"></script>
+    
+    <!-- Core Logic (State & Router) -->
+    <script src="./core/state.js"></script>
+    <!-- Pakai type="module" kalau lu mau pakai fitur import/export ES6 di router lu -->
+    <script src="./core/router.js" type="module"></script>
+</body>
+</html>

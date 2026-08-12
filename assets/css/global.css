@@ -1,0 +1,35 @@
+/* Custom Scrollbar biar senada sama tema */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #F8F9FA;
+}
+::-webkit-scrollbar-thumb {
+    background: #0054B7;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #003d82;
+}
+
+/* Base style tambahan (kalau butuh) */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animasi Transisi SPA: Dipanggil saat komponen baru di-load di div#app */
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}

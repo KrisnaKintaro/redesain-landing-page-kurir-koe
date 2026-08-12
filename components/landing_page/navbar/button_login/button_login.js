@@ -1,8 +1,6 @@
-
 async function renderButtonLogin() {
     let html = await fetchHTML('./components/landing_page/navbar/button_login/button_login.html');
     
-    // Ambil data CMS, siapin fallback kalau belum diset di admin
     const data = window.State.get('login_modal') || {
         karyawan_url: "https://kurir-koe.deviscode.com/employee/login",
         admin_url: "https://kurir-koe.deviscode.com/admin/login"
@@ -11,18 +9,34 @@ async function renderButtonLogin() {
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = html;
     
-    // Inject URL ke masing-masing card
+    // Inject URL ke masing-masing card (opsional jika ada di HTML)
     const linkKaryawan = tempDiv.querySelector('#link-karyawan');
     const linkAdmin = tempDiv.querySelector('#link-admin');
-    
     if (linkKaryawan) linkKaryawan.href = data.karyawan_url;
     if (linkAdmin) linkAdmin.href = data.admin_url;
 
-    return tempDiv.innerHTML;
+    // 1. Tangkap elemen modalnya
+    const modalEl = tempDiv.querySelector('#login-modal');
+    
+    if (modalEl) {
+        // 2. Bersihkan modal lama kalau misal user pindah-pindah halaman biar nggak duplikat
+        const existingModal = document.getElementById('login-modal');
+        if (existingModal) existingModal.remove();
+        
+        // 3. Pindahkan modalnya keluar dari Navbar dan letakkan langsung di body
+        document.body.appendChild(modalEl);
+    }
+
+    // 4. Kembalikan HANYA tombolnya untuk dipasang di Navbar
+    const btnEl = tempDiv.querySelector('#nav-btn-masuk');
+    return btnEl ? btnEl.outerHTML : '';
 }
 
 function initButtonLoginLogic() {
+    // Tangkap elemen tombol yang ada di navbar
     const btnMasuk = document.getElementById('nav-btn-masuk');
+    
+    // Tangkap elemen modal yang sekarang posisinya udah di dalam body
     const modal = document.getElementById('login-modal');
     const overlay = document.getElementById('login-modal-overlay');
     const modalBox = document.getElementById('login-modal-box');
@@ -30,10 +44,8 @@ function initButtonLoginLogic() {
 
     if (!btnMasuk || !modal) return;
 
-    // Fungsi Buka Modal
     const openModal = () => {
         modal.classList.remove('hidden');
-        // Kasih jeda dikit biar browser render display:block dulu, baru jalanin animasi CSS
         setTimeout(() => {
             overlay.classList.remove('opacity-0');
             modalBox.classList.remove('opacity-0', 'scale-95');
@@ -41,22 +53,16 @@ function initButtonLoginLogic() {
         }, 10);
     };
 
-    // Fungsi Tutup Modal
     const closeModal = () => {
         overlay.classList.add('opacity-0');
         modalBox.classList.remove('opacity-100', 'scale-100');
         modalBox.classList.add('opacity-0', 'scale-95');
-        
-        // Tunggu animasi selesai baru di-hidden (durasi animasi 300ms di Tailwind)
         setTimeout(() => {
             modal.classList.add('hidden');
         }, 300);
     };
 
-    // Pasang Event Listeners
     btnMasuk.addEventListener('click', openModal);
     btnClose.addEventListener('click', closeModal);
-    
-    // Tutup modal kalau user klik area gelap di luar kotak putih
     overlay.addEventListener('click', closeModal);
 }

@@ -1,32 +1,23 @@
-<!-- Tombol Trigger di Navbar -->
-<button id="nav-btn-masuk" class="border-2 border-primary text-primary font-semibold py-2 px-6 rounded-full hover:bg-primary hover:text-white transition duration-300">
+<!-- Tombol Trigger di Navbar (Revisi hover jadi kuning & border kuning) -->
+<button id="nav-btn-masuk" class="border-2 border-primary text-primary font-semibold py-2 px-6 rounded-full hover:bg-accent hover:border-accent hover:text-gray-900 transition duration-300">
     Masuk
 </button>
 
-<!-- Modal Pop-up (Disembunyikan secara default) -->
-<div id="login-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
-    
-    <!-- Background Overlay Gelap -->
+<!-- Modal Pop-up (Kita naikin z-index jadi 999 biar aman menutupi segalanya) -->
+<div id="login-modal" class="fixed inset-0 z-[999] hidden flex items-center justify-center">
+    <!-- Background Overlay -->
     <div id="login-modal-overlay" class="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-300 opacity-0"></div>
     
     <!-- Kotak Modal -->
     <div id="login-modal-box" class="relative bg-white rounded-3xl shadow-2xl w-[90%] max-w-md p-8 transform scale-95 opacity-0 transition-all duration-300">
-        
-        <!-- Tombol Close (X) -->
         <button id="login-modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition">
             <i class="fa-solid fa-xmark text-xl"></i>
         </button>
-
-        <!-- Header Modal -->
         <div class="text-center mb-8">
             <h3 id="login-modal-title" class="text-xl font-bold text-gray-800 mb-1">Selamat Datang Kembali</h3>
             <p id="login-modal-subtitle" class="text-sm text-gray-500">Silakan pilih akses masuk Anda</p>
         </div>
-
-        <!-- Pilihan Akses (Cards) -->
         <div class="grid grid-cols-2 gap-4">
-            
-            <!-- Card Karyawan -->
             <a href="#" id="link-karyawan" class="group flex flex-col items-center text-center p-4 border-2 border-gray-100 rounded-2xl hover:border-accent transition-colors duration-300">
                 <div class="w-12 h-12 flex items-center justify-center bg-blue-50 rounded-lg text-primary mb-3 group-hover:scale-110 transition-transform duration-300">
                     <i class="fa-solid fa-user-group text-xl"></i>
@@ -34,8 +25,6 @@
                 <h4 class="font-bold text-gray-800 text-sm mb-1">Karyawan</h4>
                 <p class="text-[11px] text-gray-500 leading-tight">Portal Karyawan & Kurir</p>
             </a>
-
-            <!-- Card Administrator -->
             <a href="#" id="link-admin" class="group flex flex-col items-center text-center p-4 border-2 border-gray-100 rounded-2xl hover:border-accent transition-colors duration-300">
                 <div class="w-12 h-12 flex items-center justify-center bg-orange-50 rounded-lg text-orange-500 mb-3 group-hover:scale-110 transition-transform duration-300">
                     <i class="fa-solid fa-shield-halved text-xl"></i>
@@ -43,7 +32,6 @@
                 <h4 class="font-bold text-gray-800 text-sm mb-1">Administrator</h4>
                 <p class="text-[11px] text-gray-500 leading-tight">Portal Manajemen Sistem</p>
             </a>
-
         </div>
     </div>
 </div>

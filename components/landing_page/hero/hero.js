@@ -50,7 +50,6 @@ async function renderHero() {
 }
 
 function initHeroLogic() {
-    // Logic Scroll untuk tombol aksi di Hero
     const heroLinks = document.querySelectorAll('.hero-scroll-link');
     
     heroLinks.forEach(link => {
@@ -60,7 +59,14 @@ function initHeroLogic() {
             const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - headerHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
             }
         });
     });

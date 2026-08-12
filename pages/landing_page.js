@@ -1,25 +1,27 @@
 async function renderLandingPage() {
-    // Panggil Master Navbar
     const navbarHTML = await renderNavbarMaster();
-    
     const heroHTML = await renderHero(); 
-    
+    const statsHTML = await renderStats();
+
     return `
         <div id="view-landing-page">
             ${navbarHTML}
-            
-            <!-- Tambahkan Hero di bawah Navbar -->
             ${heroHTML}
             
-            <main id="main-content" class="min-h-screen"> 
-                <!-- Nanti komponen Stats, Services dll nyusul di sini -->
+            <!-- Render komponen Stats tepat di bawah Hero -->
+            ${statsHTML}
+            
+            <main id="main-content" class="min-h-[100vh]"> 
+                <!-- Nanti komponen Services dll nyusul di sini -->
             </main>
         </div>
     `;
+    
 }
 
 function initLandingPageLogic() {
     // Hidupkan logic khusus komponen yang ada di halaman ini
     initNavbarMasterLogic();
     if (typeof initHeroLogic === 'function') initHeroLogic();
+    if (typeof initStatsLogic === 'function') initStatsLogic(); 
 }

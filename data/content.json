@@ -3,5 +3,10 @@
     "theme": {
         "primary": "#0054B7",
         "accent": "#FAD812"
-    }
+    },
+    "stats": [
+        { "nilai": "1M+", "label": "Paket Terkirim", "icon": "fa-box-open" },
+        { "nilai": "50K+", "label": "Driver Aktif", "icon": "fa-motorcycle" },
+        { "nilai": "500+", "label": "Kota Jangkauan", "icon": "fa-map-location-dot" }
+    ]
 }

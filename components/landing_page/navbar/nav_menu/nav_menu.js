@@ -1,7 +1,6 @@
 async function renderNavMenu() {
     let html = await fetchHTML('./components/landing_page/navbar/nav_menu/nav_menu.html');
     
-    // Ambil data dari State, kalau kosong kasih default bawaan lu
     const data = window.State.get('nav_menu') || [
         { label: "Beranda", target: "hero" },
         { label: "Layanan", target: "services" },
@@ -15,15 +14,31 @@ async function renderNavMenu() {
     const ulList = tempDiv.querySelector('#navbar-menu-list');
 
     if (ulList) {
-        ulList.innerHTML = ''; // Pastikan bersih dulu
+        ulList.innerHTML = ''; 
         
-        // Looping data dari JSON buat bikin list menu-nya
-        data.forEach(item => {
+        data.forEach((item, index) => {
             const li = document.createElement('li');
+            
+            // Jadikan item pertama (Beranda) sebagai tab yang aktif secara default
+            const isActive = index === 0;
+            
+            // Definisikan class untuk masing-masing state
+            // Base Class: Bentuk dasar pill-nya
+            const baseClass = "nav-pill block px-5 py-2 rounded-full font-medium text-sm transition-all duration-300 ease-in-out cursor-pointer select-none";
+            
+            // Default/Hover Class: Abu-abu, kalau di-hover text biru dan background biru transparan
+            const defaultClass = "text-gray-500 hover:text-primary hover:bg-blue-50";
+            
+            // Active Class: Background Kuning, Text Gelap, dan Neumorphism drop shadow lembut
+            const activeClass = "bg-accent text-gray-900 shadow-[2px_2px_10px_rgba(250,216,18,0.4)]"; 
+            
+            // Gabungkan class berdasarkan status aktif atau tidak
+            const finalClass = `${baseClass} ${isActive ? activeClass : defaultClass}`;
+
             li.innerHTML = `
                 <a href="javascript:void(0)" 
                    data-target="${item.target}" 
-                   class="scroll-link hover:text-primary transition-colors duration-300">
+                   class="${finalClass}">
                    ${item.label}
                 </a>
             `;
@@ -35,25 +50,37 @@ async function renderNavMenu() {
 }
 
 function initNavMenuLogic() {
-    // Cari semua elemen yang punya class 'scroll-link'
-    const links = document.querySelectorAll('.scroll-link');
+    const links = document.querySelectorAll('.nav-pill');
+    
+    // Siapkan array class untuk proses bongkar-pasang saat diklik
+    const defaultClasses = ["text-gray-500", "hover:text-primary", "hover:bg-blue-50"];
+    const activeClasses = ["bg-accent", "text-gray-900", "shadow-[2px_2px_10px_rgba(250,216,18,0.4)]"];
     
     links.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault(); // Cegah fungsi bawaan link
+            e.preventDefault();
             
-            // Ambil nama targetnya (misal: "services")
+            // 1. RESET SEMUA: Hapus status aktif dari semua menu, kembalikan ke default
+            links.forEach(l => {
+                l.classList.remove(...activeClasses);
+                l.classList.add(...defaultClasses);
+            });
+            
+            // 2. SET AKTIF: Tambahkan status aktif hanya pada menu yang baru saja diklik
+            link.classList.remove(...defaultClasses);
+            link.classList.add(...activeClasses);
+            
+            // 3. EKSEKUSI SCROLL: Gulir layar ke komponen target
             const targetId = link.getAttribute('data-target');
             const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
-                // Eksekusi gulir layar dengan efek mulus
                 targetElement.scrollIntoView({ 
                     behavior: 'smooth',
                     block: 'start' 
                 });
             } else {
-                console.warn(`Waduh cuy, komponen dengan id="${targetId}" belum ada di layar!`);
+                console.warn(`Target section #${targetId} belum ada cuy!`);
             }
         });
     });

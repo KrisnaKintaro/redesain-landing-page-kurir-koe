@@ -8,5 +8,10 @@
         { "nilai": "1M+", "label": "Paket Terkirim", "icon": "fa-box-open" },
         { "nilai": "50K+", "label": "Driver Aktif", "icon": "fa-motorcycle" },
         { "nilai": "500+", "label": "Kota Jangkauan", "icon": "fa-map-location-dot" }
+    ],
+    "services": [
+        { "title": "Instant Delivery", "desc": "Sampai dalam hitungan jam.", "icon": "fa-bolt" },
+        { "title": "Sameday Service", "desc": "Dikirim dan sampai di hari yang sama.", "icon": "fa-clock" },
+        { "title": "Regular Service", "desc": "Pengiriman aman ke seluruh pelosok Nusantara.", "icon": "fa-truck-fast" }
     ]
 }

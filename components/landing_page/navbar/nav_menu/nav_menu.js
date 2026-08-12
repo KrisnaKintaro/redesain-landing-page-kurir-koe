@@ -75,9 +75,16 @@ function initNavMenuLogic() {
             const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
-                targetElement.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start' 
+                // Ambil tinggi navbar (misal header punya class h-20 = 80px)
+                const headerHeight = document.querySelector('header').offsetHeight;
+                
+                // Hitung posisi elemen target dari atas dokumen, lalu kurangi tinggi navbar
+                const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - headerHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
             } else {
                 console.warn(`Target section #${targetId} belum ada cuy!`);

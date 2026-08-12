@@ -13,19 +13,14 @@ async function renderLogo() {
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = html;
 
-    // 4. Update Teks Nama Brand
-    const brandNameEl = tempDiv.querySelector('#navbar-brand-name');
-    if (brandNameEl) {
-        brandNameEl.textContent = namaPerusahaan;
-    }
-
-    // 5. Update Gambar Logo (Fitur Opsional Dihidupkan)
+    // 4. Update Gambar Logo (Teks brand sudah dihapus)
     const logoImgEl = tempDiv.querySelector('#navbar-logo-img');
     if (logoImgEl) {
         logoImgEl.src = logoUrl;
-        logoImgEl.alt = `Logo ${namaPerusahaan}`; // Alt text-nya ikut dinamis biar SEO friendly
+        // Alt text tetap pakai nama perusahaan untuk kebutuhan SEO
+        logoImgEl.alt = `Logo ${namaPerusahaan}`; 
     }
 
-    // 6. Kembalikan HTML yang sudah dimodifikasi
+    // 5. Kembalikan HTML yang sudah dimodifikasi
     return tempDiv.innerHTML;
 }

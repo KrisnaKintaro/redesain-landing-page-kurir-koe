@@ -1,19 +1,46 @@
+<!-- Wrapper Header Utama -->
 <header class="sticky top-0 z-[100] w-full bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div class="flex items-center justify-between h-20">
             
-            <!-- Kiri: Slot Komponen Logo -->
-            <div id="slot-logo" class="flex-shrink-0"></div>
+            <!-- KIRI: Hamburger Button + Logo -->
+            <div class="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+                <button id="mobile-menu-btn" class="block lg:hidden text-gray-700 hover:text-primary transition focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+                <div id="slot-logo"></div>
+            </div>
             
-            <!-- Tengah: Slot Komponen Nav Menu -->
+            <!-- TENGAH: Slot Nav Menu (Desktop) -->
             <div id="slot-nav-menu" class="flex-1 flex justify-center hidden lg:flex"></div>
             
-            <!-- Kanan: Slot Komponen Buttons -->
-            <div class="flex items-center gap-4 flex-shrink-0">
+            <!-- KANAN: Slot Buttons (Revisi: Class hidden dihapus biar nampil di HP) -->
+            <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
                 <div id="slot-btn-login"></div>
-                <div id="slot-btn-download"></div>
+                <div id="slot-btn-download"></div> 
             </div>
 
         </div>
     </div>
 </header>
+
+<!-- COMPONENT: MOBILE DRAWER MENU -->
+<div id="mobile-drawer-overlay" class="fixed inset-0 bg-black bg-opacity-40 z-[1001] hidden opacity-0 transition-opacity duration-300 lg:hidden"></div>
+
+<div id="mobile-drawer" class="fixed inset-y-0 left-0 w-64 bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out z-[1002] lg:hidden flex flex-col">
+    
+    <!-- Header Sidebar (Revisi: Teks KurirKoe Kuning Biru) -->
+    <div class="p-5 flex justify-between items-center border-b border-gray-100">
+        <span class="font-bold text-2xl tracking-tight">
+            <span class="text-accent drop-shadow-sm">Kurir</span><span class="text-primary">Koe</span>
+        </span>
+        <button id="close-drawer-btn" class="text-gray-400 hover:text-red-500 transition">
+            <i class="fa-solid fa-xmark text-2xl"></i>
+        </button>
+    </div>
+    
+    <!-- List Menu -->
+    <ul id="mobile-menu-list" class="flex flex-col p-4 gap-2 overflow-y-auto">
+        <!-- JS nembak li ke sini -->
+    </ul>
+</div>

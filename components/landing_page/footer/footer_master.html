@@ -1,26 +1,27 @@
-<footer id="footer" class="bg-white border-t border-gray-100 pt-20 pb-8 relative z-10">
+<footer id="footer" class="bg-white border-t border-gray-100 pt-16 pb-8 relative z-10">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         
-        <!-- BARIS ATAS: Brand Info, Link Group, Contact Us -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-10">
+        <!-- BARIS UTAMA: 4 Kolom (Brand, Links, Contact, Maps) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 mb-12">
             
-            <!-- SLOT: Brand Info (Kiri - Makan 4 Kolom) -->
-            <div id="slot-footer-brand" class="footer-anim-up footer-delay-1 md:col-span-4"></div>
+            <!-- SLOT: Brand Info -->
+            <div id="slot-footer-brand" class="footer-anim-up footer-delay-1"></div>
             
-            <!-- SLOT: Link Group (Tengah - Makan 4 Kolom) -->
-            <div id="slot-footer-links" class="footer-anim-up footer-delay-2 md:col-span-4 flex flex-col sm:flex-row gap-8 sm:gap-16 justify-start md:justify-center">
+            <!-- SLOT: Link Group -->
+            <div id="slot-footer-links" class="footer-anim-up footer-delay-2 flex flex-row gap-8 justify-start lg:justify-center">
                 <!-- Nanti Links disuntik ke sini -->
             </div>
             
-            <!-- SLOT: Contact Us (Kanan - Makan 4 Kolom) -->
-            <div id="slot-footer-contact" class="footer-anim-up footer-delay-3 md:col-span-4">
+            <!-- SLOT: Contact Us -->
+            <div id="slot-footer-contact" class="footer-anim-up footer-delay-3">
                 <!-- Nanti Contact Us disuntik ke sini -->
             </div>
-        </div>
 
-        <!-- BARIS TENGAH: Google Maps Widget -->
-        <div id="slot-footer-maps" class="footer-anim-up footer-delay-4 mb-2 w-full h-64 sm:h-80 md:h-96 rounded-3xl overflow-hidden shadow-inner border border-gray-200 bg-gray-50 relative">
-            <!-- Nanti Iframe Maps disuntik ke sini -->
+            <!-- SLOT: Google Maps Widget (Sekarang ada di paling kanan!) -->
+            <div id="slot-footer-maps" class="footer-anim-up footer-delay-4 w-full h-56 rounded-2xl overflow-hidden shadow-sm border border-gray-200 bg-gray-50 relative">
+                <!-- Nanti Iframe Maps disuntik ke sini -->
+            </div>
+
         </div>
 
         <!-- BARIS BAWAH: Copyright -->
@@ -29,5 +30,6 @@
                 <!-- Nanti Copyright disuntik ke sini -->
             </div>
         </div>
+
     </div>
 </footer>

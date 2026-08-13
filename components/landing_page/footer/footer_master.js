@@ -4,21 +4,23 @@ async function renderFooterMaster() {
     tempDiv.innerHTML = html;
 
     // 1. Tambahkan linkGroupHTML di dalam kurung siku
-    const [brandInfoHTML, linkGroupHTML] = await Promise.all([
+    const [brandInfoHTML, linkGroupHTML, contactUsHTML] = await Promise.all([
         renderBrandInfo(),
         renderLinkGroup(),
-        // renderContactUs(),
+        renderContactUs(),
         // renderFooterMaps(),
         // renderCopyright()
     ]);
 
     // Pasang ke slotnya masing-masing
     const slotBrand = tempDiv.querySelector('#slot-footer-brand');
-    
     const slotLinks = tempDiv.querySelector('#slot-footer-links');
+    const slotContact = tempDiv.querySelector('#slot-footer-contact');
     
     if (slotBrand) slotBrand.innerHTML = brandInfoHTML;
     if (slotLinks) slotLinks.innerHTML = linkGroupHTML;
+    if (slotContact) slotContact.innerHTML = contactUsHTML;
+    
 
     return tempDiv.innerHTML;
 }
@@ -27,4 +29,5 @@ function initFooterMasterLogic() {
     // Inisiasi logic anak-anak komponen
     if (typeof initBrandInfoLogic === 'function') initBrandInfoLogic();
     if (typeof initLinkGroupLogic === 'function') initLinkGroupLogic();
+    if (typeof initContactUsLogic === 'function') initContactUsLogic();
 }

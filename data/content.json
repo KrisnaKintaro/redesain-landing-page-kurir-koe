@@ -118,5 +118,18 @@
                 { "label": "Corporate", "url": "#/" }
             ]
         }
-    ]
+    ],
+    "footer_contact": {
+        "title": "Hubungi Kami",
+        "whatsapp": {
+            "label": "WhatsApp",
+            "number": "081234567890",
+            "display": "+62 81-2345-67890"
+        },
+        "email": {
+            "label": "Email",
+            "address": "cs@kurirkoe.com",
+            "subject": "[Ganti teks ini dengan tujuan Anda] - Tanya Layanan Kurir Koe"
+        }
+    }
 }

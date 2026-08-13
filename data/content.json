@@ -43,14 +43,15 @@
             { "title": "Regular Service", "desc": "Pengiriman aman ke seluruh pelosok Nusantara.", "icon": "fa-truck-fast" }
         ]
     },
-    "how_it_works": {
-        "tagline": "Cara Kerja",
-        "title": "Pengiriman Semudah 1-2-3",
-        "description": "Tidak perlu repot, serahkan semuanya pada kami dari awal hingga akhir.",
+    "benefits": {
+        "tagline": "Kenapa Memilih Kami?",
+        "title": "Keuntungan Ekstra Buat Anda",
+        "description": "Berbagai alasan mengapa ribuan UMKM dan Mitra Driver mempercayakan bisnisnya pada Kurir Koe.",
         "items": [
-            { "step": "1", "title": "Pesan Layanan", "desc": "Pilih layanan dan isi detail pengiriman melalui aplikasi atau website kami.", "icon": "fa-mobile-screen-button" },
-            { "step": "2", "title": "Kurir Menjemput", "desc": "Kurir terdekat akan langsung menjemput paket ke lokasi Anda.", "icon": "fa-box-archive" },
-            { "step": "3", "title": "Paket Sampai", "desc": "Paket diantar dengan aman, bisa dilacak secara real-time.", "icon": "fa-house-circle-check" }
+            { "title": "Gratis Jemput Paket", "desc": "Satu paket pun kami jemput ke depan pintu tanpa biaya tambahan.", "icon": "fa-box-open", "color": "text-blue-500", "bg": "bg-blue-50" },
+            { "title": "Harga Khusus UMKM", "desc": "Makin sering kirim, ongkir makin murah. Skema tarif flat untuk bisnis lokal.", "icon": "fa-tags", "color": "text-accent", "bg": "bg-yellow-50" },
+            { "title": "Bagi Hasil Adil", "desc": "Potongan aplikasi rendah. Pendapatan Mitra Driver cair setiap hari tanpa ribet.", "icon": "fa-hand-holding-dollar", "color": "text-green-500", "bg": "bg-green-50" },
+            { "title": "Layanan CS Cepat", "desc": "Bukan dilayani robot. Tim CS kami responsif siap bantu kendala 24/7.", "icon": "fa-headset", "color": "text-red-500", "bg": "bg-red-50" }
         ]
     },
     "partnership": {

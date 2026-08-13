@@ -1,13 +1,13 @@
 async function renderCta() {
     let html = await fetchHTML('./components/landing_page/cta/cta.html');
     
-    // Ambil data CMS, kita tambahin tagline dan image_url
+    // Ambil data CMS, tambahin opsi 'show' (true/false) buat masing-masing tombol
     const data = window.State.get('cta') || {
         tagline: "Aplikasi Kurir Koe",
         title: "Siap Kirim Paket Pertamamu?",
         description: "Download aplikasi Kurir Koe sekarang dan nikmati kemudahan kirim paket dari genggaman tangan Anda. Dapatkan promo gratis ongkir untuk pengguna baru!",
-        app_store: { link: "https://www.google.com/chrome/" },
-        play_store: { link: "https://www.google.com/chrome/" },
+        app_store: { show: true, link: "https://www.google.com/chrome/" },
+        play_store: { show: true, link: "https://www.google.com/chrome/" },
         image_url: "./assets/images/cta_mockup.webp"
     };
 
@@ -26,12 +26,24 @@ async function renderCta() {
     if (elTitle) elTitle.textContent = data.title;
     if (elDesc) elDesc.textContent = data.description;
     
-    if (elBtnAppStore && data.app_store) {
-        elBtnAppStore.href = data.app_store.link;
+    // Logic Hide/Show Tombol App Store
+    if (elBtnAppStore) {
+        if (data.app_store && data.app_store.show === true) {
+            elBtnAppStore.href = data.app_store.link;
+            elBtnAppStore.style.display = 'flex'; // Pastikan tampil
+        } else {
+            elBtnAppStore.style.display = 'none'; // Sembunyikan kalau false
+        }
     }
     
-    if (elBtnPlayStore && data.play_store) {
-        elBtnPlayStore.href = data.play_store.link;
+    // Logic Hide/Show Tombol Play Store
+    if (elBtnPlayStore) {
+        if (data.play_store && data.play_store.show === true) {
+            elBtnPlayStore.href = data.play_store.link;
+            elBtnPlayStore.style.display = 'flex'; // Pastikan tampil
+        } else {
+            elBtnPlayStore.style.display = 'none'; // Sembunyikan kalau false
+        }
     }
 
     if (elImg) {

@@ -32,4 +32,14 @@ function initLandingPageLogic() {
   if (typeof initTestimonialLogic === "function") initTestimonialLogic();
   if (typeof initCtaLogic === "function") initCtaLogic();
   if (typeof initFooterMasterLogic === "function") initFooterMasterLogic();
+
+  //   Animation
+  if (typeof initTestimonialLogic === "function") initTestimonialLogic();
+  if (typeof initCtaLogic === "function") initCtaLogic();
+  if (typeof initFooterMasterLogic === "function") initFooterMasterLogic();
+  setTimeout(() => {
+    if (typeof initScrollReveal === "function") {
+      initScrollReveal();
+    }
+  }, 100);
 }

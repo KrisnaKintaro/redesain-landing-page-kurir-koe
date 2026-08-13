@@ -25,3 +25,19 @@ html {
         transform: translateY(0);
     }
 }
+
+/* --- Animasi Scroll Reveal (Component Entrance) --- */
+
+/* State Awal (Saat komponen masih di bawah layar dan belum terlihat) */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(60px); /* Posisi diturunin 60px ke bawah */
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Efek per-nya smooth banget */
+    will-change: opacity, transform; /* Kasih tau browser biar nge-render GPU duluan */
+}
+
+/* State Akhir (Saat komponen udah masuk layar / kena scroll) */
+.scroll-reveal.reveal-visible {
+    opacity: 1;
+    transform: translateY(0); /* Balik ke posisi asli */
+}

@@ -25,7 +25,7 @@ function generateId() {
 // Fungsi Global buat animasi Entrance pas di-scroll
 function initScrollReveal() {
     // 1. Tangkap semua bagian utama (section dan footer) secara otomatis
-    const sections = document.querySelectorAll('section, footer');
+    const sections = document.querySelectorAll('section:not(#hero), footer');
     
     // 2. Suntikkin class rahasia kita ke mereka (biar otomatis ngilang semua dulu)
     sections.forEach(sec => {
@@ -56,4 +56,42 @@ function initScrollReveal() {
 
     // 5. Suruh CCTV mantau satu-satu komponennya
     revealElements.forEach(el => observer.observe(el));
+}
+
+// Fungsi untuk load file HTML komponen secara asynchronous + Dynamic CSS Loading
+async function fetchHTML(path) {
+    try {
+        // 1. Fetch HTML-nya (Logic bawaan)
+        const response = await fetch(path);
+        if (!response.ok) {
+            throw new Error(`Gagal memuat: ${path}`);
+        }
+
+        // 2. --- LOGIC DYNAMIC CSS LOADING ---
+        // Ubah ekstensi .html jadi .css dari path yang direquest
+        const cssPath = path.replace('.html', '.css');
+
+        // Cek dulu apakah CSS ini udah pernah diload sebelumnya di <head> (biar ga dobel)
+        if (!document.querySelector(`link[href="${cssPath}"]`)) {
+            try {
+                // Cek apakah file CSS-nya beneran ada di folder pake request HEAD (biar ringan ga download isinya)
+                const cssCheck = await fetch(cssPath, { method: 'HEAD' });
+                
+                // Kalau file CSS-nya ada (status 200 OK), baru kita suntik ke DOM
+                if (cssCheck.ok) {
+                    const link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = cssPath;
+                    document.head.appendChild(link);
+                }
+            } catch (e) {
+                // Silent error: Kalau file CSS ga ada, biarin aja lewat (nggak semua komponen butuh CSS)
+            }
+        }
+
+        return await response.text();
+    } catch (error) {
+        console.error("Error fetching component:", error);
+        return `<div class="p-4 text-red-500">Error loading component from ${path}</div>`;
+    }
 }

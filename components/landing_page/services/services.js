@@ -27,13 +27,14 @@ async function renderServices() {
 
     // --- Render Card Layanan ---
     const container = tempDiv.querySelector('#services-container');
-
     if (container && data.items) {
-        container.innerHTML = ''; 
+        container.innerHTML = '';
         
-        data.items.forEach(item => {
+        data.items.forEach((item, index) => { // <-- Tambahin parameter index di sini cuy
             const div = document.createElement('div');
-            div.className = "group bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl border border-gray-100 hover:border-accent transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden z-10";
+            
+            // Inject class 'service-card' dan 'service-delay-X' buat trigger animasi CSS
+            div.className = `service-card service-delay-${index + 1} group bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl border border-gray-100 hover:border-accent transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden z-10`;
             
             div.innerHTML = `
                 <div class="absolute -right-8 -top-8 w-32 h-32 bg-blue-50/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>

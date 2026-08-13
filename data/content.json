@@ -79,5 +79,17 @@
             { "name": "Agus Pratama", "role": "Mitra Driver", "text": "Sistem bagi hasil sangat adil. Waktu kerja fleksibel bikin saya bisa tetap kumpul sama keluarga.", "avatar": "https://ui-avatars.com/api/?name=Agus+Pratama&background=10B981&color=fff", "rating": 5 },
             { "name": "Dewi Lestari", "role": "Pemilik Online Shop", "text": "Sameday service-nya beneran nyampe di hari yang sama. Klien saya selalu puas sama kecepatan kirimnya.", "avatar": "https://ui-avatars.com/api/?name=Dewi+Lestari&background=F43F5E&color=fff", "rating": 4 }
         ]
+    },
+    "cta": {
+        "tagline": "Aplikasi Kurir Koe",
+        "title": "Siap Kirim Paket Pertamamu?",
+        "description": "Download aplikasi Kurir Koe sekarang dan nikmati kemudahan kirim paket dari genggaman tangan Anda. Dapatkan promo gratis ongkir untuk pengguna baru!",
+        "app_store": { 
+            "link": "https://www.google.com/chrome/" 
+        },
+        "play_store": { 
+            "link": "https://www.google.com/chrome/" 
+        },
+        "image_url": "./assets/images/cta_illustration.webp"
     }
 }

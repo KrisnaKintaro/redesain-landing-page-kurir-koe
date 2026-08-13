@@ -6,16 +6,17 @@ async function renderLandingPage() {
   const howItWorksHTML = await renderHowItWorks();
   const partnershipHTML = await renderPartnership();
   const testimonialHTML = await renderTestimonial();
+  const ctaHTML = await renderCta();
 
   return `
         <div id="view-landing-page">
-            ${navbarHTML} ${heroHTML} ${statsHTML} ${servicesHTML} ${howItWorksHTML} ${partnershipHTML}
+            ${navbarHTML} ${heroHTML} ${statsHTML} ${servicesHTML} ${howItWorksHTML} ${partnershipHTML} ${testimonialHTML}
             
-            <!-- Render Testi di Bawah Partnership -->
-            ${testimonialHTML}
+            <!-- Render CTA di bawah Testi -->
+            ${ctaHTML}
             
             <main id="main-content"> 
-                <!-- Footer & CTA nyusul di sini -->
+                <!-- Footer nyusul di sini -->
             </main>
         </div>
     `;
@@ -29,5 +30,6 @@ function initLandingPageLogic() {
   if (typeof initServicesLogic === "function") initServicesLogic();
   if (typeof initHowItWorksLogic === "function") initHowItWorksLogic();
   if (typeof initPartnershipLogic === "function") initPartnershipLogic();
-  if (typeof initTestimonialLogic === 'function') initTestimonialLogic();
+  if (typeof initTestimonialLogic === "function") initTestimonialLogic();
+  if (typeof initCtaLogic === 'function') initCtaLogic();
 }

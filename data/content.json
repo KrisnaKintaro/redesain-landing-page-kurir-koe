@@ -131,5 +131,10 @@
             "address": "cs@kurirkoe.com",
             "subject": "[Ganti teks ini dengan tujuan Anda] - Tanya Layanan Kurir Koe"
         }
+    },
+    "footer_maps": {
+        "embed_url": "https://maps.google.com/maps?q=Jl.+Kutai+Utara+No.1,+Sumber,+Kec.+Banjarsari,+Kota+Surakarta,+Jawa+Tengah+57138&t=&z=17&ie=UTF8&iwloc=&output=embed",
+        "label": "Tembok Ratapan Solo",
+        "address": "Jl. Kutai Utara No.1, Sumber, Kec. Banjarsari, Kota Surakarta, Jawa Tengah 57138"
     }
 }

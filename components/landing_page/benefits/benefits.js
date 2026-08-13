@@ -25,23 +25,26 @@ async function renderBenefits() {
     if (elTitle) elTitle.textContent = data.title;
     if (elDesc) elDesc.textContent = data.description;
 
-    const container = tempDiv.querySelector('#benefits-container');
-
+   const container = tempDiv.querySelector('#benefits-container');
     if (container && data.items) {
         container.innerHTML = '';
-        
-        data.items.forEach(item => {
-            const div = document.createElement('div');
-            div.className = "bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col items-start";
+                 
+        data.items.forEach((item, index) => {
+            // Wrapper luar
+            const wrapper = document.createElement('div');
+            wrapper.className = `benefit-wrapper benefit-delay-${index + 1}`;
             
-            div.innerHTML = `
-                <div class="w-14 h-14 ${item.bg} ${item.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <i class="fa-solid ${item.icon} text-2xl"></i>
+            // Card asli (tambahin h-full juga di mari)
+            wrapper.innerHTML = `
+                <div class="h-full bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col items-start">
+                    <div class="w-14 h-14 ${item.bg} ${item.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid ${item.icon} text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">${item.title}</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">${item.desc}</p>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">${item.title}</h3>
-                <p class="text-gray-600 leading-relaxed text-sm">${item.desc}</p>
             `;
-            container.appendChild(div);
+            container.appendChild(wrapper);
         });
     }
 

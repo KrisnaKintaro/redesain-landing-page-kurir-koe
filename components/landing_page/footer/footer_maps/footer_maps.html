@@ -1,4 +1,4 @@
-<div class="relative w-full h-full">
+<div class="relative w-full h-full group">
     
     <!-- Peta Google Maps (di layer dasar) -->
     <iframe 
@@ -10,19 +10,19 @@
         referrerpolicy="no-referrer-when-downgrade">
     </iframe>
     
-    <!-- CSS Overlay Label (Mengambang di atas peta) -->
-    <div class="absolute top-1 left-2 sm:top-1 sm:left-2 z-10 bg-white/90 backdrop-blur-md p-4 pr-5 rounded-2xl shadow-xl border border-white/50 max-w-[240px] sm:max-w-xs transition-transform duration-300 hover:-translate-y-1">
-        <div class="flex items-start gap-3">
+    <!-- CSS Overlay Label (Disesuaikan khusus untuk Grid Kecil) -->
+    <div class="absolute bottom-3 left-3 right-3 z-10 bg-white/95 backdrop-blur-md p-3 rounded-xl shadow-lg border border-white/50 transition-transform duration-300 group-hover:-translate-y-1">
+        <div class="flex items-start gap-2.5">
             <!-- Ikon Pin Lokasi -->
-            <div class="w-10 h-10 rounded-full bg-blue-50 text-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm border border-blue-100">
-                <i class="fa-solid fa-location-dot text-lg"></i>
+            <div class="w-8 h-8 rounded-full bg-blue-50 text-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm border border-blue-100">
+                <i class="fa-solid fa-location-dot text-sm"></i>
             </div>
             <!-- Info Teks -->
-            <div>
-                <h5 id="footer-map-label" class="font-extrabold text-gray-900 text-sm sm:text-base leading-tight mb-1">
+            <div class="flex-1 min-w-0">
+                <h5 id="footer-map-label" class="font-bold text-gray-900 text-sm leading-tight mb-0.5 truncate">
                     Kantor Kurir Koe
                 </h5>
-                <p id="footer-map-address" class="text-[11px] sm:text-xs text-gray-600 leading-snug">
+                <p id="footer-map-address" class="text-[10px] text-gray-500 leading-snug line-clamp-2">
                     Jl. Kutai Utara No.1, Sumber, Kec. Banjarsari, Kota Surakarta
                 </p>
             </div>

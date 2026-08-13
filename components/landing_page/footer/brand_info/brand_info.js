@@ -28,7 +28,9 @@ async function renderBrandInfo() {
             const a = document.createElement('a');
             a.href = soc.link;
             a.target = "_blank";
-            a.className = "w-10 h-10 rounded-full bg-blue-50 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors duration-300 shadow-sm";
+            
+            a.className = "w-10 h-10 rounded-full border-2 border-accent bg-transparent text-primary flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-300 shadow-sm";
+            
             a.innerHTML = `<i class="fa-brands ${soc.icon}"></i>`;
             elSocials.appendChild(a);
         });

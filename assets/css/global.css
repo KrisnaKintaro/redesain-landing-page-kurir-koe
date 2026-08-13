@@ -1,31 +1,13 @@
-/* Custom Scrollbar */
+/* Custom Scrollbar Dihilangkan (Invisible Scrollbar) biar clean banget */
 ::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #F8F9FA; /* Warna off-white biar nyatu sama background */
-}
-
-::-webkit-scrollbar-thumb {
-    background: #0054B7; /* Warna biru primary saat diam */
-    border-radius: 4px;
-    transition: background 0.3s ease;
-}
-
-/* Berubah jadi kuning saat kursor berada di atasnya (hover) */
-::-webkit-scrollbar-thumb:hover {
-    background: #FAD812; 
-}
-
-/* Berubah/tetap kuning saat diklik dan ditahan untuk digeser (active) */
-::-webkit-scrollbar-thumb:active {
-    background: #FAD812; 
+    display: none; /* Menyembunyikan scrollbar untuk Chrome, Safari, dan Opera */
 }
 
 /* Base style tambahan */
 html {
-    scroll-behavior: smooth;
+    scrollbar-width: none; /* Menyembunyikan scrollbar untuk Firefox */
+    -ms-overflow-style: none; /* Menyembunyikan scrollbar untuk Internet Explorer dan Edge */
+    scroll-behavior: smooth; /* Animasi Transisi SPA tetap kita pertahankan */
 }
 
 /* Animasi Transisi SPA */
@@ -34,12 +16,12 @@ html {
 }
 
 @keyframes fadeIn {
-    from { 
-        opacity: 0; 
-        transform: translateY(10px); 
+    from {
+        opacity: 0;
+        transform: translateY(10px);
     }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

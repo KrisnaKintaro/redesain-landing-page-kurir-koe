@@ -1,0 +1,21 @@
+/* --- Animasi Component Testimonial --- */
+
+/* State Awal: Transparan dan turun ke bawah */
+.testi-anim-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+/* State Akhir: Muncul pas masuk viewport */
+.scroll-reveal.reveal-visible .testi-anim-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Pengatur Jeda (Staggered Delays) */
+.testi-delay-1 { transition-delay: 0.3s; } /* Tagline */
+.testi-delay-2 { transition-delay: 0.4s; } /* Judul */
+.testi-delay-3 { transition-delay: 1.0s; } /* Deskripsi */
+.testi-delay-4 { transition-delay: 1.4s; } /* Keseluruhan Slider */

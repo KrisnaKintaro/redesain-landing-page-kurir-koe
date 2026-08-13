@@ -4,12 +4,12 @@ async function renderFooterMaster() {
     tempDiv.innerHTML = html;
 
     // 1. Tambahkan linkGroupHTML di dalam kurung siku
-    const [brandInfoHTML, linkGroupHTML, contactUsHTML, footerMapsHTML] = await Promise.all([
+    const [brandInfoHTML, linkGroupHTML, contactUsHTML, footerMapsHTML, copyrightHTML] = await Promise.all([
         renderBrandInfo(),
         renderLinkGroup(),
         renderContactUs(),
-        renderFooterMaps() // -> Idupin yang ini cuy
-        // renderCopyright()
+        renderFooterMaps(),
+        renderCopyright() 
     ]);
 
     // Pasang ke slotnya masing-masing
@@ -17,11 +17,13 @@ async function renderFooterMaster() {
     const slotLinks = tempDiv.querySelector('#slot-footer-links');
     const slotContact = tempDiv.querySelector('#slot-footer-contact');
     const slotMaps = tempDiv.querySelector('#slot-footer-maps');
+    const slotCopyright = tempDiv.querySelector('#slot-footer-copyright');
     
     if (slotBrand) slotBrand.innerHTML = brandInfoHTML;
     if (slotLinks) slotLinks.innerHTML = linkGroupHTML;
     if (slotContact) slotContact.innerHTML = contactUsHTML;
     if (slotMaps) slotMaps.innerHTML = footerMapsHTML;
+    if (slotCopyright) slotCopyright.innerHTML = copyrightHTML;
 
     return tempDiv.innerHTML;
 }
@@ -32,4 +34,5 @@ function initFooterMasterLogic() {
     if (typeof initLinkGroupLogic === 'function') initLinkGroupLogic();
     if (typeof initContactUsLogic === 'function') initContactUsLogic();
     if (typeof initFooterMapsLogic === 'function') initFooterMapsLogic();
+    if (typeof initCopyrightLogic === 'function') initCopyrightLogic();
 }

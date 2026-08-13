@@ -136,5 +136,12 @@
         "embed_url": "https://maps.google.com/maps?q=Jl.+Kutai+Utara+No.1,+Sumber,+Kec.+Banjarsari,+Kota+Surakarta,+Jawa+Tengah+57138&t=&z=17&ie=UTF8&iwloc=&output=embed",
         "label": "Tembok Ratapan Solo",
         "address": "Jl. Kutai Utara No.1, Sumber, Kec. Banjarsari, Kota Surakarta, Jawa Tengah 57138"
+    },
+    "footer_copyright": {
+        "text": "© {year} Kurir Koe. All rights reserved.",
+        "links": [
+            { "label": "Syarat & Ketentuan", "url": "#/" },
+            { "label": "Kebijakan Privasi", "url": "#/" }
+        ]
     }
 }

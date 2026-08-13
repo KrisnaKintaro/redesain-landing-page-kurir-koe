@@ -4,6 +4,12 @@
         "primary": "#0054B7",
         "accent": "#FAD812"
     },
+    "nav_menu": [
+        { "label": "Beranda", "target": "hero", "icon": "fa-house" },
+        { "label": "Layanan", "target": "services", "icon": "fa-box" },
+        { "label": "Gabung Mitra", "target": "partnership", "icon": "fa-handshake" },
+        { "label": "Hubungi Kami", "target": "footer", "icon": "fa-phone" }
+    ],
     "hero": {
         "tagline": "🚀 Solusi Pengiriman #1",
         "title_1": "Solusi Pengiriman",

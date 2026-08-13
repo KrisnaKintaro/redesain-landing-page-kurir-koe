@@ -1,51 +1,45 @@
 async function renderNavMenu() {
     let html = await fetchHTML('./components/landing_page/navbar/nav_menu/nav_menu.html');
     
+    // Tambahin properti icon di data CMS
     const data = window.State.get('nav_menu') || [
-        { label: "Beranda", target: "hero" },
-        { label: "Layanan", target: "services" },
-        { label: "Gabung Mitra", target: "partnership" },
-        { label: "Hubungi Kami", target: "footer" }
+        { label: "Beranda", target: "hero", icon: "fa-house" },
+        { label: "Layanan", target: "services", icon: "fa-box" },
+        { label: "Gabung Mitra", target: "partnership", icon: "fa-handshake" },
+        { label: "Hubungi Kami", target: "footer", icon: "fa-phone" }
     ];
 
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = html;
     
     const ulList = tempDiv.querySelector('#navbar-menu-list');
-
+    
     if (ulList) {
-        ulList.innerHTML = ''; 
+        ulList.innerHTML = '';
         
         data.forEach((item, index) => {
             const li = document.createElement('li');
-            
-            // Jadikan item pertama (Beranda) sebagai tab yang aktif secara default
             const isActive = index === 0;
             
-            // Definisikan class untuk masing-masing state
-            // Base Class: Bentuk dasar pill-nya
-            const baseClass = "nav-pill block px-5 py-2 rounded-full font-medium text-sm transition-all duration-300 ease-in-out cursor-pointer select-none";
-            
-            // Default/Hover Class: Abu-abu, kalau di-hover text biru dan background biru transparan
+            // Tambahin flex items-center gap-2 biar sejajar
+            const baseClass = "nav-pill flex items-center gap-2 px-5 py-2 rounded-full font-medium text-sm transition-all duration-300 ease-in-out cursor-pointer select-none";
             const defaultClass = "text-gray-500 hover:text-primary hover:bg-blue-50";
+            const activeClass = "bg-accent text-gray-900 shadow-[2px_2px_10px_rgba(250,216,18,0.4)]";
             
-            // Active Class: Background Kuning, Text Gelap, dan Neumorphism drop shadow lembut
-            const activeClass = "bg-accent text-gray-900 shadow-[2px_2px_10px_rgba(250,216,18,0.4)]"; 
-            
-            // Gabungkan class berdasarkan status aktif atau tidak
             const finalClass = `${baseClass} ${isActive ? activeClass : defaultClass}`;
-
+            
+            // Masukin tag <i> buat icon-nya
             li.innerHTML = `
-                <a href="javascript:void(0)" 
-                   data-target="${item.target}" 
-                   class="${finalClass}">
+                <a href="javascript:void(0)"
+                    data-target="${item.target}"
+                    class="${finalClass}">
+                   <i class="fa-solid ${item.icon} text-base"></i>
                    ${item.label}
                 </a>
             `;
             ulList.appendChild(li);
         });
     }
-
     return tempDiv.innerHTML;
 }
 

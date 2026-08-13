@@ -4,6 +4,24 @@
         "primary": "#0054B7",
         "accent": "#FAD812"
     },
+    "hero": {
+        "tagline": "🚀 Solusi Pengiriman #1",
+        "title_1": "Solusi Pengiriman",
+        "title_2": "Terpercaya!",
+        "description": "Kirim paket ke seluruh pelosok dengan mudah, cepat, dan aman bersama Kurir Koe.",
+        "btn_primary": { "label": "Mulai Sekarang", "target": "services" },
+        "btn_secondary": { "label": "Gabung Mitra", "target": "cta" },
+        "social_proof": {
+            "text": "Dipercaya oleh 5.000+ pelanggan",
+            "rating": 5,
+            "avatars": [
+                "https://ui-avatars.com/api/?name=Budi&background=0054B7&color=fff",
+                "https://ui-avatars.com/api/?name=Siti&background=FAD812&color=000",
+                "https://ui-avatars.com/api/?name=Agus&background=10B981&color=fff"
+            ]
+        },
+        "image_url": "./assets/images/hero_illustration.webp"
+    },
     "stats": [
         { "nilai": "1M+", "label": "Paket Terkirim", "icon": "fa-box-open" },
         { "nilai": "50K+", "label": "Driver Aktif", "icon": "fa-motorcycle" },

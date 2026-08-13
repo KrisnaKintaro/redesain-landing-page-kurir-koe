@@ -92,9 +92,11 @@
         "title": "Siap Kirim Paket Pertamamu?",
         "description": "Download aplikasi Kurir Koe sekarang dan nikmati kemudahan kirim paket dari genggaman tangan Anda. Dapatkan promo gratis ongkir untuk pengguna baru!",
         "app_store": { 
+            "show": false, 
             "link": "https://www.google.com/chrome/" 
         },
         "play_store": { 
+            "show": true, 
             "link": "https://www.google.com/chrome/" 
         },
         "image_url": "./assets/images/cta_illustration.webp"

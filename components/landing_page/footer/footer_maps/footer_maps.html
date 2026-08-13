@@ -1,0 +1,32 @@
+<div class="relative w-full h-full">
+    
+    <!-- Peta Google Maps (di layer dasar) -->
+    <iframe 
+        id="footer-map-iframe"
+        class="w-full h-full border-0 absolute inset-0 z-0" 
+        src="" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    
+    <!-- CSS Overlay Label (Mengambang di atas peta) -->
+    <div class="absolute top-1 left-2 sm:top-1 sm:left-2 z-10 bg-white/90 backdrop-blur-md p-4 pr-5 rounded-2xl shadow-xl border border-white/50 max-w-[240px] sm:max-w-xs transition-transform duration-300 hover:-translate-y-1">
+        <div class="flex items-start gap-3">
+            <!-- Ikon Pin Lokasi -->
+            <div class="w-10 h-10 rounded-full bg-blue-50 text-primary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm border border-blue-100">
+                <i class="fa-solid fa-location-dot text-lg"></i>
+            </div>
+            <!-- Info Teks -->
+            <div>
+                <h5 id="footer-map-label" class="font-extrabold text-gray-900 text-sm sm:text-base leading-tight mb-1">
+                    Kantor Kurir Koe
+                </h5>
+                <p id="footer-map-address" class="text-[11px] sm:text-xs text-gray-600 leading-snug">
+                    Jl. Kutai Utara No.1, Sumber, Kec. Banjarsari, Kota Surakarta
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>

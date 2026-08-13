@@ -68,5 +68,16 @@
             }
         ],
         "image_url": "./assets/images/partnership_illustration.webp"
+    },
+    "testimonial": {
+        "tagline": "Testimonial",
+        "title": "Apa Kata Mereka?",
+        "description": "Ribuan pelanggan dan mitra telah membuktikan keandalan layanan kami.",
+        "items": [
+            { "name": "Budi Santoso", "role": "Mitra Merchant", "text": "Semenjak pakai Kurir Koe, pengiriman barang toko saya jadi lebih cepat dan aman. Omzet naik drastis!", "avatar": "https://ui-avatars.com/api/?name=Budi+Santoso&background=0054B7&color=fff", "rating": 5 },
+            { "name": "Siti Aminah", "role": "Pelanggan Setia", "text": "Aplikasi sangat mudah digunakan. Lacak paket real-time bikin hati tenang. Kurirnya juga ramah-ramah.", "avatar": "https://ui-avatars.com/api/?name=Siti+Aminah&background=FAD812&color=000", "rating": 5 },
+            { "name": "Agus Pratama", "role": "Mitra Driver", "text": "Sistem bagi hasil sangat adil. Waktu kerja fleksibel bikin saya bisa tetap kumpul sama keluarga.", "avatar": "https://ui-avatars.com/api/?name=Agus+Pratama&background=10B981&color=fff", "rating": 5 },
+            { "name": "Dewi Lestari", "role": "Pemilik Online Shop", "text": "Sameday service-nya beneran nyampe di hari yang sama. Klien saya selalu puas sama kecepatan kirimnya.", "avatar": "https://ui-avatars.com/api/?name=Dewi+Lestari&background=F43F5E&color=fff", "rating": 4 }
+        ]
     }
 }

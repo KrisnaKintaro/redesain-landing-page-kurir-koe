@@ -91,5 +91,14 @@
             "link": "https://www.google.com/chrome/" 
         },
         "image_url": "./assets/images/cta_illustration.webp"
+    },
+    "footer_brand": {
+        "logo_url": "./assets/images/logo_kurir_koe.webp",
+        "description": "Solusi pengiriman terpercaya untuk UMKM dan kebutuhan personal Anda. Cepat, aman, dan dapat diandalkan ke seluruh pelosok Nusantara.",
+        "socials": [
+            { "icon": "fa-instagram", "link": "https://instagram.com" },
+            { "icon": "fa-facebook-f", "link": "https://facebook.com" },
+            { "icon": "fa-twitter", "link": "https://twitter.com" }
+        ]
     }
 }

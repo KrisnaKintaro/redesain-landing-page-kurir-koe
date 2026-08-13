@@ -1,22 +1,37 @@
 async function renderHowItWorks() {
     let html = await fetchHTML('./components/landing_page/how_it_works/how_it_works.html');
     
-    // Ambil data CMS, fallback ke data dummy
-    const data = window.State.get('how_it_works') || [
-        { step: "1", title: "Pesan Layanan", desc: "Pilih layanan dan isi detail pengiriman melalui aplikasi atau website kami.", icon: "fa-mobile-screen-button" },
-        { step: "2", title: "Kurir Menjemput", desc: "Kurir terdekat akan langsung menjemput paket ke lokasi Anda.", icon: "fa-box-archive" },
-        { step: "3", title: "Paket Sampai", desc: "Paket diantar dengan aman, bisa dilacak secara real-time.", icon: "fa-house-circle-check" }
-    ];
+    // Ambil data CMS, sesuaikan struktur datanya (Object dengan items)
+    const data = window.State.get('how_it_works') || {
+        tagline: "Cara Kerja",
+        title: "Pengiriman Semudah 1-2-3",
+        description: "Tidak perlu repot, serahkan semuanya pada kami dari awal hingga akhir.",
+        items: [
+            { step: "1", title: "Pesan Layanan", desc: "Pilih layanan dan isi detail pengiriman melalui aplikasi atau website kami.", icon: "fa-mobile-screen-button" },
+            { step: "2", title: "Kurir Menjemput", desc: "Kurir terdekat akan langsung menjemput paket ke lokasi Anda.", icon: "fa-box-archive" },
+            { step: "3", title: "Paket Sampai", desc: "Paket diantar dengan aman, bisa dilacak secara real-time.", icon: "fa-house-circle-check" }
+        ]
+    };
 
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = html;
     
+    // --- Render Teks Header ---
+    const elTagline = tempDiv.querySelector('#hiw-tagline');
+    const elTitle = tempDiv.querySelector('#hiw-title');
+    const elDesc = tempDiv.querySelector('#hiw-desc');
+
+    if (elTagline) elTagline.textContent = data.tagline;
+    if (elTitle) elTitle.textContent = data.title;
+    if (elDesc) elDesc.textContent = data.description;
+
+    // --- Render Langkah-langkah ---
     const container = tempDiv.querySelector('#how-it-works-container');
 
-    if (container) {
+    if (container && data.items) {
         container.innerHTML = ''; 
         
-        data.forEach(item => {
+        data.items.forEach(item => {
             const div = document.createElement('div');
             div.className = "relative flex flex-col items-center group";
             

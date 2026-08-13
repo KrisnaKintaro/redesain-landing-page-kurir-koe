@@ -1,0 +1,35 @@
+/* --- Animasi Component CTA --- */
+
+/* State Awal: Teks (Sembunyi + Turun) */
+.cta-anim-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+/* State Awal: Mockup Gambar (Sembunyi + Geser Kanan) */
+.cta-anim-left {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+/* State Akhir: Saat elemen terlihat di layar */
+.scroll-reveal.reveal-visible .cta-anim-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-reveal.reveal-visible .cta-anim-left {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Pengatur Jeda (Staggered Delays) */
+.cta-delay-1 { transition-delay: 0.6s; } /* Tagline */
+.cta-delay-2 { transition-delay: 0.6.2s; } /* Judul */
+.cta-delay-3 { transition-delay: 1.1s; } /* Deskripsi */
+.cta-delay-4 { transition-delay: 1.5s; } /* Tombol */
+.cta-delay-5 { transition-delay: 1.3s; } /* Gambar Mockup */

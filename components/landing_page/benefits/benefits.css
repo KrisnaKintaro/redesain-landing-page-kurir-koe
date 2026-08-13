@@ -1,0 +1,16 @@
+.benefit-wrapper {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.scroll-reveal.reveal-visible .benefit-wrapper {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.benefit-delay-1 { transition-delay: 0.1s; }
+.benefit-delay-2 { transition-delay: 0.3s; }
+.benefit-delay-3 { transition-delay: 0.5s; }
+.benefit-delay-4 { transition-delay: 0.7s; }

@@ -1,0 +1,30 @@
+/* --- Animasi Component Navbar (Jalan Otomatis Saat Page Load) --- */
+
+/* 1. Animasi Header Turun dari Atas */
+@keyframes navSlideDown {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* 2. Animasi Item di dalam Navbar Muncul Berurutan */
+@keyframes navPopIn {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Trigger Animasi Utama */
+.nav-anim-down {
+    animation: navSlideDown 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Trigger Animasi Item */
+.nav-item-anim {
+    opacity: 0; /* Mulai dari hilang */
+    animation: navPopIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Pengatur Jeda (Staggered Delays) */
+.nav-delay-1 { animation-delay: 0.4s; } /* Logo & Hamburger */
+.nav-delay-2 { animation-delay: 0.6s; } /* Menu Tengah */
+.nav-delay-3 { animation-delay: 0.8s; } /* Tombol Login */
+.nav-delay-4 { animation-delay: 1.0s; } /* Tombol Download */

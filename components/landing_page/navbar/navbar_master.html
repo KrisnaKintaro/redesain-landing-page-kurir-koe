@@ -1,10 +1,10 @@
 <!-- Wrapper Header Utama -->
-<header class="sticky top-0 z-[100] w-full bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
+<header class="nav-anim-down sticky top-0 z-[100] w-full bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div class="flex items-center justify-between h-20">
             
             <!-- KIRI: Hamburger Button + Logo -->
-            <div class="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+            <div class="nav-item-anim nav-delay-1 flex items-center gap-3 sm:gap-4 flex-shrink-0">
                 <button id="mobile-menu-btn" class="block lg:hidden text-gray-700 hover:text-primary transition focus:outline-none">
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
@@ -12,14 +12,13 @@
             </div>
             
             <!-- TENGAH: Slot Nav Menu (Desktop) -->
-            <div id="slot-nav-menu" class="flex-1 flex justify-center hidden lg:flex"></div>
+            <div id="slot-nav-menu" class="nav-item-anim nav-delay-2 flex-1 flex justify-center hidden lg:flex"></div>
             
-            <!-- KANAN: Slot Buttons (Revisi: Class hidden dihapus biar nampil di HP) -->
+            <!-- KANAN: Slot Buttons -->
             <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-                <div id="slot-btn-login"></div>
-                <div id="slot-btn-download"></div> 
+                <div id="slot-btn-login" class="nav-item-anim nav-delay-3"></div>
+                <div id="slot-btn-download" class="nav-item-anim nav-delay-4"></div> 
             </div>
-
         </div>
     </div>
 </header>

@@ -4,6 +4,7 @@ async function renderLandingPage() {
   const statsHTML = await renderStats();
   const servicesHTML = await renderServices();
   const howItWorksHTML = await renderHowItWorks();
+  const partnershipHTML = await renderPartnership();
 
   return `
         <div id="view-landing-page">
@@ -11,12 +12,13 @@ async function renderLandingPage() {
             ${heroHTML}
             ${statsHTML}
             ${servicesHTML}
-            
-            <!-- Render komponen How It Works di bawah Services -->
             ${howItWorksHTML}
             
+            <!-- Render komponen Partnership di sini -->
+            ${partnershipHTML}
+            
             <main id="main-content"> 
-                <!-- Komponen Partnership/Gabung Mitra nyusul di sini -->
+                <!-- Komponen CTA / Footer nyusul di sini -->
             </main>
         </div>
     `;
@@ -28,5 +30,6 @@ function initLandingPageLogic() {
   if (typeof initHeroLogic === "function") initHeroLogic();
   if (typeof initStatsLogic === "function") initStatsLogic();
   if (typeof initServicesLogic === "function") initServicesLogic();
-  if (typeof initHowItWorksLogic === 'function') initHowItWorksLogic();
+  if (typeof initHowItWorksLogic === "function") initHowItWorksLogic();
+  if (typeof initPartnershipLogic === 'function') initPartnershipLogic();
 }

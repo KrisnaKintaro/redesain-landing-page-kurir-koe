@@ -46,5 +46,27 @@
             { "step": "2", "title": "Kurir Menjemput", "desc": "Kurir terdekat akan langsung menjemput paket ke lokasi Anda.", "icon": "fa-box-archive" },
             { "step": "3", "title": "Paket Sampai", "desc": "Paket diantar dengan aman, bisa dilacak secara real-time.", "icon": "fa-house-circle-check" }
         ]
+    },
+    "partnership": {
+        "tagline": "Gabung Mitra",
+        "title": "Tumbuh & Sukses Bersama Kami",
+        "description": "Pilih peran yang paling sesuai dengan Anda. Jadilah armada penggerak kami, atau tingkatkan efisiensi pengiriman bisnis Anda.",
+        "options": [
+            {
+                "title": "Mitra Driver",
+                "desc": "Dapatkan penghasilan tambahan dengan waktu kerja yang fleksibel.",
+                "icon": "fa-motorcycle",
+                "btn_label": "Daftar Driver",
+                "btn_link": "#/"
+            },
+            {
+                "title": "Mitra Merchant",
+                "desc": "Solusi pengiriman handal untuk bantu tingkatkan skala bisnis UMKM Anda.",
+                "icon": "fa-store",
+                "btn_label": "Daftar Merchant",
+                "btn_link": "#/"
+            }
+        ],
+        "image_url": "./assets/images/partnership_illustration.webp"
     }
 }

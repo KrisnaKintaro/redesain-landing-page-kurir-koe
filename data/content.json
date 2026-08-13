@@ -27,11 +27,16 @@
         { "nilai": "50K+", "label": "Driver Aktif", "icon": "fa-motorcycle" },
         { "nilai": "500+", "label": "Kota Jangkauan", "icon": "fa-map-location-dot" }
     ],
-    "services": [
-        { "title": "Instant Delivery", "desc": "Sampai dalam hitungan jam.", "icon": "fa-bolt" },
-        { "title": "Sameday Service", "desc": "Dikirim dan sampai di hari yang sama.", "icon": "fa-clock" },
-        { "title": "Regular Service", "desc": "Pengiriman aman ke seluruh pelosok Nusantara.", "icon": "fa-truck-fast" }
-    ],
+    "services": {
+        "tagline": "Layanan",
+        "title": "Layanan Unggulan Kami",
+        "description": "Pilihan layanan pengiriman yang fleksibel sesuai kebutuhan Anda.",
+        "items": [
+            { "title": "Instant Delivery", "desc": "Sampai dalam hitungan jam.", "icon": "fa-bolt" },
+            { "title": "Sameday Service", "desc": "Dikirim dan sampai di hari yang sama.", "icon": "fa-clock" },
+            { "title": "Regular Service", "desc": "Pengiriman aman ke seluruh pelosok Nusantara.", "icon": "fa-truck-fast" }
+        ]
+    },
     "how_it_works": [
         { "step": "1", "title": "Pesan Layanan", "desc": "Pilih layanan dan isi detail pengiriman melalui aplikasi atau website kami.", "icon": "fa-mobile-screen-button" },
         { "step": "2", "title": "Kurir Menjemput", "desc": "Kurir terdekat akan langsung menjemput paket ke lokasi Anda.", "icon": "fa-box-archive" },

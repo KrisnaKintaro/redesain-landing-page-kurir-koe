@@ -100,5 +100,23 @@
             { "icon": "fa-facebook-f", "link": "https://facebook.com" },
             { "icon": "fa-twitter", "link": "https://twitter.com" }
         ]
-    }
+    },
+    "link_groups": [
+        {
+            "title": "Perusahaan",
+            "links": [
+                { "label": "Tentang Kami", "url": "#/" },
+                { "label": "Karir", "url": "#/" },
+                { "label": "Blog", "url": "#/" }
+            ]
+        },
+        {
+            "title": "Layanan",
+            "links": [
+                { "label": "Kurir Motor", "url": "#/" },
+                { "label": "Kurir Mobil", "url": "#/" },
+                { "label": "Corporate", "url": "#/" }
+            ]
+        }
+    ]
 }

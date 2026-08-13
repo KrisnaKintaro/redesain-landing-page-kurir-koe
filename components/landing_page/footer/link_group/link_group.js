@@ -50,11 +50,11 @@ async function renderLinkGroup() {
 
       // Tembak struktur utuh per grup
       groupDiv.innerHTML = `
-    <h4 class="font-bold text-primary mb-5 tracking-wide">${group.title}</h4>
-    <ul class="flex flex-col gap-3">
-        ${linksHTML}
-    </ul>
-`;
+        <h4 class="font-bold text-primary mb-5 tracking-wide">${group.title}</h4>
+        <ul class="flex flex-col gap-3">
+            ${linksHTML}
+        </ul>
+    `;
 
       container.appendChild(groupDiv);
     });

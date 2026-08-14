@@ -5,11 +5,12 @@ async function renderNavbarMaster() {
   const tempDiv = document.createElement("div");
   tempDiv.innerHTML = html;
 
-  const [logoHTML, navMenuHTML, btnLoginHTML, btnDownloadHTML] =
+  const [logoHTML, navMenuHTML, btnLoginHTML, loginPopupHTML,btnDownloadHTML] =
     await Promise.all([
       renderLogo(),
       renderNavMenu(),
       renderButtonLogin(),
+      renderLoginOptionPopup(),
       renderButtonDownload(),
     ]);
 
@@ -68,6 +69,7 @@ function initNavbarMasterLogic() {
   // 1. Inisiasi logic sub-komponen
   if (typeof initNavMenuLogic === "function") initNavMenuLogic();
   if (typeof initButtonLoginLogic === "function") initButtonLoginLogic();
+  initLoginOptionLogic()
   if (typeof initButtonDownloadLogic === "function") initButtonDownloadLogic();
 
   // 2. Logic Mobile Drawer

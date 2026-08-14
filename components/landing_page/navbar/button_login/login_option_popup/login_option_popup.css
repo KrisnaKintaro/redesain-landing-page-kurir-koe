@@ -1,0 +1,17 @@
+/* --- Animasi Swap Konten Modal --- */
+.swap-out {
+    animation: slideOutLeft 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.swap-in {
+    animation: slideInRight 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes slideOutLeft {
+    0% { opacity: 1; transform: translateX(0) scale(1); }
+    100% { opacity: 0; transform: translateX(-40px) scale(0.95); display: none; }
+}
+
+@keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(40px) scale(0.95); }
+    100% { opacity: 1; transform: translateX(0) scale(1); }
+}

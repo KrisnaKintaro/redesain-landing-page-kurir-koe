@@ -152,5 +152,54 @@
             { "label": "Syarat & Ketentuan", "url": "#/" },
             { "label": "Kebijakan Privasi", "url": "#/" }
         ]
+    },
+    "login_modal": {
+        "options": {
+            "title": "Akses Masuk",
+            "subtitle": "Pilih portal sesuai dengan peran Anda",
+            "karyawan": { "title": "Karyawan", "subtitle": "Kurir & Operasional", "icon": "fa-user-group" },
+            "admin": { "title": "Admin", "subtitle": "Manajemen & Sistem", "icon": "fa-shield-halved" }
+        },
+        "form": {
+            "back_text": "Kembali",
+            "email_label": "Email Address",
+            "email_placeholder": "Enter your email",
+            "password_label": "Password",
+            "password_placeholder": "Enter your password",
+            "captcha_label": "Captcha Security",
+            "captcha_placeholder": "Answer the math question",
+            "remember_text": "Remember me",
+            "submit_text": "Sign In",
+            "alerts": {
+                "email_empty": "Email tidak boleh kosong cuy!",
+                "email_invalid": "Format email nggak valid nih!",
+                "password_empty": "Password wajib diisi ya!",
+                "captcha_empty": "Isi dulu captchanya biar ketahuan lu bukan robot!",
+                "captcha_wrong": "Yaelah itungan matematika dasar salah! Coba lagi.",
+                "success": "Mantap! Sukses login sebagai {role}."
+            },
+            "themes": {
+                "karyawan": {
+                    "title": "Karyawan Login",
+                    "redirect_url": "https://kurir-koe.deviscode.com/employee/login",
+                    "subtitle": "Welcome to the Employee Portal. Please login to continue.",
+                    "icon": "fa-user-group",
+                    "css_icon_bg": "bg-blue-50 text-blue-600",
+                    "css_input": "focus:ring-blue-500/50 focus:border-blue-500",
+                    "css_checkbox": "text-blue-600 focus:ring-blue-500/50",
+                    "css_btn": "bg-[#3FA9F5] text-white hover:bg-blue-600"
+                },
+                "admin": {
+                    "title": "Admin Login",
+                    "redirect_url": "https://kurir-koe.deviscode.com/admin/login",
+                    "subtitle": "Welcome back! Please login to your account.",
+                    "icon": "fa-shield-halved",
+                    "css_icon_bg": "bg-gray-900 text-accent",
+                    "css_input": "focus:ring-gray-900/50 focus:border-gray-900",
+                    "css_checkbox": "text-gray-900 focus:ring-gray-900/50",
+                    "css_btn": "bg-accent text-gray-900 hover:bg-yellow-400"
+                }
+            }
+        }
     }
 }

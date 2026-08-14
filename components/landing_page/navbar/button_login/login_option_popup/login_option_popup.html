@@ -12,40 +12,37 @@
             <i class="fa-solid fa-xmark text-xl"></i>
         </button>
 
-        <!-- Area Konten (Bakal ditimpa sama form nanti) -->
+        <!-- Area Konten -->
         <div id="auth-modal-content" class="p-8">
-            
-            <!-- Tampilan Awal: Pilih Role -->
             <div id="auth-options-view">
                 <div class="text-center mb-8 mt-2">
                     <div class="w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-inner">
                         <i class="fa-solid fa-fingerprint text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">Akses Masuk</h3>
-                    <p class="text-sm text-gray-500">Pilih portal sesuai dengan peran Anda</p>
+                    <h3 id="auth-options-title" class="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">Akses Masuk</h3>
+                    <p id="auth-options-subtitle" class="text-sm text-gray-500">Pilih portal sesuai dengan peran Anda</p>
                 </div>
                 
                 <div class="grid grid-cols-2 gap-4">
                     <!-- Tombol Karyawan -->
                     <button id="btn-role-karyawan" class="group relative flex flex-col items-center text-center p-5 bg-white border-2 border-gray-100 rounded-2xl hover:border-primary hover:bg-blue-50/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
                         <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-xl text-primary mb-3 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
-                            <i class="fa-solid fa-user-group text-xl"></i>
+                            <i id="opt-kar-icon" class="fa-solid fa-user-group text-xl"></i>
                         </div>
-                        <h4 class="font-bold text-gray-900 text-sm mb-1 group-hover:text-primary transition-colors">Karyawan</h4>
-                        <p class="text-[10px] text-gray-500 leading-tight">Kurir & Operasional</p>
+                        <h4 id="opt-kar-title" class="font-bold text-gray-900 text-sm mb-1 group-hover:text-primary transition-colors">Karyawan</h4>
+                        <p id="opt-kar-sub" class="text-[10px] text-gray-500 leading-tight">Kurir & Operasional</p>
                     </button>
                     
                     <!-- Tombol Admin -->
                     <button id="btn-role-admin" class="group relative flex flex-col items-center text-center p-5 bg-white border-2 border-gray-100 rounded-2xl hover:border-accent hover:bg-yellow-50/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
                         <div class="w-12 h-12 flex items-center justify-center bg-yellow-100 rounded-xl text-yellow-600 mb-3 group-hover:scale-110 group-hover:bg-accent group-hover:text-gray-900 transition-all duration-300 shadow-sm">
-                            <i class="fa-solid fa-shield-halved text-xl"></i>
+                            <i id="opt-adm-icon" class="fa-solid fa-shield-halved text-xl"></i>
                         </div>
-                        <h4 class="font-bold text-gray-900 text-sm mb-1 group-hover:text-yellow-700 transition-colors">Admin</h4>
-                        <p class="text-[10px] text-gray-500 leading-tight">Manajemen & Sistem</p>
+                        <h4 id="opt-adm-title" class="font-bold text-gray-900 text-sm mb-1 group-hover:text-yellow-700 transition-colors">Admin</h4>
+                        <p id="opt-adm-sub" class="text-[10px] text-gray-500 leading-tight">Manajemen & Sistem</p>
                     </button>
                 </div>
             </div>
-            
         </div>
     </div>
 </div>

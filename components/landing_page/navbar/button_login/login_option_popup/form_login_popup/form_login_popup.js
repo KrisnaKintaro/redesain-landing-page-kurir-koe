@@ -184,13 +184,14 @@ async function renderFormLoginPopup(role) {
         showToast(successMsg, 'success');
         
         const originalBtnText = elBtnSubmit.textContent;
-        elBtnSubmit.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Memproses...`;
+        const loadingText = formData.loading_text || "Memproses..."; 
+        
+        elBtnSubmit.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> ${loadingText}`;
         elBtnSubmit.disabled = true;
         elBtnSubmit.classList.add('opacity-75', 'cursor-not-allowed');
 
         // FITUR BARU: Ambil URL dari JSON (CMS)
         setTimeout(() => {
-            // URL target otomatis ngambil dari konfigurasi themeData.redirect_url di CMS
             const targetUrl = themeData.redirect_url || '#/';
             window.location.href = targetUrl;
         }, 1500);

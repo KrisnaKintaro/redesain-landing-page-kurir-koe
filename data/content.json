@@ -17,6 +17,13 @@
         { "label": "Gabung Mitra", "target": "partnership", "icon": "fa-handshake" },
         { "label": "Hubungi Kami", "target": "footer", "icon": "fa-phone" }
     ],
+    "button_login_nav": {
+        "label": "Masuk"
+    },
+    "mobile_drawer": {
+        "brand_text_1": "Kurir",
+        "brand_text_2": "Koe"
+    },
     "hero": {
         "tagline": "🚀 Solusi Pengiriman #1",
         "title_1": "Solusi Pengiriman",
@@ -65,6 +72,7 @@
         "tagline": "Gabung Mitra",
         "title": "Tumbuh & Sukses Bersama Kami",
         "description": "Pilih peran yang paling sesuai dengan Anda. Jadilah armada penggerak kami, atau tingkatkan efisiensi pengiriman bisnis Anda.",
+        "action_label": "Daftar Langsung Via:",
         "options": [
             {
                 "title": "Mitra Driver",
@@ -72,8 +80,10 @@
                 "icon": "fa-motorcycle",
                 "whatsapp": "081234567890",
                 "wa_text": "Halo tim Kurir Koe, saya tertarik mendaftar sebagai Mitra Driver. Mohon info persyaratannya.",
+                "wa_label": "WhatsApp",
                 "email": "mitra@kurirkoe.com",
-                "email_subject": "Pendaftaran Mitra Driver"
+                "email_subject": "Pendaftaran Mitra Driver",
+                "email_label": "Email"
             },
             {
                 "title": "Mitra Merchant",
@@ -81,8 +91,10 @@
                 "icon": "fa-store",
                 "whatsapp": "081234567890",
                 "wa_text": "Halo tim Kurir Koe, saya ingin mendaftarkan bisnis saya sebagai Mitra Merchant.",
+                "wa_label": "WhatsApp",
                 "email": "mitra@kurirkoe.com",
-                "email_subject": "Pendaftaran Mitra Merchant"
+                "email_subject": "Pendaftaran Mitra Merchant",
+                "email_label": "Email"
             }
         ],
         "image_url": "./assets/images/partnership_illustration.webp"
@@ -104,10 +116,14 @@
         "description": "Download aplikasi Kurir Koe sekarang dan nikmati kemudahan kirim paket dari genggaman tangan Anda. Dapatkan promo gratis ongkir untuk pengguna baru!",
         "app_store": { 
             "show": false, 
+            "sub": "Download di", 
+            "label": "App Store",
             "link": "https://www.google.com/chrome/" 
         },
         "play_store": { 
-            "show": true, 
+            "show": true,
+            "sub": "Dapatkan di", 
+            "label": "Google Play", 
             "link": "https://www.google.com/chrome/" 
         },
         "image_url": "./assets/images/cta_illustration.webp"
@@ -181,6 +197,7 @@
             "captcha_placeholder": "Answer the math question",
             "remember_text": "Remember me",
             "submit_text": "Sign In",
+            "loading_text": "Memproses...",
             "alerts": {
                 "email_empty": "Email tidak boleh kosong cuy!",
                 "email_invalid": "Format email nggak valid nih!",

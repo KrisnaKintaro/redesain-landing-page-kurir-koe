@@ -28,7 +28,10 @@ async function renderButtonLogin() {
     }
 
     // 4. Kembalikan HANYA tombolnya untuk dipasang di Navbar
-    const btnEl = tempDiv.querySelector('#nav-btn-masuk');
+    const btnEl = tempDiv.querySelector('#nav-btn-masuk'); 
+    const navBtnData = window.State.get('button_login_nav') || { label: "Masuk" };
+    if (btnEl) btnEl.textContent = navBtnData.label;
+    
     return btnEl ? btnEl.outerHTML : '';
 }
 

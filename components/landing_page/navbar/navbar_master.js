@@ -5,7 +5,7 @@ async function renderNavbarMaster() {
   const tempDiv = document.createElement("div");
   tempDiv.innerHTML = html;
 
-  const [logoHTML, navMenuHTML, btnLoginHTML, loginPopupHTML,btnDownloadHTML] =
+  const [logoHTML, navMenuHTML, btnLoginHTML, loginPopupHTML, btnDownloadHTML] =
     await Promise.all([
       renderLogo(),
       renderNavMenu(),
@@ -25,6 +25,17 @@ async function renderNavbarMaster() {
   if (slotBtnDownload) slotBtnDownload.innerHTML = btnDownloadHTML;
 
   // --- RENDER MOBILE MENU ---
+  const drawerData = window.State.get("mobile_drawer") || {
+    brand_text_1: "Kurir",
+    brand_text_2: "Koe",
+  };
+
+  const brandSpan1 = tempDiv.querySelector(".text-accent.drop-shadow-sm");
+  const brandSpan2 = tempDiv.querySelector(".text-primary:not(i)");
+
+  if (brandSpan1) brandSpan1.textContent = drawerData.brand_text_1;
+  if (brandSpan2) brandSpan2.textContent = drawerData.brand_text_2;
+  
   const menuData = window.State.get("nav_menu") || [
     { label: "Beranda", target: "hero", icon: "fa-house" },
     { label: "Layanan", target: "services", icon: "fa-box" },
@@ -69,7 +80,7 @@ function initNavbarMasterLogic() {
   // 1. Inisiasi logic sub-komponen
   if (typeof initNavMenuLogic === "function") initNavMenuLogic();
   if (typeof initButtonLoginLogic === "function") initButtonLoginLogic();
-  initLoginOptionLogic()
+  initLoginOptionLogic();
   if (typeof initButtonDownloadLogic === "function") initButtonDownloadLogic();
 
   // 2. Logic Mobile Drawer

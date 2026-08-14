@@ -1,0 +1,54 @@
+<!-- Kontainer Form -->
+<div id="dynamic-login-form" class="relative w-full swap-in">
+    
+    <button id="btn-back-options" class="mb-3 text-sm text-gray-400 hover:text-gray-800 flex items-center gap-2 transition-colors focus:outline-none">
+        <i class="fa-solid fa-arrow-left"></i> <span id="txt-back">Kembali</span>
+    </button>
+
+    <div class="text-center mb-5">
+        <div id="form-role-icon-bg" class="...">
+            <i id="form-role-icon" class="..."></i>
+        </div>
+        <h3 id="form-role-title" class="text-xl font-extrabold text-gray-900 mb-1 tracking-tight"></h3>
+        <p id="form-role-subtitle" class="text-xs text-gray-500"></p>
+    </div>
+
+    <form id="login-form-element" class="flex flex-col gap-3">
+        <div class="form-anim-item" style="animation-delay: 0.1s">
+            <label id="lbl-email" class="block text-[10px] font-bold text-gray-600 uppercase tracking-wider mb-1"></label>
+            <input type="email" id="inp-email" class="input-theme w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 transition-all bg-gray-50 focus:bg-white text-sm">
+        </div>
+
+        <div class="form-anim-item" style="animation-delay: 0.15s">
+            <label id="lbl-password" class="block text-[10px] font-bold text-gray-600 uppercase tracking-wider mb-1"></label>
+            <div class="relative">
+                <input type="password" id="input-password" class="input-theme w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 transition-all bg-gray-50 focus:bg-white text-sm pr-10">
+                <button type="button" id="btn-toggle-password" class="absolute right-1 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 p-2 focus:outline-none">
+                    <i class="fa-solid fa-eye" id="eye-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="form-anim-item" style="animation-delay: 0.2s">
+            <label id="lbl-captcha" class="block text-[10px] font-bold text-gray-600 uppercase tracking-wider mb-1"></label>
+            <div class="flex items-center gap-3 mb-2">
+                <div class="relative w-28 h-9 border border-gray-300 rounded-lg overflow-hidden captcha-bg-pattern flex items-center justify-center shadow-inner">
+                    <span id="captcha-text" class="relative z-10 font-mono text-lg font-bold tracking-widest text-gray-800 pointer-events-none select-none">6 + 3 = ?</span>
+                </div>
+                <button type="button" id="btn-refresh-captcha" class="text-gray-400 hover:text-primary transition-colors p-2 focus:outline-none">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
+            </div>
+            <input type="text" id="inp-captcha" class="input-theme w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 transition-all bg-gray-50 focus:bg-white text-sm">
+        </div>
+
+        <div class="form-anim-item flex items-center mt-1" style="animation-delay: 0.25s">
+            <input type="checkbox" id="remember-me" class="checkbox-theme w-4 h-4 rounded border-gray-300 focus:ring-2 transition-colors cursor-pointer">
+            <label for="remember-me" id="txt-remember" class="ml-2 block text-xs text-gray-600 cursor-pointer select-none"></label>
+        </div>
+
+        <div class="form-anim-item mt-2" style="animation-delay: 0.3s">
+            <button type="submit" id="form-submit-btn" class="w-full font-bold py-2.5 px-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-0.5 focus:outline-none"></button>
+        </div>
+    </form>
+</div>

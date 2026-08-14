@@ -35,9 +35,12 @@ const router = async () => {
 // Jalankan saat pertama kali website diload
 window.addEventListener('load', async () => {
     // 1. Load data JSON dulu sebelum ngerender UI
-    await window.State.init(); 
-    
-    // 2. Jalankan router
+    await window.State.init();
+      
+    // 2. Terapin pengaturan Global (Title, Font, Favicon)
+    if (typeof applyGlobalMeta === 'function') applyGlobalMeta();
+      
+    // 3. Jalankan router buat nge-render halaman
     router();
 });
 

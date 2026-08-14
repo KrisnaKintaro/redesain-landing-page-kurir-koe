@@ -63,15 +63,19 @@
                 "title": "Mitra Driver",
                 "desc": "Dapatkan penghasilan tambahan dengan waktu kerja yang fleksibel.",
                 "icon": "fa-motorcycle",
-                "btn_label": "Daftar Driver",
-                "btn_link": "#/"
+                "whatsapp": "081234567890",
+                "wa_text": "Halo tim Kurir Koe, saya tertarik mendaftar sebagai Mitra Driver. Mohon info persyaratannya.",
+                "email": "mitra@kurirkoe.com",
+                "email_subject": "Pendaftaran Mitra Driver"
             },
             {
                 "title": "Mitra Merchant",
                 "desc": "Solusi pengiriman handal untuk bantu tingkatkan skala bisnis UMKM Anda.",
                 "icon": "fa-store",
-                "btn_label": "Daftar Merchant",
-                "btn_link": "#/"
+                "whatsapp": "081234567890",
+                "wa_text": "Halo tim Kurir Koe, saya ingin mendaftarkan bisnis saya sebagai Mitra Merchant.",
+                "email": "mitra@kurirkoe.com",
+                "email_subject": "Pendaftaran Mitra Merchant"
             }
         ],
         "image_url": "./assets/images/partnership_illustration.webp"

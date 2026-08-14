@@ -1,7 +1,7 @@
 async function renderPartnership() {
     let html = await fetchHTML('./components/landing_page/partnership/partnership.html');
     
-    // Ambil data CMS, sesuaikan strukturnya buat 2 role
+    // Ambil data CMS, sesuaikan strukturnya dengan opsi WA & Email baru
     const data = window.State.get('partnership') || {
         tagline: "Gabung Mitra",
         title: "Tumbuh & Sukses Bersama Kami",
@@ -11,15 +11,19 @@ async function renderPartnership() {
                 title: "Mitra Driver",
                 desc: "Dapatkan penghasilan tambahan dengan waktu kerja yang fleksibel.",
                 icon: "fa-motorcycle",
-                btn_label: "Daftar Driver",
-                btn_link: "#/"
+                whatsapp: "081234567890",
+                wa_text: "Halo, saya tertarik mendaftar Mitra Driver.",
+                email: "mitra@kurirkoe.com",
+                email_subject: "Daftar Mitra Driver"
             },
             {
                 title: "Mitra Merchant",
                 desc: "Solusi pengiriman handal untuk bantu tingkatkan skala bisnis UMKM Anda.",
                 icon: "fa-store",
-                btn_label: "Daftar Merchant",
-                btn_link: "#/"
+                whatsapp: "081234567890",
+                wa_text: "Halo, saya tertarik mendaftar Mitra Merchant.",
+                email: "mitra@kurirkoe.com",
+                email_subject: "Daftar Mitra Merchant"
             }
         ],
         image_url: "./assets/images/hero_illustration.webp" 
@@ -41,28 +45,49 @@ async function renderPartnership() {
 
     if (optionsContainer && data.options) {
         optionsContainer.innerHTML = '';
-                 
+        
         data.options.forEach((opt, index) => {
-            // Wrapper luar buat animasi scroll (Mulai dari delay-4)
+            // Wrapper luar buat animasi scroll
             const wrapper = document.createElement('div');
             wrapper.className = `partner-wrapper partner-delay-${index + 4}`;
             
-            // Card asli, tambahin h-full dan flex col biar layoutnya rapi
+            // Format URL khusus buat nembak langsung ke Aplikasi WA dan Gmail
+            const waLink = `https://wa.me/${opt.whatsapp}?text=${encodeURIComponent(opt.wa_text)}`;
+            const emailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${opt.email}&su=${encodeURIComponent(opt.email_subject)}`;
+
+            // Card Asli dengan Desain Super Keren
             wrapper.innerHTML = `
-                <div class="h-full flex flex-col bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg border border-gray-100 transition-all duration-300 group cursor-pointer">
+                <div class="h-full flex flex-col bg-white p-6 md:p-7 rounded-[1.5rem] shadow-sm hover:shadow-2xl border border-gray-100 hover:border-primary/40 transition-all duration-500 group relative overflow-hidden">
+                    
+                    <!-- Efek Lingkaran Blur di Background Card pas di-hover -->
+                    <div class="absolute -right-8 -top-8 w-32 h-32 bg-blue-50/70 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-0"></div>
+                    
                     <!-- Icon Role -->
-                    <div class="w-12 h-12 bg-blue-50 text-primary rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300 shadow-sm">
-                        <i class="fa-solid ${opt.icon} text-xl"></i>
+                    <div class="w-14 h-14 bg-blue-50 text-primary rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-sm relative z-10">
+                        <i class="fa-solid ${opt.icon} text-2xl"></i>
                     </div>
                     
                     <!-- Judul & Deskripsi -->
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">${opt.title}</h3>
-                    <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-grow">${opt.desc}</p>
+                    <h3 class="text-xl font-extrabold text-gray-900 mb-2 relative z-10 group-hover:text-primary transition-colors duration-300">${opt.title}</h3>
+                    <p class="text-gray-500 text-sm mb-8 leading-relaxed flex-grow relative z-10">${opt.desc}</p>
                     
-                    <!-- Link Daftar -->
-                    <a href="${opt.btn_link}" class="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors duration-300 group-hover:translate-x-1 transform mt-auto">
-                        ${opt.btn_label} <i class="fa-solid fa-arrow-right text-sm"></i>
-                    </a>
+                    <!-- Area Tombol Aksi -->
+                    <div class="pt-5 border-t border-dashed border-gray-200 relative z-10 mt-auto">
+                        <span class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Daftar Langsung Via:</span>
+                        
+                        <div class="flex items-center gap-2.5">
+                            <!-- Tombol WhatsApp -->
+                            <a href="${waLink}" target="_blank" class="flex-1 bg-green-50 border border-green-100 hover:bg-green-500 text-green-600 hover:text-white hover:border-green-500 py-2.5 px-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1">
+                                <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+                            </a>
+                            
+                            <!-- Tombol Email -->
+                            <a href="${emailLink}" target="_blank" class="flex-1 bg-red-50 border border-red-100 hover:bg-red-500 text-red-500 hover:text-white hover:border-red-500 py-2.5 px-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1">
+                                <i class="fa-solid fa-envelope text-base"></i> Email
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             `;
             optionsContainer.appendChild(wrapper);
@@ -73,5 +98,5 @@ async function renderPartnership() {
 }
 
 function initPartnershipLogic() {
-    // Siap diisi interaksi tambahan kalau diperlukan
+    // Interaksi udah di-handle langsung sama href tag <a>
 }

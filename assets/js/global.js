@@ -95,3 +95,40 @@ async function fetchHTML(path) {
         return `<div class="p-4 text-red-500">Error loading component from ${path}</div>`;
     }
 }
+
+// Fungsi buat nyuntik meta global (SEO, Font, Title, Favicon) dari JSON ke HTML
+function applyGlobalMeta() {
+    const meta = window.State.get('global_meta');
+    if (!meta) return;
+
+    // 1. Update Title Browser
+    if (meta.title) {
+        document.title = meta.title;
+        const titleTag = document.getElementById('meta-title');
+        if (titleTag) titleTag.textContent = meta.title;
+    }
+
+    // 2. Update Meta Description (Buat SEO Google)
+    if (meta.description) {
+        const descTag = document.getElementById('meta-desc');
+        if (descTag) descTag.setAttribute('content', meta.description);
+    }
+
+    // 3. Update Favicon (Logo Tab)
+    if (meta.favicon_url) {
+        const faviconTag = document.getElementById('meta-favicon');
+        if (faviconTag) faviconTag.setAttribute('href', meta.favicon_url);
+    }
+
+    // 4. Update Import Google Font
+    if (meta.font_url) {
+        const fontTag = document.getElementById('meta-font');
+        if (fontTag) fontTag.setAttribute('href', meta.font_url);
+    }
+
+    // 5. Paksa Body Pakai Font Baru
+    if (meta.font_family) {
+        // Nge-override settingan default Tailwind biar font langsung berubah
+        document.body.style.fontFamily = `"${meta.font_family}", sans-serif`;
+    }
+}

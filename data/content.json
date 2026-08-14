@@ -4,6 +4,13 @@
         "primary": "#0054B7",
         "accent": "#FAD812"
     },
+    "global_meta": {
+        "title": "Kurir Koe - Solusi Pengiriman Terpercaya",
+        "description": "Layanan kurir andalan untuk UMKM dan personal dengan jangkauan ke seluruh pelosok Nusantara.",
+        "favicon_url": "./assets/images/logo_kurir_koefav.webp",
+        "font_url": "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap",
+        "font_family": "Poppins"
+    },
     "nav_menu": [
         { "label": "Beranda", "target": "hero", "icon": "fa-house" },
         { "label": "Layanan", "target": "services", "icon": "fa-box" },

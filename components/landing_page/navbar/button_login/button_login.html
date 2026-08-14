@@ -1,37 +1,4 @@
-<!-- Tombol Trigger di Navbar (Revisi hover jadi kuning & border kuningg) -->
+<!-- Tombol Trigger di Navbar -->
 <button id="nav-btn-masuk" class="bg-accent/20 text-primary font-semibold py-1.5 px-3 text-sm sm:text-base sm:py-2 sm:px-6 rounded-full hover:bg-accent hover:text-primary transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
     Masuk
 </button>
-
-<!-- Modal Pop-up (Biarin utuh ke bawahnya) -->
-<div id="login-modal" class="fixed inset-0 z-[999] hidden flex items-center justify-center">
-    <!-- Background Overlay -->
-    <div id="login-modal-overlay" class="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-300 opacity-0"></div>
-    
-    <!-- Kotak Modal -->
-    <div id="login-modal-box" class="relative bg-white rounded-3xl shadow-2xl w-[90%] max-w-md p-8 transform scale-95 opacity-0 transition-all duration-300">
-        <button id="login-modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition">
-            <i class="fa-solid fa-xmark text-xl"></i>
-        </button>
-        <div class="text-center mb-8">
-            <h3 id="login-modal-title" class="text-xl font-bold text-gray-800 mb-1">Selamat Datang Kembali</h3>
-            <p id="login-modal-subtitle" class="text-sm text-gray-500">Silakan pilih akses masuk Anda</p>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-            <a href="#" id="link-karyawan" class="group flex flex-col items-center text-center p-4 border-2 border-gray-100 rounded-2xl hover:border-accent transition-colors duration-300">
-                <div class="w-12 h-12 flex items-center justify-center bg-blue-50 rounded-lg text-primary mb-3 group-hover:scale-110 transition-transform duration-300">
-                    <i class="fa-solid fa-user-group text-xl"></i>
-                </div>
-                <h4 class="font-bold text-gray-800 text-sm mb-1">Karyawan</h4>
-                <p class="text-[11px] text-gray-500 leading-tight">Portal Karyawan & Kurir</p>
-            </a>
-            <a href="#" id="link-admin" class="group flex flex-col items-center text-center p-4 border-2 border-gray-100 rounded-2xl hover:border-accent transition-colors duration-300">
-                <div class="w-12 h-12 flex items-center justify-center bg-orange-50 rounded-lg text-orange-500 mb-3 group-hover:scale-110 transition-transform duration-300">
-                    <i class="fa-solid fa-shield-halved text-xl"></i>
-                </div>
-                <h4 class="font-bold text-gray-800 text-sm mb-1">Administrator</h4>
-                <p class="text-[11px] text-gray-500 leading-tight">Portal Manajemen Sistem</p>
-            </a>
-        </div>
-    </div>
-</div>

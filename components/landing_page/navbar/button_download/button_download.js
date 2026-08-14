@@ -31,10 +31,20 @@ function initButtonDownloadLogic() {
             const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
-                // Eksekusi scroll ke seksi "Siap Mengirim?"
-                targetElement.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'center' // Kita set 'center' biar seksi "Siap Mengirim" pas di tengah layar
+                // 1. Ambil tinggi navbar (header) biar nggak ketutupan
+                const header = document.querySelector('header');
+                const headerHeight = header ? header.offsetHeight : 80; // Fallback 80px kalau header gagal ditangkap
+                
+                // 2. Hitung posisi asli elemen dari paling atas dokumen
+                const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                
+                // 3. Kurangi posisi elemen dengan tinggi navbar (ditambah ekstra 20px biar ada nafas dikit)
+                const offsetPosition = elementPosition - headerHeight - 20;
+                
+                // 4. Eksekusi scroll yang presisi!
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
             } else {
                 console.warn(`Waduh cuy, komponen dengan id="${targetId}" belum dirender!`);

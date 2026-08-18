@@ -375,12 +375,12 @@
         }
     },
     "cms_global": {
-        "brand_name": "addawd",
+        "brand_name": "BUdianto",
         "subtitle": "CMS Console",
         "logo_url": "./assets/images/logo_cms_kurir_koe.webp",
         "font_family": "Inter",
         "theme": {
-            "primary": "#0054b7",
+            "primary": "#6b96c7",
             "accent": "#fad812"
         },
         "developer": {

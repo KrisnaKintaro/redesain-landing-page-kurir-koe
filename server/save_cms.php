@@ -11,44 +11,44 @@ $jsonFilePath = __DIR__ . '/../data/content.json';
 $uploadDir = __DIR__ . '/../assets/images/';
 
 // ==============================================================
-// 1. PROSES UPDATE KEY 'cms_global' SAJA
+// 1. PROSES UPDATE DATA JSON SECARA OTOMATIS (SUPER UNIVERSAL)
 // ==============================================================
-if (isset($_POST['cms_global'])) {
-    // Tangkap hanya data cms_global dari frontend
-    $newCmsGlobal = json_decode($_POST['cms_global'], true);
+$isUpdated = false;
+
+// Baca file content.json yang udah ada di server
+$existingJson = file_get_contents($jsonFilePath);
+$existingData = json_decode($existingJson, true);
+
+if (json_last_error() === JSON_ERROR_NONE) {
     
-    if (json_last_error() === JSON_ERROR_NONE) {
-        // Baca file content.json yang udah ada di server
-        $existingJson = file_get_contents($jsonFilePath);
-        $existingData = json_decode($existingJson, true);
+    // Looping semua paket data yang dikirim dari JS (Entah itu cms_global, nav_menu, dll)
+    foreach ($_POST as $key => $value) {
+        $decodedValue = json_decode($value, true);
         
+        // Kalau format JSON-nya valid, langsung timpa data lama sesuai nama key-nya
         if (json_last_error() === JSON_ERROR_NONE) {
-            // TIMPA HANYA PADA KEY 'cms_global'
-            $existingData['cms_global'] = $newCmsGlobal;
-            
-            // Format ulang dan simpan
-            $newJsonString = json_encode($existingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-            $result = file_put_contents($jsonFilePath, $newJsonString);
-            
-            if ($result !== false) {
-                $response['status'] = 'success';
-                $response['message'] = 'Mantap! Data cms_global berhasil diperbarui tanpa menyentuh komponen lain.';
-            } else {
-                $error = error_get_last();
-                $response['message'] = 'Gagal menyimpan ke content.json. Error: ' . ($error['message'] ?? 'Unknown');
-                echo json_encode($response);
-                exit;
-            }
-        } else {
-            $response['message'] = 'File content.json di server corrupt cuy, ga bisa dibaca.';
-            echo json_encode($response);
-            exit;
+            $existingData[$key] = $decodedValue;
+            $isUpdated = true;
         }
-    } else {
-        $response['message'] = 'Format JSON yang dikirim dari frontend berantakan.';
-        echo json_encode($response);
-        exit;
     }
+
+    // Jika ada perubahan, simpan kembali ke file
+    if ($isUpdated) {
+        $newJsonString = json_encode($existingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        $result = file_put_contents($jsonFilePath, $newJsonString);
+        
+        if ($result !== false) {
+            $response['status'] = 'success';
+            $response['message'] = 'Mantap! Data berhasil disimpan.';
+        } else {
+            $error = error_get_last();
+            $response['message'] = 'Gagal menyimpan ke content.json. Error: ' . ($error['message'] ?? 'Unknown');
+        }
+    }
+} else {
+    $response['message'] = 'File content.json di server corrupt cuy, ga bisa dibaca.';
+    echo json_encode($response);
+    exit;
 }
 
 // ==============================================================
@@ -59,11 +59,17 @@ if (isset($_FILES['cms_logo']) && $_FILES['cms_logo']['error'] === UPLOAD_ERR_OK
     $uploadPath = $uploadDir . $fileName;
     
     if (move_uploaded_file($_FILES['cms_logo']['tmp_name'], $uploadPath)) {
+        $response['status'] = 'success'; // Paksa sukses jika minimal gambar berhasil diupload
         $response['message'] .= ' Logo berhasil diupdate!';
     } else {
-        $response['status'] = 'warning';
+        $response['status'] = $isUpdated ? 'warning' : 'error';
         $response['message'] .= ' Tapi logo gagal diupload.';
     }
+}
+
+// Jika ngga ada data yang dikirim sama sekali
+if (!$isUpdated && empty($_FILES)) {
+    $response['message'] = 'Tidak ada data valid yang diterima server.';
 }
 
 echo json_encode($response);

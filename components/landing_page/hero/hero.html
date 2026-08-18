@@ -1,52 +1,79 @@
-<section id="hero" class="relative pt-12 pb-16 lg:pt-20 lg:pb-24 overflow-hidden">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-            
-            <!-- KIRI: Konten Teks -->
-            <div class="flex flex-col gap-6 text-center lg:text-left relative z-10">
-                
-                <!-- Badge Tagline (Muncul duluan dari bawah) -->
-                <div class="hero-anim-up hero-delay-1 inline-block px-4 py-1.5 rounded-full bg-blue-50 text-primary font-semibold text-sm w-max mx-auto lg:mx-0 shadow-sm border border-blue-100">
-                    <span id="hero-tagline">Solusi Pengiriman #1</span>
-                </div>
-                
-                <!-- Heading (Meluncur dari kiri, jeda ke-2) -->
-                <h1 class="hero-anim-right hero-delay-2 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight tracking-tight">
-                    <span id="hero-title-1">Solusi Pengiriman</span> <br />
-                    <span id="hero-title-2" class="text-primary drop-shadow-sm">Terpercaya!</span>
-                </h1>
-                
-                <!-- Deskripsi (Meluncur dari kiri, jeda ke-3) -->
-                <p id="hero-desc" class="hero-anim-right hero-delay-3 text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    Kirim paket ke seluruh pelosok dengan mudah, cepat, dan aman bersama Kurir Koe.
-                </p>
-                
-                <!-- Group Tombol (Nge-pop up mantul, jeda ke-4) -->
-                <div class="hero-anim-pop hero-delay-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-4">
-                    <!-- ... (Isi tombol lu biarin sama) ... -->
-                    <button id="hero-btn-primary" data-target="services" class="hero-scroll-link w-full sm:w-auto bg-primary text-white font-bold py-3.5 px-8 rounded-full hover:bg-accent hover:text-gray-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">Mulai Sekarang</button>
-                    <button id="hero-btn-secondary" data-target="cta" class="hero-scroll-link w-full sm:w-auto bg-white border-2 border-gray-200 text-gray-700 font-bold py-3.5 px-8 rounded-full hover:border-primary hover:text-primary transition-all duration-300 shadow-sm">Gabung Mitra</button>
-                </div>
-                
-                <!-- Social Proof (Muncul dari bawah, jeda ke-5) -->
-                <div class="hero-anim-up hero-delay-5 flex items-center justify-center lg:justify-start gap-4 mt-6">
-                    <!-- ... (Isi social proof lu biarin sama) ... -->
-                    <div id="hero-avatars" class="flex -space-x-3"></div>
-                    <div class="flex flex-col items-start">
-                        <div id="hero-stars" class="flex text-accent text-sm"></div>
-                        <p id="hero-social-proof" class="text-sm text-gray-500 font-medium"></p>
-                    </div>
-                </div>
-                
-            </div>
-            
-            <!-- KANAN: Ilustrasi Gambar (Meluncur dari kanan, barengan sama Deskripsi) -->
-            <div class="relative z-10 flex justify-center lg:justify-end mt-10 lg:mt-0">
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 lg:w-96 lg:h-96 bg-accent rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse"></div>
-                <!-- Kita tambahin class hero-anim-left di tag gambar lu -->
-                <img id="hero-img" src="./assets/images/hero_illustration.webp" alt="Ilustrasi Kurir Koe" class="hero-anim-left hero-delay-3 relative z-20 w-full max-w-md lg:max-w-lg max-h-[550px] sm:max-h-[600px] lg:max-h-[500px] object-contain drop-shadow-2xl transition-transform duration-700 hover:scale-[1.03]" />
-            </div>
-            
+<section id="hero" class="relative pt-4 pb-16 lg:pt-6 lg:pb-24 overflow-hidden">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      <div class="flex flex-col gap-6 text-center lg:text-left relative z-10">
+        <div
+          id="hero-tagline-wrapper"
+          class="hero-anim-up hero-delay-1 inline-block px-4 py-1.5 rounded-full bg-blue-50 text-primary font-semibold text-sm transition-all duration-300 w-max mx-auto lg:mx-0 shadow-sm border border-blue-100"
+        >
+          <span id="hero-tagline">Solusi Pengiriman #1</span>
         </div>
+
+        <h1
+          id="hero-h1"
+          class="hero-anim-right hero-delay-2 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight tracking-tight transition-all duration-300"
+        >
+          <span id="hero-title-1">Solusi Pengiriman</span> <br />
+          <span id="hero-title-2" class="text-primary drop-shadow-sm"
+            >Terpercaya!</span
+          >
+        </h1>
+
+        <p
+          id="hero-desc"
+          class="hero-anim-right hero-delay-3 text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed transition-all duration-300"
+        >
+          Kirim paket ke seluruh pelosok dengan mudah, cepat, dan aman bersama
+          Kurir Koe.
+        </p>
+
+        <div
+          class="hero-anim-pop hero-delay-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-4"
+        >
+          <button
+            id="hero-btn-primary"
+            data-target="services"
+            class="hero-scroll-link w-full sm:w-auto bg-primary text-white font-bold py-3.5 px-8 rounded-full text-base transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            Mulai Sekarang
+          </button>
+          <button
+            id="hero-btn-secondary"
+            data-target="cta"
+            class="hero-scroll-link w-full sm:w-auto bg-white border-2 border-gray-200 text-gray-700 font-bold py-3.5 px-8 rounded-full text-base transition-all duration-300 shadow-sm hover:border-primary hover:text-primary"
+          >
+            Gabung Mitra
+          </button>
+        </div>
+
+        <div
+          class="hero-anim-up hero-delay-5 flex items-center justify-center lg:justify-start gap-4 mt-6"
+        >
+          <div id="hero-avatars" class="flex -space-x-3"></div>
+          <div class="flex flex-col items-start">
+            <div id="hero-stars" class="flex text-accent text-sm"></div>
+            <p
+              id="hero-social-proof"
+              class="text-sm text-gray-500 font-medium transition-all duration-300"
+            ></p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="hero-anim-left hero-delay-3 relative z-10 flex justify-center lg:justify-end mt-10 lg:mt-0"
+      >
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 lg:w-96 lg:h-96 bg-accent rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse"
+        ></div>
+
+        <img
+          id="hero-img"
+          src="./assets/images/hero_illustration.webp"
+          alt="Ilustrasi Kurir Koe"
+          class="relative z-20 w-full max-w-md lg:max-w-lg max-h-[550px] sm:max-h-[600px] lg:max-h-[500px] object-contain drop-shadow-2xl transition-transform duration-500 hover:scale-[1.2]"
+        />
+      </div>
     </div>
+  </div>
 </section>

@@ -30,12 +30,13 @@ async function renderNavbarMaster() {
     brand_text_2: "Koe",
   };
 
-  const brandSpan1 = tempDiv.querySelector(".text-accent.drop-shadow-sm");
-  const brandSpan2 = tempDiv.querySelector(".text-primary:not(i)");
+  // AMAN: Mempertahankan fix selector #mobile-drawer dari bug sebelumnya
+  const brandSpan1 = tempDiv.querySelector("#mobile-drawer .text-accent.drop-shadow-sm");
+  const brandSpan2 = tempDiv.querySelector("#mobile-drawer .text-primary:not(i)");
 
   if (brandSpan1) brandSpan1.textContent = drawerData.brand_text_1;
   if (brandSpan2) brandSpan2.textContent = drawerData.brand_text_2;
-  
+
   const menuData = window.State.get("nav_menu") || [
     { label: "Beranda", target: "hero", icon: "fa-house" },
     { label: "Layanan", target: "services", icon: "fa-box" },
@@ -46,29 +47,36 @@ async function renderNavbarMaster() {
   const mobileMenuList = tempDiv.querySelector("#mobile-menu-list");
   if (mobileMenuList) {
     mobileMenuList.innerHTML = ""; // Bersihin dulu biar aman
-
+    
     menuData.forEach((item, index) => {
       const li = document.createElement("li");
       const isActive = index === 0;
 
-      // Tambahin flex items-center gap-3
+      // REVISI: Tambahin whitespace-nowrap
       const baseClass =
-        "mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all duration-300 ease-in-out cursor-pointer select-none";
+        "mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all duration-300 ease-in-out cursor-pointer select-none whitespace-nowrap";
       const defaultClass =
         "text-gray-600 hover:bg-yellow-50 hover:text-yellow-700";
       const activeClass = "bg-accent text-gray-900 shadow-md";
-
+      
       const finalClass = `${baseClass} ${isActive ? activeClass : defaultClass}`;
 
-      // Tembak icon-nya. Lebar icon diseragamin pakai w-6 text-center biar teksnya rata
+      // Tembak icon-nya dan pisahkan teks ke span
       li.innerHTML = `
                 <a href="javascript:void(0)"
                     data-target="${item.target}"
                     class="${finalClass}">
                    <i class="fa-solid ${item.icon} text-lg w-6 text-center"></i>
-                   ${item.label}
+                   <span class="mobile-nav-label text-base transition-all duration-300">${item.label}</span>
                 </a>
             `;
+            
+      // --- LOGIC AUTO-SCALE FONT (Untuk Mobile) ---
+      const spanEl = li.querySelector('.mobile-nav-label');
+      if (spanEl && item.label) {
+          autoScaleFont(spanEl, 15, "text-base", "text-sm");
+      }
+
       mobileMenuList.appendChild(li);
     });
   }
@@ -123,29 +131,29 @@ function initNavbarMasterLogic() {
   mobileLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-
+      
       mobileLinks.forEach((l) => {
         l.classList.remove(...activeClasses);
         l.classList.add(...defaultClasses);
       });
+      
       link.classList.remove(...defaultClasses);
       link.classList.add(...activeClasses);
-
+      
       const targetId = link.getAttribute("data-target");
       const targetElement = document.getElementById(targetId);
-
+      
       if (targetElement) {
-        // FIX OFFSET STICKY NAVBAR
         const headerHeight = document.querySelector("header").offsetHeight;
-        const elementPosition =
-          targetElement.getBoundingClientRect().top + window.scrollY;
-        const offsetPosition = elementPosition - headerHeight;
-
+        const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+        
+        const offsetPosition = elementPosition - headerHeight - 40;
+        
         window.scrollTo({
           top: offsetPosition,
           behavior: "smooth",
         });
-
+        
         closeDrawer();
       }
     });

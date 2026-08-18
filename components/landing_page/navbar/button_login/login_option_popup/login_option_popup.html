@@ -1,45 +1,38 @@
-<!-- Modal Utama (Akan menutupi seluruh layar) -->
 <div id="auth-modal" class="fixed inset-0 z-[999] hidden flex items-center justify-center">
     
-    <!-- Background Overlay: Gelap & Blur Parah -->
     <div id="auth-modal-overlay" class="absolute inset-0 bg-gray-900/60 backdrop-blur-md transition-all duration-400 opacity-0"></div>
 
-    <!-- Kotak Modal (Bungkus Utama) -->
     <div id="auth-modal-box" class="relative bg-white rounded-[2rem] shadow-2xl w-[90%] max-w-md overflow-hidden transform scale-95 opacity-0 transition-all duration-400">
         
-        <!-- Tombol Close (Pojok Kanan Atas) -->
         <button id="auth-modal-close" class="absolute top-5 right-5 text-gray-400 hover:text-red-500 hover:bg-red-50 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 z-50">
             <i class="fa-solid fa-xmark text-xl"></i>
         </button>
 
-        <!-- Area Konten -->
         <div id="auth-modal-content" class="p-8">
-            <div id="auth-options-view">
+            <div id="auth-options-view" class="transition-all duration-300">
                 <div class="text-center mb-8 mt-2">
                     <div class="w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-inner">
                         <i class="fa-solid fa-fingerprint text-3xl"></i>
                     </div>
-                    <h3 id="auth-options-title" class="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">Akses Masuk</h3>
-                    <p id="auth-options-subtitle" class="text-sm text-gray-500">Pilih portal sesuai dengan peran Anda</p>
+                    <h3 id="auth-options-title" class="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight transition-all duration-300">Akses Masuk</h3>
+                    <p id="auth-options-subtitle" class="text-sm text-gray-500 transition-all duration-300">Pilih portal sesuai dengan peran Anda</p>
                 </div>
                 
                 <div class="grid grid-cols-2 gap-4">
-                    <!-- Tombol Karyawan -->
                     <button id="btn-role-karyawan" class="group relative flex flex-col items-center text-center p-5 bg-white border-2 border-gray-100 rounded-2xl hover:border-primary hover:bg-blue-50/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
                         <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-xl text-primary mb-3 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
                             <i id="opt-kar-icon" class="fa-solid fa-user-group text-xl"></i>
                         </div>
-                        <h4 id="opt-kar-title" class="font-bold text-gray-900 text-sm mb-1 group-hover:text-primary transition-colors">Karyawan</h4>
-                        <p id="opt-kar-sub" class="text-[10px] text-gray-500 leading-tight">Kurir & Operasional</p>
+                        <h4 id="opt-kar-title" class="font-bold text-gray-900 text-sm mb-1 group-hover:text-primary transition-all duration-300">Karyawan</h4>
+                        <p id="opt-kar-sub" class="text-[10px] text-gray-500 leading-tight transition-all duration-300">Kurir & Operasional</p>
                     </button>
                     
-                    <!-- Tombol Admin -->
                     <button id="btn-role-admin" class="group relative flex flex-col items-center text-center p-5 bg-white border-2 border-gray-100 rounded-2xl hover:border-accent hover:bg-yellow-50/50 hover:shadow-lg transition-all duration-300 cursor-pointer">
                         <div class="w-12 h-12 flex items-center justify-center bg-yellow-100 rounded-xl text-yellow-600 mb-3 group-hover:scale-110 group-hover:bg-accent group-hover:text-gray-900 transition-all duration-300 shadow-sm">
                             <i id="opt-adm-icon" class="fa-solid fa-shield-halved text-xl"></i>
                         </div>
-                        <h4 id="opt-adm-title" class="font-bold text-gray-900 text-sm mb-1 group-hover:text-yellow-700 transition-colors">Admin</h4>
-                        <p id="opt-adm-sub" class="text-[10px] text-gray-500 leading-tight">Manajemen & Sistem</p>
+                        <h4 id="opt-adm-title" class="font-bold text-gray-900 text-sm mb-1 group-hover:text-yellow-700 transition-all duration-300">Admin</h4>
+                        <p id="opt-adm-sub" class="text-[10px] text-gray-500 leading-tight transition-all duration-300">Manajemen & Sistem</p>
                     </button>
                 </div>
             </div>

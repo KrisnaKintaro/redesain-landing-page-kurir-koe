@@ -23,9 +23,19 @@ async function renderTestimonial() {
     const elTitle = tempDiv.querySelector('#testi-title');
     const elDesc = tempDiv.querySelector('#testi-desc');
 
-    if (elTagline) elTagline.textContent = data.tagline;
-    if (elTitle) elTitle.textContent = data.title;
-    if (elDesc) elDesc.textContent = data.description;
+    // --- Render Teks Header & Scale ---
+    if (elTagline && data.tagline) {
+        elTagline.textContent = data.tagline;
+        autoScaleFont(elTagline, 20, "text-sm", "text-xs");
+    }
+    if (elTitle && data.title) {
+        elTitle.textContent = data.title;
+        autoScaleFont(elTitle, 25, "text-3xl md:text-4xl", "text-2xl md:text-3xl");
+    }
+    if (elDesc && data.description) {
+        elDesc.textContent = data.description;
+        autoScaleFont(elDesc, 80, "text-lg", "text-base");
+    }
 
     const track = tempDiv.querySelector('#testi-track');
 
@@ -39,35 +49,50 @@ async function renderTestimonial() {
             ).join('');
 
             const slide = document.createElement('div');
-            // Lebar harus 100% dari container (w-full) dan ngga boleh nyusut (flex-shrink-0)
             slide.className = "w-full flex-shrink-0 px-2 md:px-6";
             
+            // REVISI: Tambah class testi-text, testi-name, testi-role, dan transition-all duration-300
             slide.innerHTML = `
                 <div class="bg-white rounded-[2rem] p-8 md:p-12 shadow-xl shadow-blue-900/5 border border-gray-100 mx-auto max-w-2xl text-center relative mt-8">
                     
-                    <!-- Quote Icon (Mengambang di atas kartu) -->
                     <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl shadow-md border-4 border-white">
                         <i class="fa-solid fa-quote-left"></i>
                     </div>
                     
-                    <!-- Bintang Rating -->
                     <div class="flex justify-center gap-1 mb-6 mt-4 text-sm">
                         ${starsHTML}
                     </div>
                     
-                    <!-- Teks Review -->
-                    <p class="text-gray-700 text-lg md:text-xl italic mb-8 leading-relaxed">
+                    <p class="testi-text text-gray-700 text-lg md:text-xl italic mb-8 leading-relaxed transition-all duration-300">
                         "${item.text}"
                     </p>
                     
-                    <!-- Info User -->
                     <div class="flex flex-col items-center justify-center">
                         <img src="${item.avatar}" alt="${item.name}" class="w-16 h-16 rounded-full object-cover mb-3 border-2 border-gray-100">
-                        <h4 class="font-bold text-gray-900">${item.name}</h4>
-                        <p class="text-primary text-sm font-medium mt-0.5">${item.role}</p>
+                        <h4 class="testi-name font-bold text-gray-900 transition-all duration-300">${item.name}</h4>
+                        <p class="testi-role text-primary text-sm font-medium mt-0.5 transition-all duration-300">${item.role}</p>
                     </div>
                 </div>
             `;
+            
+            // --- LOGIC AUTO-SCALE FONT DALAM CARD SLIDER ---
+            const pTextEl = slide.querySelector('.testi-text');
+            const h4NameEl = slide.querySelector('.testi-name');
+            const pRoleEl = slide.querySelector('.testi-role');
+
+            // 1. Jika teks review super panjang (lebih dari 110 karakter), turunkan font biar ngga melar lewatin container
+            if (pTextEl && item.text) {
+                autoScaleFont(pTextEl, 110, "text-lg md:text-xl", "text-sm md:text-base leading-relaxed");
+            }
+            // 2. Scale nama (Toleransi 18 karakter)
+            if (h4NameEl && item.name) {
+                autoScaleFont(h4NameEl, 18, "text-base", "text-sm");
+            }
+            // 3. Scale role (Toleransi 15 karakter)
+            if (pRoleEl && item.role) {
+                autoScaleFont(pRoleEl, 15, "text-sm", "text-xs");
+            }
+
             track.appendChild(slide);
         });
     }

@@ -1,173 +1,252 @@
-<div class="flex h-screen bg-gray-50 font-sans overflow-hidden fade-in" id="cms-master-container">
-    
-    <!-- Mobile Sidebar Overlay -->
-    <div id="sidebar-overlay" class="fixed inset-0 bg-gray-900/40 backdrop-blur-sm z-40 lg:hidden hidden transition-opacity duration-300 opacity-0"></div>
+<div
+  class="flex h-screen bg-gray-50 font-sans overflow-hidden"
+  id="cms-master-container"
+>
+  <!-- Mobile Overlay -->
+  <div
+    id="cms-sidebar-overlay"
+    class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300 lg:hidden"
+  ></div>
 
-    <!-- SIDEBAR -->
-    <aside id="cms-sidebar" class="fixed lg:static inset-y-0 left-0 z-50 w-[280px] bg-accent flex flex-col border-r border-yellow-400 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-2xl lg:shadow-none">
-        
-        <!-- Header Sidebar -->
-        <div class="p-6 border-b border-yellow-500/30 flex items-center justify-between shrink-0">
-            <div class="flex items-center gap-3">
-                <img id="cms-brand-logo" src="./assets/images/logo_cms_kurir_koe.webp" class="w-10 h-10 object-contain shadow-sm rounded-xl bg-white p-1 transition-all duration-300" alt="CMS Logo">
-                <div>
-                    <h1 id="cms-brand-title" class="font-extrabold text-gray-900 leading-none transition-all duration-300">Kurir Koe</h1>
-                    <span id="cms-brand-subtitle" class="text-[10px] font-bold text-gray-700/70 uppercase tracking-wider transition-all duration-300">CMS Console</span>
-                </div>
-            </div>
-            <button id="close-sidebar-btn" class="lg:hidden w-8 h-8 flex items-center justify-center rounded-lg bg-yellow-400/50 text-gray-800 hover:bg-red-500 hover:text-white transition-colors">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
+  <!-- SIDEBAR (Dominan Kuning) -->
+  <aside
+    id="cms-sidebar"
+    class="fixed inset-y-0 left-0 z-50 w-[280px] bg-accent flex flex-col border-r border-yellow-400 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-2xl lg:shadow-none"
+  >
+    <!-- Sidebar Header (Logo) + TAMBAH anim-sidebar-header -->
+    <div
+      class="p-6 flex items-center justify-between shrink-0 anim-sidebar-header"
+    >
+      <div class="flex items-center gap-3">
+        <img
+          id="cms-brand-logo"
+          src="./assets/images/logo_cms_kurir_koe.webp"
+          alt="CMS Logo"
+          class="w-10 h-10 object-contain bg-white rounded-xl shadow-sm border-2 border-white p-1 transition-all duration-300"
+        />
+        <div>
+          <h1
+            id="cms-brand-title"
+            class="font-extrabold text-gray-900 leading-none text-xl tracking-tight"
+          >
+            KurirKoe
+          </h1>
+          <span
+            id="cms-brand-subtitle"
+            class="text-[10px] font-bold text-gray-700 uppercase tracking-widest"
+            >CMS Console</span
+          >
+        </div>
+      </div>
+      <!-- Tombol Close (Mobile) -->
+      <button
+        id="close-sidebar-btn"
+        class="lg:hidden w-8 h-8 rounded-lg bg-yellow-400/50 text-gray-800 hover:bg-gray-900 hover:text-white transition-colors flex items-center justify-center"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Menu Navigasi (Anak-anaknya otomatis dianimasikan sama CSS nth-child) -->
+    <div class="flex-1 overflow-y-auto px-4 pb-4 cms-scrollbar">
+      <nav class="flex flex-col gap-1.5" id="cms-nav-menu">
+        <div
+          class="text-[10px] font-bold text-gray-700 uppercase tracking-widest mb-2 mt-2 px-2"
+        >
+          Konfigurasi Global
         </div>
 
-        <!-- Menu Navigasi -->
-        <div class="flex-1 overflow-y-auto p-4 custom-scrollbar">
-            <nav class="flex flex-col gap-1.5" id="cms-nav-menu">
-                <div class="text-[10px] font-bold text-gray-800/60 uppercase tracking-widest mb-2 mt-2 px-2">Sistem Dashboard</div>
-                
-                <a href="javascript:void(0)" data-target="global-settings" class="cms-nav-link active flex items-center gap-3 bg-gray-950 text-white px-4 py-3.5 rounded-2xl font-bold text-sm shadow-[0_5px_15px_rgba(0,0,0,0.15)] transition-all transform hover:-translate-y-0.5 cursor-pointer">
-                    <i class="fa-solid fa-sliders text-base text-accent w-5 text-center transition-colors"></i> 
-                    <span class="nav-text">Pengaturan CMS</span>
-                </a>
+        <a
+          href="javascript:void(0)"
+          data-target="setting-cms"
+          class="cms-nav-link active group flex items-center gap-3 bg-primary text-white px-4 py-3 rounded-xl font-bold text-sm shadow-[0_5px_15px_rgba(0,84,183,0.3)] transition-all hover:-translate-y-0.5"
+        >
+          <i
+            class="fa-solid fa-sliders text-accent w-5 text-center transition-colors"
+          ></i>
+          <span class="nav-text">CMS Setting</span>
+        </a>
 
-                <div class="text-[10px] font-bold text-gray-800/60 uppercase tracking-widest mb-2 mt-6 px-2">Komponen Halaman</div>
-                
-                <a href="javascript:void(0)" data-target="navbar-master" class="cms-nav-link flex items-center gap-3 text-gray-800 hover:bg-yellow-400 px-4 py-3.5 rounded-2xl font-bold text-sm transition-all border border-transparent hover:border-yellow-500/50 cursor-pointer">
-                    <i class="fa-solid fa-compass text-base text-primary w-5 text-center transition-colors"></i> 
-                    <span class="nav-text">Navbar Master</span>
-                </a>
-                <a href="javascript:void(0)" data-target="hero-section" class="cms-nav-link flex items-center gap-3 text-gray-800 hover:bg-yellow-400 px-4 py-3.5 rounded-2xl font-bold text-sm transition-all border border-transparent hover:border-yellow-500/50 cursor-pointer">
-                    <i class="fa-solid fa-rocket text-base text-primary w-5 text-center transition-colors"></i> 
-                    <span class="nav-text">Hero Section</span>
-                </a>
-            </nav>
+        <a
+          href="javascript:void(0)"
+          data-target="setting-landing"
+          class="cms-nav-link group flex items-center gap-3 text-gray-800 hover:bg-yellow-400/50 px-4 py-3 rounded-xl font-bold text-sm transition-all border border-transparent hover:border-yellow-500/30"
+        >
+          <i
+            class="fa-solid fa-globe text-primary w-5 text-center transition-colors group-hover:scale-110"
+          ></i>
+          <span class="nav-text">Landing Page Setting</span>
+        </a>
+
+        <div
+          class="text-[10px] font-bold text-gray-700 uppercase tracking-widest mb-2 mt-6 px-2"
+        >
+          Landing Page Component
         </div>
 
-        <!-- Footer Sidebar -->
-        <div class="p-4 border-t border-yellow-500/30 shrink-0">
-            <div class="bg-yellow-400/40 rounded-xl p-3 flex items-center gap-3 border border-yellow-500/30">
-                <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-user-astronaut"></i></div>
-                <div class="flex flex-col">
-                    <span id="cms-dev-name" class="text-xs font-extrabold text-gray-900 transition-all">Developer</span>
-                    <span id="cms-dev-role" class="text-[9px] font-bold text-primary transition-all">Super Admin</span>
-                </div>
-            </div>
+        <!-- Daftar Komponen -->
+        <a
+          href="javascript:void(0)"
+          data-target="comp-navbar"
+          class="cms-nav-link group flex items-center gap-3 text-gray-800 hover:bg-yellow-400/50 px-4 py-3 rounded-xl font-bold text-sm transition-all border border-transparent hover:border-yellow-500/30"
+        >
+          <i
+            class="fa-solid fa-compass text-primary w-5 text-center transition-colors group-hover:scale-110"
+          ></i>
+          <span class="nav-text">Navbar Master</span>
+        </a>
+        <a
+          href="javascript:void(0)"
+          data-target="comp-hero"
+          class="cms-nav-link group flex items-center gap-3 text-gray-800 hover:bg-yellow-400/50 px-4 py-3 rounded-xl font-bold text-sm transition-all border border-transparent hover:border-yellow-500/30"
+        >
+          <i
+            class="fa-solid fa-rocket text-primary w-5 text-center transition-colors group-hover:scale-110"
+          ></i>
+          <span class="nav-text">Hero Section</span>
+        </a>
+        <a
+          href="javascript:void(0)"
+          data-target="comp-stats"
+          class="cms-nav-link group flex items-center gap-3 text-gray-800 hover:bg-yellow-400/50 px-4 py-3 rounded-xl font-bold text-sm transition-all border border-transparent hover:border-yellow-500/30"
+        >
+          <i
+            class="fa-solid fa-chart-pie text-primary w-5 text-center transition-colors group-hover:scale-110"
+          ></i>
+          <span class="nav-text">Stats Section</span>
+        </a>
+        <a
+          href="javascript:void(0)"
+          data-target="comp-services"
+          class="cms-nav-link group flex items-center gap-3 text-gray-800 hover:bg-yellow-400/50 px-4 py-3 rounded-xl font-bold text-sm transition-all border border-transparent hover:border-yellow-500/30"
+        >
+          <i
+            class="fa-solid fa-box-open text-primary w-5 text-center transition-colors group-hover:scale-110"
+          ></i>
+          <span class="nav-text">Services</span>
+        </a>
+        <a
+          href="javascript:void(0)"
+          data-target="comp-benefits"
+          class="cms-nav-link group flex items-center gap-3 text-gray-800 hover:bg-yellow-400/50 px-4 py-3 rounded-xl font-bold text-sm transition-all border border-transparent hover:border-yellow-500/30"
+        >
+          <i
+            class="fa-solid fa-medal text-primary w-5 text-center transition-colors group-hover:scale-110"
+          ></i>
+          <span class="nav-text">Benefits</span>
+        </a>
+        <a
+          href="javascript:void(0)"
+          data-target="comp-partnership"
+          class="cms-nav-link group flex items-center gap-3 text-gray-800 hover:bg-yellow-400/50 px-4 py-3 rounded-xl font-bold text-sm transition-all border border-transparent hover:border-yellow-500/30"
+        >
+          <i
+            class="fa-solid fa-handshake text-primary w-5 text-center transition-colors group-hover:scale-110"
+          ></i>
+          <span class="nav-text">Partnership</span>
+        </a>
+        <a
+          href="javascript:void(0)"
+          data-target="comp-testimonial"
+          class="cms-nav-link group flex items-center gap-3 text-gray-800 hover:bg-yellow-400/50 px-4 py-3 rounded-xl font-bold text-sm transition-all border border-transparent hover:border-yellow-500/30"
+        >
+          <i
+            class="fa-solid fa-comments text-primary w-5 text-center transition-colors group-hover:scale-110"
+          ></i>
+          <span class="nav-text">Testimonial</span>
+        </a>
+        <a
+          href="javascript:void(0)"
+          data-target="comp-cta"
+          class="cms-nav-link group flex items-center gap-3 text-gray-800 hover:bg-yellow-400/50 px-4 py-3 rounded-xl font-bold text-sm transition-all border border-transparent hover:border-yellow-500/30"
+        >
+          <i
+            class="fa-solid fa-bullhorn text-primary w-5 text-center transition-colors group-hover:scale-110"
+          ></i>
+          <span class="nav-text">Call to Action</span>
+        </a>
+        <a
+          href="javascript:void(0)"
+          data-target="comp-footer"
+          class="cms-nav-link group flex items-center gap-3 text-gray-800 hover:bg-yellow-400/50 px-4 py-3 rounded-xl font-bold text-sm transition-all border border-transparent hover:border-yellow-500/30"
+        >
+          <i
+            class="fa-solid fa-shoe-prints text-primary w-5 text-center transition-colors group-hover:scale-110"
+          ></i>
+          <span class="nav-text">Footer Master</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Footer Sidebar + TAMBAH anim-sidebar-footer -->
+    <div class="p-4 border-t border-yellow-500/30 shrink-0 anim-sidebar-footer">
+      <div
+        class="bg-yellow-400/40 rounded-xl p-3 flex items-center gap-3 border border-yellow-500/30"
+      >
+        <div
+          class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs shadow-sm"
+        >
+          <i class="fa-solid fa-user-astronaut"></i>
         </div>
-    </aside>
-
-    <!-- MAIN WORKSPACE -->
-    <main class="flex-1 flex flex-col h-screen overflow-hidden relative w-full">
-        
-        <header class="bg-white border-b border-gray-200 px-4 sm:px-8 py-4 flex items-center justify-between shrink-0 z-10 shadow-sm">
-            <div class="flex items-center gap-4">
-                <button id="open-sidebar-btn" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-gray-50 text-gray-800 hover:bg-primary hover:text-white transition-colors border border-gray-200">
-                    <i class="fa-solid fa-bars-staggered text-lg"></i>
-                </button>
-                <h2 id="workspace-title" class="text-lg sm:text-xl font-extrabold text-gray-900 tracking-tight transition-all duration-300">Pengaturan CMS ⚙️</h2>
-            </div>
-            
-            <div class="flex items-center gap-3">
-                <button id="btn-save-cms" class="bg-primary text-white px-4 sm:px-6 py-2.5 rounded-xl font-bold text-sm shadow-[0_5px_15px_rgba(0,84,183,0.3)] hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-floppy-disk"></i> <span class="hidden sm:inline">Simpan Data</span>
-                </button>
-            </div>
-        </header>
-
-        <div id="cms-workspace-area" class="flex-1 overflow-y-auto p-4 sm:p-8 scroll-smooth relative">
-            
-            <!-- VIEW 1: PENGATURAN GLOBAL CMS -->
-            <div id="view-global-settings" class="cms-view-panel animate-[fadeInUp_0.4s_ease-out_forwards]">
-                <div class="bg-white border border-gray-100 rounded-3xl p-6 sm:p-8 shadow-sm">
-                    <h3 class="text-lg font-bold text-gray-900 mb-6 border-b border-gray-100 pb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-palette text-accent"></i> Konfigurasi Tampilan Console
-                    </h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        
-                        <!-- Kolom Kiri: Teks & Warna -->
-                        <div class="flex flex-col gap-5">
-                            <div class="flex flex-col gap-2">
-                                <label class="text-xs font-bold text-gray-500 uppercase tracking-wider">Nama Brand CMS</label>
-                                <input type="text" id="input-cms-title" class="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm font-semibold rounded-xl focus:ring-2 focus:ring-accent/50 focus:border-accent block p-3 transition-all outline-none">
-                            </div>
-                            <div class="flex flex-col gap-2">
-                                <label class="text-xs font-bold text-gray-500 uppercase tracking-wider">Subtitle CMS</label>
-                                <input type="text" id="input-cms-subtitle" class="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm font-semibold rounded-xl focus:ring-2 focus:ring-accent/50 focus:border-accent block p-3 transition-all outline-none">
-                            </div>
-                            
-                            <!-- Pilih Font -->
-                            <div class="flex flex-col gap-2">
-                                <label class="text-xs font-bold text-gray-500 uppercase tracking-wider">Font Family CMS</label>
-                                <select id="input-cms-font" class="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm font-semibold rounded-xl focus:ring-2 focus:ring-accent/50 focus:border-accent block p-3 transition-all outline-none">
-                                    <option value="Inter">Inter (Default)</option>
-                                    <option value="Poppins">Poppins</option>
-                                    <option value="Roboto">Roboto</option>
-                                    <option value="Montserrat">Montserrat</option>
-                                </select>
-                            </div>
-
-                            <!-- Color Picker -->
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="flex flex-col gap-2">
-                                    <label class="text-xs font-bold text-gray-500 uppercase tracking-wider">Primary Color</label>
-                                    <div class="flex items-center gap-3">
-                                        <input type="color" id="input-cms-primary" class="w-10 h-10 rounded cursor-pointer border-0 p-0 bg-transparent">
-                                        <span id="hex-cms-primary" class="text-sm font-mono text-gray-600">#0054B7</span>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col gap-2">
-                                    <label class="text-xs font-bold text-gray-500 uppercase tracking-wider">Accent Color</label>
-                                    <div class="flex items-center gap-3">
-                                        <input type="color" id="input-cms-accent" class="w-10 h-10 rounded cursor-pointer border-0 p-0 bg-transparent">
-                                        <span id="hex-cms-accent" class="text-sm font-mono text-gray-600">#FAD812</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Input Developer -->
-                            <div class="grid grid-cols-2 gap-4 pt-2 border-t border-gray-100">
-                                <div class="flex flex-col gap-2">
-                                    <label class="text-xs font-bold text-gray-500 uppercase tracking-wider">Nama Dev</label>
-                                    <input type="text" id="input-cms-dev-name" class="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm font-semibold rounded-xl focus:ring-2 focus:ring-accent/50 focus:border-accent block p-3 transition-all outline-none">
-                                </div>
-                                <div class="flex flex-col gap-2">
-                                    <label class="text-xs font-bold text-gray-500 uppercase tracking-wider">Role Dev</label>
-                                    <input type="text" id="input-cms-dev-role" class="w-full bg-gray-50 border border-gray-200 text-gray-900 text-sm font-semibold rounded-xl focus:ring-2 focus:ring-accent/50 focus:border-accent block p-3 transition-all outline-none">
-                                </div>
-                            </div>
-
-                        </div>
-                        
-                        <!-- Kolom Kanan: Drag & Drop Logo -->
-                        <div class="flex flex-col gap-2 h-full">
-                            <label class="text-xs font-bold text-gray-500 uppercase tracking-wider">Ganti Logo CMS</label>
-                            
-                            <!-- Area Drag & Drop -->
-                            <div id="drop-zone" class="flex-1 border-2 border-dashed border-gray-300 rounded-2xl p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-accent hover:bg-yellow-50/50 transition-colors group relative overflow-hidden min-h-[250px]">
-                                <div class="w-20 h-20 mb-4 bg-white rounded-2xl border border-gray-100 p-2 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform z-10">
-                                    <img id="preview-cms-logo" src="./assets/images/logo_cms_kurir_koe.webp" class="w-full h-full object-contain">
-                                </div>
-                                <p class="text-sm font-bold text-gray-800 mb-1 z-10">Klik atau Drag & Drop logo ke sini</p>
-                                <p id="file-name-display" class="text-xs text-gray-500 z-10">Otomatis di-rename saat disimpan.</p>
-                                
-                                <input type="file" id="input-cms-logo-file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" accept="image/webp, image/png, image/jpeg">
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
+        <div class="flex flex-col">
+          <!-- ID ini yang bakal ditembak JS -->
+          <span
+            id="cms-dev-name"
+            class="text-xs font-extrabold text-gray-900 transition-all"
+            >Memuat...</span
+          >
+          <span
+            id="cms-dev-role"
+            class="text-[9px] font-bold text-primary transition-all"
+            >Memuat...</span
+          >
         </div>
-    </main>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN WORKSPACE -->
+  <main
+    id="cms-main-content"
+    class="flex-1 flex flex-col h-screen overflow-hidden relative w-full lg:ml-[280px] main-workspace-transition bg-[#f4f7fe]"
+  >
+    <!-- Topbar Navbar CMS + TAMBAH anim-topbar -->
+    <header
+      class="anim-topbar bg-white/80 backdrop-blur-md border-b border-gray-200 px-4 sm:px-8 py-4 flex items-center justify-between shrink-0 z-10 sticky top-0"
+    >
+      <div class="flex items-center gap-4">
+        <button
+          id="toggle-sidebar-btn"
+          class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-50 text-gray-800 hover:bg-accent hover:text-gray-900 transition-colors border border-gray-200"
+        >
+          <i class="fa-solid fa-bars-staggered text-lg"></i>
+        </button>
+        <h2
+          id="workspace-title"
+          class="text-lg sm:text-xl font-extrabold text-gray-900 tracking-tight"
+        >
+          CMS Setting
+        </h2>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <!-- Tombol Simpan + TAMBAH anim-save-btn -->
+        <button
+          id="btn-save-cms"
+          class="anim-save-btn bg-primary text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-[0_5px_15px_rgba(0,84,183,0.3)] hover:bg-blue-800 hover:shadow-lg hover:-translate-y-0.5 transition-all flex items-center gap-2"
+        >
+          <i class="fa-solid fa-floppy-disk"></i>
+          <span class="hidden sm:inline">Simpan Data</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- WADAH KOSONG -->
+    <div
+      id="cms-workspace-area"
+      class="flex-1 overflow-y-auto p-4 sm:p-8 scroll-smooth relative cms-scrollbar"
+    >
+      <!-- Konten komponen CMS akan disuntikkan oleh JavaScript ke sini -->
+    </div>
+  </main>
 </div>
-
-<style>
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-    .custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.1); border-radius: 10px; }
-</style>

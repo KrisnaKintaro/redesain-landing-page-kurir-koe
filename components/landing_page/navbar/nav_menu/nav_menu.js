@@ -21,22 +21,30 @@ async function renderNavMenu() {
             const li = document.createElement('li');
             const isActive = index === 0;
             
-            // Tambahin flex items-center gap-2 biar sejajar
-            const baseClass = "nav-pill flex items-center gap-2 px-5 py-2 rounded-full font-medium text-sm transition-all duration-300 ease-in-out cursor-pointer select-none";
+            // REVISI: text-sm dipindah ke span. Tambahin whitespace-nowrap biar ngga patah 2 baris
+            const baseClass = "nav-pill flex items-center gap-2 px-5 py-2 rounded-full font-medium transition-all duration-300 ease-in-out cursor-pointer select-none whitespace-nowrap";
             const defaultClass = "text-gray-500 hover:text-primary hover:bg-blue-50";
             const activeClass = "bg-accent text-gray-900 shadow-[2px_2px_10px_rgba(250,216,18,0.4)]";
             
             const finalClass = `${baseClass} ${isActive ? activeClass : defaultClass}`;
             
-            // Masukin tag <i> buat icon-nya
+            // Masukin tag <i> buat icon-nya dan <span> buat teksnya
             li.innerHTML = `
                 <a href="javascript:void(0)"
                     data-target="${item.target}"
                     class="${finalClass}">
                    <i class="fa-solid ${item.icon} text-base"></i>
-                   ${item.label}
+                   <span class="nav-label text-sm transition-all duration-300">${item.label}</span>
                 </a>
             `;
+            
+            // --- LOGIC AUTO-SCALE FONT ---
+            const spanEl = li.querySelector('.nav-label');
+            if (spanEl && item.label) {
+                // Kalau karakternya panjang banget, ciutkan dari text-sm jadi text-[11px] / text-xs
+                autoScaleFont(spanEl, 12, "text-sm", "text-[11px] lg:text-xs");
+            }
+
             ulList.appendChild(li);
         });
     }
@@ -54,28 +62,27 @@ function initNavMenuLogic() {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // 1. RESET SEMUA: Hapus status aktif dari semua menu, kembalikan ke default
+            // 1. RESET SEMUA
             links.forEach(l => {
                 l.classList.remove(...activeClasses);
                 l.classList.add(...defaultClasses);
             });
             
-            // 2. SET AKTIF: Tambahkan status aktif hanya pada menu yang baru saja diklik
+            // 2. SET AKTIF
             link.classList.remove(...defaultClasses);
             link.classList.add(...activeClasses);
             
-            // 3. EKSEKUSI SCROLL: Gulir layar ke komponen target
+            // 3. EKSEKUSI SCROLL
             const targetId = link.getAttribute('data-target');
             const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
-                // Ambil tinggi navbar (misal header punya class h-20 = 80px)
                 const headerHeight = document.querySelector('header').offsetHeight;
-                
-                // Hitung posisi elemen target dari atas dokumen, lalu kurangi tinggi navbar
                 const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-                const offsetPosition = elementPosition - headerHeight;
-
+                
+                // REVISI: Kurangi ekstra 40px biar ada jarak aman di atas tagline
+                const offsetPosition = elementPosition - headerHeight - 40; 
+                
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: 'smooth'

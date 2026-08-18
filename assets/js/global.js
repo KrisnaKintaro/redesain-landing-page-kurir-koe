@@ -132,3 +132,26 @@ function applyGlobalMeta() {
         document.body.style.fontFamily = `"${meta.font_family}", sans-serif`;
     }
 }
+
+/**
+ * Fungsi Pintar untuk Auto-Scale Ukuran Font sesuai Panjang Karakter (CMS-Ready)
+ * @param {HTMLElement} element - Elemen HTML yang mau di-scale font-nya
+ * @param {number} maxLength - Batas aman karakter sebelum font mulai dikecilkan
+ * @param {string} defaultClass - Class Tailwind bawaan saat teks pendek (misal: 'text-xl')
+ * @param {string} shrinkClass - Class Tailwind pengganti saat teks kepanjangan (misal: 'text-base')
+ */
+function autoScaleFont(element, maxLength, defaultClass, shrinkClass) {
+    if (!element) return;
+    
+    const textLength = element.textContent.trim().length;
+    
+    if (textLength > maxLength) {
+        // Hapus class font bawaan yang besar, ganti ke yang lebih kecil
+        element.classList.remove(...defaultClass.split(' '));
+        element.classList.add(...shrinkClass.split(' '));
+    } else {
+        // Balikin ke ukuran normal kalau teksnya pendek
+        element.classList.remove(...shrinkClass.split(' '));
+        element.classList.add(...defaultClass.split(' '));
+    }
+}

@@ -14,8 +14,17 @@ async function renderButtonDownload() {
     const btnText = tempDiv.querySelector('#nav-btn-download-text');
     const btnDownload = tempDiv.querySelector('#nav-btn-download');
     
-    if (btnText) btnText.textContent = data.label;
-    if (btnDownload) btnDownload.setAttribute('data-target', data.target);
+    if (btnText && data.label) {
+        btnText.textContent = data.label;
+        
+        // --- LOGIC AUTO-SCALE FONT ---
+        // Jika karakter lebih dari 12, ganti dari 'text-sm' ke font yang lebih kecil
+        autoScaleFont(btnText, 12, "text-sm", "text-[10px] sm:text-xs leading-tight");
+    }
+
+    if (btnDownload && data.target) {
+        btnDownload.setAttribute('data-target', data.target);
+    }
 
     return tempDiv.innerHTML;
 }
@@ -33,12 +42,12 @@ function initButtonDownloadLogic() {
             if (targetElement) {
                 // 1. Ambil tinggi navbar (header) biar nggak ketutupan
                 const header = document.querySelector('header');
-                const headerHeight = header ? header.offsetHeight : 80; // Fallback 80px kalau header gagal ditangkap
+                const headerHeight = header ? header.offsetHeight : 80; 
                 
                 // 2. Hitung posisi asli elemen dari paling atas dokumen
                 const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
                 
-                // 3. Kurangi posisi elemen dengan tinggi navbar (ditambah ekstra 20px biar ada nafas dikit)
+                // 3. Kurangi posisi elemen dengan tinggi navbar (ditambah ekstra 20px)
                 const offsetPosition = elementPosition - headerHeight - 20;
                 
                 // 4. Eksekusi scroll yang presisi!

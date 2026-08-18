@@ -14,13 +14,20 @@ async function renderBrandInfo() {
 
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = html;
-
+    
     const elLogo = tempDiv.querySelector('#footer-logo-img');
     const elDesc = tempDiv.querySelector('#footer-brand-desc');
     const elSocials = tempDiv.querySelector('#footer-socials');
 
     if (elLogo) elLogo.src = data.logo_url;
-    if (elDesc) elDesc.textContent = data.description;
+    
+    // Inject teks deskripsi & jalankan Auto Scale Font
+    if (elDesc && data.description) {
+        elDesc.textContent = data.description;
+        
+        // Toleransi sekitar 140 karakter sebelum dikecilkan
+        autoScaleFont(elDesc, 140, "text-sm sm:text-base", "text-xs sm:text-sm");
+    }
 
     if (elSocials && data.socials) {
         elSocials.innerHTML = '';

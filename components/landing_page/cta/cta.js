@@ -28,20 +28,42 @@ async function renderCta() {
     const elPlaySub = tempDiv.querySelector('#cta-play-sub');
     const elPlayLabel = tempDiv.querySelector('#cta-play-label');
 
-    if (elTagline) elTagline.textContent = data.tagline;
-    if (elTitle) elTitle.textContent = data.title;
-    if (elDesc) elDesc.textContent = data.description;
-    if (elImg) elImg.src = data.image_url;
+    // --- LOGIC INJECT TEXT & AUTO SCALE FONT ---
+
+    if (elTagline) {
+        elTagline.textContent = data.tagline;
+        autoScaleFont(elTagline, 25, "text-xs", "text-[10px]");
+    }
+    
+    if (elTitle) {
+        elTitle.textContent = data.title;
+        autoScaleFont(elTitle, 30, "text-3xl md:text-4xl lg:text-5xl", "text-2xl md:text-3xl lg:text-4xl");
+    }
+    
+    if (elDesc) {
+        elDesc.textContent = data.description;
+        autoScaleFont(elDesc, 130, "text-lg md:text-xl", "text-base md:text-lg");
+    }
+    
+    if (elImg && data.image_url) {
+        elImg.src = data.image_url;
+    }
 
     // Logic Hide/Show & Inject Teks Tombol App Store
     if (elBtnAppStore) {
         if (data.app_store && data.app_store.show === true) {
             elBtnAppStore.href = data.app_store.link;
-            elBtnAppStore.style.display = 'flex'; 
+            elBtnAppStore.style.display = 'flex';
             
-            // Suntik teks dari CMS
-            if (elAppSub && data.app_store.sub) elAppSub.textContent = data.app_store.sub;
-            if (elAppLabel && data.app_store.label) elAppLabel.textContent = data.app_store.label;
+            // Suntik teks dari CMS dan resize jika kepanjangan
+            if (elAppSub && data.app_store.sub) {
+                elAppSub.textContent = data.app_store.sub;
+                autoScaleFont(elAppSub, 13, "text-[11px]", "text-[9px]");
+            }
+            if (elAppLabel && data.app_store.label) {
+                elAppLabel.textContent = data.app_store.label;
+                autoScaleFont(elAppLabel, 12, "text-lg", "text-base");
+            }
         } else {
             elBtnAppStore.style.display = 'none'; 
         }
@@ -51,11 +73,17 @@ async function renderCta() {
     if (elBtnPlayStore) {
         if (data.play_store && data.play_store.show === true) {
             elBtnPlayStore.href = data.play_store.link;
-            elBtnPlayStore.style.display = 'flex'; 
+            elBtnPlayStore.style.display = 'flex';
             
-            // Suntik teks dari CMS
-            if (elPlaySub && data.play_store.sub) elPlaySub.textContent = data.play_store.sub;
-            if (elPlayLabel && data.play_store.label) elPlayLabel.textContent = data.play_store.label;
+            // Suntik teks dari CMS dan resize jika kepanjangan
+            if (elPlaySub && data.play_store.sub) {
+                elPlaySub.textContent = data.play_store.sub;
+                autoScaleFont(elPlaySub, 13, "text-[11px]", "text-[9px]");
+            }
+            if (elPlayLabel && data.play_store.label) {
+                elPlayLabel.textContent = data.play_store.label;
+                autoScaleFont(elPlayLabel, 12, "text-lg", "text-base");
+            }
         } else {
             elBtnPlayStore.style.display = 'none'; 
         }

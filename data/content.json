@@ -17,8 +17,13 @@
         { "label": "Gabung Mitra", "target": "partnership", "icon": "fa-handshake" },
         { "label": "Hubungi Kami", "target": "footer", "icon": "fa-phone" }
     ],
-    "button_login_nav": {
-        "label": "Masuk"
+    "button_login": {
+        "label": "Masuk",
+        "target": "login-popup"
+    },
+    "button_download": {
+        "label": "Download App",
+        "target": "cta"
     },
     "mobile_drawer": {
         "brand_text_1": "Kurir",
@@ -62,10 +67,38 @@
         "title": "Keuntungan Ekstra Buat Anda",
         "description": "Berbagai alasan mengapa ribuan UMKM dan Mitra Driver mempercayakan bisnisnya pada Kurir Koe.",
         "items": [
-            { "title": "Gratis Jemput Paket", "desc": "Satu paket pun kami jemput ke depan pintu tanpa biaya tambahan.", "icon": "fa-box-open", "color": "text-blue-500", "bg": "bg-blue-50" },
-            { "title": "Harga Khusus UMKM", "desc": "Makin sering kirim, ongkir makin murah. Skema tarif flat untuk bisnis lokal.", "icon": "fa-tags", "color": "text-accent", "bg": "bg-yellow-50" },
-            { "title": "Bagi Hasil Adil", "desc": "Potongan aplikasi rendah. Pendapatan Mitra Driver cair setiap hari tanpa ribet.", "icon": "fa-hand-holding-dollar", "color": "text-green-500", "bg": "bg-green-50" },
-            { "title": "Layanan CS Cepat", "desc": "Bukan dilayani robot. Tim CS kami responsif siap bantu kendala 24/7.", "icon": "fa-headset", "color": "text-red-500", "bg": "bg-red-50" }
+            { 
+                "title": "Gratis Jemput Paket", 
+                "desc": "Satu paket pun kami jemput ke depan pintu tanpa biaya tambahan.", 
+                "icon": "fa-box-open", 
+                "color": "text-blue-500", 
+                "bg": "bg-blue-50",
+                "shadow_neon": "hover:shadow-[0_15px_35px_-5px_rgba(59,130,246,0.4)]"
+            },
+            { 
+                "title": "Harga Khusus UMKM", 
+                "desc": "Makin sering kirim, ongkir makin murah. Skema tarif flat untuk bisnis lokal.", 
+                "icon": "fa-tags", 
+                "color": "text-accent", 
+                "bg": "bg-yellow-50",
+                "shadow_neon": "hover:shadow-[0_15px_35px_-5px_rgba(250,216,18,0.4)]"
+            },
+            { 
+                "title": "Bagi Hasil Adil", 
+                "desc": "Potongan aplikasi rendah. Pendapatan Mitra Driver cair setiap hari tanpa ribet.", 
+                "icon": "fa-hand-holding-dollar", 
+                "color": "text-green-500", 
+                "bg": "bg-green-50",
+                "shadow_neon": "hover:shadow-[0_15px_35px_-5px_rgba(34,197,94,0.4)]"
+            },
+            { 
+                "title": "Layanan CS Cepat", 
+                "desc": "Bukan dilayani robot. Tim CS kami responsif siap bantu kendala 24/7.", 
+                "icon": "fa-headset", 
+                "color": "text-red-500", 
+                "bg": "bg-red-50",
+                "shadow_neon": "hover:shadow-[0_15px_35px_-5px_rgba(239,68,68,0.4)]"
+            }
         ]
     },
     "partnership": {
@@ -79,10 +112,10 @@
                 "desc": "Dapatkan penghasilan tambahan dengan waktu kerja yang fleksibel.",
                 "icon": "fa-motorcycle",
                 "whatsapp": "081234567890",
-                "wa_text": "Halo tim Kurir Koe, saya tertarik mendaftar sebagai Mitra Driver. Mohon info persyaratannya.",
+                "wa_text": "Halo, saya tertarik mendaftar Mitra Driver.",
                 "wa_label": "WhatsApp",
                 "email": "mitra@kurirkoe.com",
-                "email_subject": "Pendaftaran Mitra Driver",
+                "email_subject": "Daftar Mitra Driver",
                 "email_label": "Email"
             },
             {
@@ -90,14 +123,14 @@
                 "desc": "Solusi pengiriman handal untuk bantu tingkatkan skala bisnis UMKM Anda.",
                 "icon": "fa-store",
                 "whatsapp": "081234567890",
-                "wa_text": "Halo tim Kurir Koe, saya ingin mendaftarkan bisnis saya sebagai Mitra Merchant.",
+                "wa_text": "Halo, saya tertarik mendaftar Mitra Merchant.",
                 "wa_label": "WhatsApp",
                 "email": "mitra@kurirkoe.com",
-                "email_subject": "Pendaftaran Mitra Merchant",
+                "email_subject": "Daftar Mitra Merchant",
                 "email_label": "Email"
             }
         ],
-        "image_url": "./assets/images/partnership_illustration.webp"
+        "image_url": "./assets/images/partnership_illustration.webp" 
     },
     "testimonial": {
         "tagline": "Testimonial",

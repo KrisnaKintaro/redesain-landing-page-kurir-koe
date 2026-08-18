@@ -9,16 +9,54 @@ async function renderLoginOptionPopup() {
     
     // Tembak konten CMS ke dalam HTML (jika data CMS ada)
     if (data && data.options) {
-        tempDiv.querySelector('#auth-options-title').textContent = data.options.title;
-        tempDiv.querySelector('#auth-options-subtitle').textContent = data.options.subtitle;
+        const titleEl = tempDiv.querySelector('#auth-options-title');
+        const subtitleEl = tempDiv.querySelector('#auth-options-subtitle');
         
-        tempDiv.querySelector('#opt-kar-title').textContent = data.options.karyawan.title;
-        tempDiv.querySelector('#opt-kar-sub').textContent = data.options.karyawan.subtitle;
-        tempDiv.querySelector('#opt-kar-icon').className = `fa-solid ${data.options.karyawan.icon} text-xl`;
+        const karTitleEl = tempDiv.querySelector('#opt-kar-title');
+        const karSubEl = tempDiv.querySelector('#opt-kar-sub');
+        const karIconEl = tempDiv.querySelector('#opt-kar-icon');
         
-        tempDiv.querySelector('#opt-adm-title').textContent = data.options.admin.title;
-        tempDiv.querySelector('#opt-adm-sub').textContent = data.options.admin.subtitle;
-        tempDiv.querySelector('#opt-adm-icon').className = `fa-solid ${data.options.admin.icon} text-xl`;
+        const admTitleEl = tempDiv.querySelector('#opt-adm-title');
+        const admSubEl = tempDiv.querySelector('#opt-adm-sub');
+        const admIconEl = tempDiv.querySelector('#opt-adm-icon');
+
+        // 1. Render & Scale Judul Utama Popup
+        if (titleEl && data.options.title) {
+            titleEl.textContent = data.options.title;
+            autoScaleFont(titleEl, 15, "text-2xl", "text-xl sm:text-lg leading-tight");
+        }
+        
+        // 2. Render & Scale Subtitle Utama Popup
+        if (subtitleEl && data.options.subtitle) {
+            subtitleEl.textContent = data.options.subtitle;
+            autoScaleFont(subtitleEl, 40, "text-sm", "text-xs leading-normal");
+        }
+        
+        // 3. Render & Scale Role Karyawan
+        if (karTitleEl && data.options.karyawan?.title) {
+            karTitleEl.textContent = data.options.karyawan.title;
+            autoScaleFont(karTitleEl, 10, "text-sm", "text-xs whitespace-nowrap");
+        }
+        if (karSubEl && data.options.karyawan?.subtitle) {
+            karSubEl.textContent = data.options.karyawan.subtitle;
+            autoScaleFont(karSubEl, 22, "text-[10px]", "text-[9px] leading-tight");
+        }
+        if (karIconEl && data.options.karyawan?.icon) {
+            karIconEl.className = `fa-solid ${data.options.karyawan.icon} text-xl`;
+        }
+        
+        // 4. Render & Scale Role Admin
+        if (admTitleEl && data.options.admin?.title) {
+            admTitleEl.textContent = data.options.admin.title;
+            autoScaleFont(admTitleEl, 10, "text-sm", "text-xs whitespace-nowrap");
+        }
+        if (admSubEl && data.options.admin?.subtitle) {
+            admSubEl.textContent = data.options.admin.subtitle;
+            autoScaleFont(admSubEl, 22, "text-[10px]", "text-[9px] leading-tight");
+        }
+        if (admIconEl && data.options.admin?.icon) {
+            admIconEl.className = `fa-solid ${data.options.admin.icon} text-xl`;
+        }
     }
 
     const modalEl = tempDiv.querySelector('#auth-modal');

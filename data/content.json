@@ -12,10 +12,26 @@
         "font_family": "Poppins"
     },
     "nav_menu": [
-        { "label": "Beranda", "target": "hero", "icon": "fa-house" },
-        { "label": "Layanan", "target": "services", "icon": "fa-box" },
-        { "label": "Gabung Mitra", "target": "partnership", "icon": "fa-handshake" },
-        { "label": "Hubungi Kami", "target": "footer", "icon": "fa-phone" }
+        {
+            "label": "Beranda",
+            "target": "hero",
+            "icon": "fa-house"
+        },
+        {
+            "label": "Layanan",
+            "target": "services",
+            "icon": "fa-box"
+        },
+        {
+            "label": "Gabung Mitra",
+            "target": "partnership",
+            "icon": "fa-handshake"
+        },
+        {
+            "label": "Hubungi Kami",
+            "target": "footer",
+            "icon": "fa-phone"
+        }
     ],
     "button_login": {
         "label": "Masuk",
@@ -30,12 +46,18 @@
         "brand_text_2": "Koe"
     },
     "hero": {
-        "tagline": "🚀 Solusi Pengiriman #1",
+        "tagline": "\ud83d\ude80 Solusi Pengiriman #1",
         "title_1": "Solusi Pengiriman",
         "title_2": "Terpercaya!",
         "description": "Kirim paket ke seluruh pelosok dengan mudah, cepat, dan aman bersama Kurir Koe.",
-        "btn_primary": { "label": "Mulai Sekarang", "target": "services" },
-        "btn_secondary": { "label": "Gabung Mitra", "target": "cta" },
+        "btn_primary": {
+            "label": "Mulai Sekarang",
+            "target": "services"
+        },
+        "btn_secondary": {
+            "label": "Gabung Mitra",
+            "target": "cta"
+        },
         "social_proof": {
             "text": "Dipercaya oleh 5.000+ pelanggan",
             "rating": 5,
@@ -48,18 +70,42 @@
         "image_url": "./assets/images/hero_illustration.webp"
     },
     "stats": [
-        { "nilai": "10Jt+", "label": "Paket Terkirim", "icon": "fa-box-open" },
-        { "nilai": "50K+", "label": "Driver Aktif", "icon": "fa-motorcycle" },
-        { "nilai": "500+", "label": "Kota Jangkauan", "icon": "fa-map-location-dot" }
+        {
+            "nilai": "10Jt+",
+            "label": "Paket Terkirim",
+            "icon": "fa-box-open"
+        },
+        {
+            "nilai": "50K+",
+            "label": "Driver Aktif",
+            "icon": "fa-motorcycle"
+        },
+        {
+            "nilai": "500+",
+            "label": "Kota Jangkauan",
+            "icon": "fa-map-location-dot"
+        }
     ],
     "services": {
         "tagline": "Layanan",
         "title": "Layanan Unggulan Kami",
         "description": "Pilihan layanan pengiriman yang fleksibel sesuai kebutuhan Anda.",
         "items": [
-            { "title": "Instant Delivery", "desc": "Sampai dalam hitungan jam.", "icon": "fa-bolt" },
-            { "title": "Sameday Service", "desc": "Dikirim dan sampai di hari yang sama.", "icon": "fa-clock" },
-            { "title": "Regular Service", "desc": "Pengiriman aman ke seluruh pelosok Nusantara.", "icon": "fa-truck-fast" }
+            {
+                "title": "Instant Delivery",
+                "desc": "Sampai dalam hitungan jam.",
+                "icon": "fa-bolt"
+            },
+            {
+                "title": "Sameday Service",
+                "desc": "Dikirim dan sampai di hari yang sama.",
+                "icon": "fa-clock"
+            },
+            {
+                "title": "Regular Service",
+                "desc": "Pengiriman aman ke seluruh pelosok Nusantara.",
+                "icon": "fa-truck-fast"
+            }
         ]
     },
     "benefits": {
@@ -67,35 +113,35 @@
         "title": "Keuntungan Ekstra Buat Anda",
         "description": "Berbagai alasan mengapa ribuan UMKM dan Mitra Driver mempercayakan bisnisnya pada Kurir Koe.",
         "items": [
-            { 
-                "title": "Gratis Jemput Paket", 
-                "desc": "Satu paket pun kami jemput ke depan pintu tanpa biaya tambahan.", 
-                "icon": "fa-box-open", 
-                "color": "text-blue-500", 
+            {
+                "title": "Gratis Jemput Paket",
+                "desc": "Satu paket pun kami jemput ke depan pintu tanpa biaya tambahan.",
+                "icon": "fa-box-open",
+                "color": "text-blue-500",
                 "bg": "bg-blue-50",
                 "shadow_neon": "hover:shadow-[0_15px_35px_-5px_rgba(59,130,246,0.4)]"
             },
-            { 
-                "title": "Harga Khusus UMKM", 
-                "desc": "Makin sering kirim, ongkir makin murah. Skema tarif flat untuk bisnis lokal.", 
-                "icon": "fa-tags", 
-                "color": "text-accent", 
+            {
+                "title": "Harga Khusus UMKM",
+                "desc": "Makin sering kirim, ongkir makin murah. Skema tarif flat untuk bisnis lokal.",
+                "icon": "fa-tags",
+                "color": "text-accent",
                 "bg": "bg-yellow-50",
                 "shadow_neon": "hover:shadow-[0_15px_35px_-5px_rgba(250,216,18,0.4)]"
             },
-            { 
-                "title": "Bagi Hasil Adil", 
-                "desc": "Potongan aplikasi rendah. Pendapatan Mitra Driver cair setiap hari tanpa ribet.", 
-                "icon": "fa-hand-holding-dollar", 
-                "color": "text-green-500", 
+            {
+                "title": "Bagi Hasil Adil",
+                "desc": "Potongan aplikasi rendah. Pendapatan Mitra Driver cair setiap hari tanpa ribet.",
+                "icon": "fa-hand-holding-dollar",
+                "color": "text-green-500",
                 "bg": "bg-green-50",
                 "shadow_neon": "hover:shadow-[0_15px_35px_-5px_rgba(34,197,94,0.4)]"
             },
-            { 
-                "title": "Layanan CS Cepat", 
-                "desc": "Bukan dilayani robot. Tim CS kami responsif siap bantu kendala 24/7.", 
-                "icon": "fa-headset", 
-                "color": "text-red-500", 
+            {
+                "title": "Layanan CS Cepat",
+                "desc": "Bukan dilayani robot. Tim CS kami responsif siap bantu kendala 24/7.",
+                "icon": "fa-headset",
+                "color": "text-red-500",
                 "bg": "bg-red-50",
                 "shadow_neon": "hover:shadow-[0_15px_35px_-5px_rgba(239,68,68,0.4)]"
             }
@@ -130,34 +176,58 @@
                 "email_label": "Email"
             }
         ],
-        "image_url": "./assets/images/partnership_illustration.webp" 
+        "image_url": "./assets/images/partnership_illustration.webp"
     },
     "testimonial": {
         "tagline": "Testimonial",
         "title": "Apa Kata Mereka?",
         "description": "Ribuan pelanggan dan mitra telah membuktikan keandalan layanan kami.",
         "items": [
-            { "name": "Budi Santoso", "role": "Mitra Merchant", "text": "Semenjak pakai Kurir Koe, pengiriman barang toko saya jadi lebih cepat dan aman. Omzet naik drastis!", "avatar": "https://ui-avatars.com/api/?name=Budi+Santoso&background=0054B7&color=fff", "rating": 5 },
-            { "name": "Siti Aminah", "role": "Pelanggan Setia", "text": "Aplikasi sangat mudah digunakan. Lacak paket real-time bikin hati tenang. Kurirnya juga ramah-ramah.", "avatar": "https://ui-avatars.com/api/?name=Siti+Aminah&background=FAD812&color=000", "rating": 5 },
-            { "name": "Agus Pratama", "role": "Mitra Driver", "text": "Sistem bagi hasil sangat adil. Waktu kerja fleksibel bikin saya bisa tetap kumpul sama keluarga.", "avatar": "https://ui-avatars.com/api/?name=Agus+Pratama&background=10B981&color=fff", "rating": 5 },
-            { "name": "Dewi Lestari", "role": "Pemilik Online Shop", "text": "Sameday service-nya beneran nyampe di hari yang sama. Klien saya selalu puas sama kecepatan kirimnya.", "avatar": "https://ui-avatars.com/api/?name=Dewi+Lestari&background=F43F5E&color=fff", "rating": 4 }
+            {
+                "name": "Budi Santoso",
+                "role": "Mitra Merchant",
+                "text": "Semenjak pakai Kurir Koe, pengiriman barang toko saya jadi lebih cepat dan aman. Omzet naik drastis!",
+                "avatar": "https://ui-avatars.com/api/?name=Budi+Santoso&background=0054B7&color=fff",
+                "rating": 5
+            },
+            {
+                "name": "Siti Aminah",
+                "role": "Pelanggan Setia",
+                "text": "Aplikasi sangat mudah digunakan. Lacak paket real-time bikin hati tenang. Kurirnya juga ramah-ramah.",
+                "avatar": "https://ui-avatars.com/api/?name=Siti+Aminah&background=FAD812&color=000",
+                "rating": 5
+            },
+            {
+                "name": "Agus Pratama",
+                "role": "Mitra Driver",
+                "text": "Sistem bagi hasil sangat adil. Waktu kerja fleksibel bikin saya bisa tetap kumpul sama keluarga.",
+                "avatar": "https://ui-avatars.com/api/?name=Agus+Pratama&background=10B981&color=fff",
+                "rating": 5
+            },
+            {
+                "name": "Dewi Lestari",
+                "role": "Pemilik Online Shop",
+                "text": "Sameday service-nya beneran nyampe di hari yang sama. Klien saya selalu puas sama kecepatan kirimnya.",
+                "avatar": "https://ui-avatars.com/api/?name=Dewi+Lestari&background=F43F5E&color=fff",
+                "rating": 4
+            }
         ]
     },
     "cta": {
         "tagline": "Aplikasi Kurir Koe",
         "title": "Siap Kirim Paket Pertamamu?",
         "description": "Download aplikasi Kurir Koe sekarang dan nikmati kemudahan kirim paket dari genggaman tangan Anda. Dapatkan promo gratis ongkir untuk pengguna baru!",
-        "app_store": { 
-            "show": false, 
-            "sub": "Download di", 
+        "app_store": {
+            "show": false,
+            "sub": "Download di",
             "label": "App Store",
-            "link": "https://www.google.com/chrome/" 
+            "link": "https://www.google.com/chrome/"
         },
-        "play_store": { 
+        "play_store": {
             "show": true,
-            "sub": "Dapatkan di", 
-            "label": "Google Play", 
-            "link": "https://www.google.com/chrome/" 
+            "sub": "Dapatkan di",
+            "label": "Google Play",
+            "link": "https://www.google.com/chrome/"
         },
         "image_url": "./assets/images/cta_illustration.webp"
     },
@@ -165,26 +235,53 @@
         "logo_url": "./assets/images/logo_kurir_koe.webp",
         "description": "Solusi pengiriman terpercaya untuk UMKM dan kebutuhan personal Anda. Cepat, aman, dan dapat diandalkan ke seluruh pelosok Nusantara.",
         "socials": [
-            { "icon": "fa-instagram", "link": "https://instagram.com" },
-            { "icon": "fa-facebook-f", "link": "https://facebook.com" },
-            { "icon": "fa-twitter", "link": "https://twitter.com" }
+            {
+                "icon": "fa-instagram",
+                "link": "https://instagram.com"
+            },
+            {
+                "icon": "fa-facebook-f",
+                "link": "https://facebook.com"
+            },
+            {
+                "icon": "fa-twitter",
+                "link": "https://twitter.com"
+            }
         ]
     },
     "link_groups": [
         {
             "title": "Perusahaan",
             "links": [
-                { "label": "Tentang Kami", "url": "#/" },
-                { "label": "Karir", "url": "#/" },
-                { "label": "Blog", "url": "#/" }
+                {
+                    "label": "Tentang Kami",
+                    "url": "#/"
+                },
+                {
+                    "label": "Karir",
+                    "url": "#/"
+                },
+                {
+                    "label": "Blog",
+                    "url": "#/"
+                }
             ]
         },
         {
             "title": "Layanan",
             "links": [
-                { "label": "Kurir Motor", "url": "#/" },
-                { "label": "Kurir Mobil", "url": "#/" },
-                { "label": "Corporate", "url": "#/" }
+                {
+                    "label": "Kurir Motor",
+                    "url": "#/"
+                },
+                {
+                    "label": "Kurir Mobil",
+                    "url": "#/"
+                },
+                {
+                    "label": "Corporate",
+                    "url": "#/"
+                }
             ]
         }
     ],
@@ -207,18 +304,32 @@
         "address": "Jl. Kutai Utara No.1, Sumber, Kec. Banjarsari, Kota Surakarta, Jawa Tengah 57138"
     },
     "footer_copyright": {
-        "text": "© {year} Kurir Koe. All rights reserved.",
+        "text": "\u00a9 {year} Kurir Koe. All rights reserved.",
         "links": [
-            { "label": "Syarat & Ketentuan", "url": "#/" },
-            { "label": "Kebijakan Privasi", "url": "#/" }
+            {
+                "label": "Syarat & Ketentuan",
+                "url": "#/"
+            },
+            {
+                "label": "Kebijakan Privasi",
+                "url": "#/"
+            }
         ]
     },
     "login_modal": {
         "options": {
             "title": "Akses Masuk",
             "subtitle": "Pilih portal sesuai dengan peran Anda",
-            "karyawan": { "title": "Karyawan", "subtitle": "Kurir & Operasional", "icon": "fa-user-group" },
-            "admin": { "title": "Admin", "subtitle": "Manajemen & Sistem", "icon": "fa-shield-halved" }
+            "karyawan": {
+                "title": "Karyawan",
+                "subtitle": "Kurir & Operasional",
+                "icon": "fa-user-group"
+            },
+            "admin": {
+                "title": "Admin",
+                "subtitle": "Manajemen & Sistem",
+                "icon": "fa-shield-halved"
+            }
         },
         "form": {
             "back_text": "Kembali",
@@ -264,13 +375,13 @@
         }
     },
     "cms_global": {
-        "brand_name": "Kurir Koe",
+        "brand_name": "addawd",
         "subtitle": "CMS Console",
         "logo_url": "./assets/images/logo_cms_kurir_koe.webp",
         "font_family": "Inter",
         "theme": {
-            "primary": "#0054B7",
-            "accent": "#FAD812"
+            "primary": "#0054b7",
+            "accent": "#fad812"
         },
         "developer": {
             "name": "Developer",

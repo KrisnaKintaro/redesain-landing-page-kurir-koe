@@ -11,5 +11,7 @@ async function renderCmsAdminPage() {
 
 function initCmsAdminLogic() {
     // Hidupkan logic master CMS
-    if (typeof initCmsPageMasterLogic === 'function') initCmsPageMasterLogic();
+    if (typeof initCmsPageMasterLogic === 'function') {
+        initCmsPageMasterLogic();
+    }
 }

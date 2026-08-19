@@ -71,6 +71,12 @@ async function loadCmsWorkspace(targetId) {
           initTestimonialSettingLogic();
         }
         break;
+      case "comp-cta":
+        if (typeof renderCtaSetting === "function") {
+          workspace.innerHTML = await renderCtaSetting();
+          initCtaSettingLogic();
+        }
+        break;
       default:
         workspace.innerHTML = renderPlaceholder(`Komponen ${targetId}`);
         break;

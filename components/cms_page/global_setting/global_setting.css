@@ -1,0 +1,8 @@
+.drag-active-zone {
+    border-color: #FAD812 !important; /* Pakai warna accent biar beda dikit */
+    background-color: rgba(250, 216, 18, 0.05) !important;
+}
+.drag-active-zone .drag-zone-icon {
+    color: #FAD812;
+    transform: scale(1.1) translateY(-4px);
+}

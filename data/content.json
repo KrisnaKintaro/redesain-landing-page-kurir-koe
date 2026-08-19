@@ -1,15 +1,15 @@
 {
     "nama_perusahaan": "Kurir Koe",
     "theme": {
-        "primary": "#0054B7",
-        "accent": "#FAD812"
+        "primary": "#1a80f4",
+        "accent": "#fad812"
     },
     "global_meta": {
-        "title": "Kurir Koe - Solusi Pengiriman Terpercaya",
-        "description": "Layanan kurir andalan untuk UMKM dan personal dengan jangkauan ke seluruh pelosok Nusantara.",
+        "title": "Kurir Koe - Solusi Pengiriman Terpercayas",
+        "description": "Layanan kurir andalan untuk UMKM dan personal dengan jangkauan ke seluruh pelosok Nusantara.s",
         "favicon_url": "./assets/images/logo_kurir_koefav.webp",
-        "font_url": "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap",
-        "font_family": "Poppins"
+        "font_url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap",
+        "font_family": "Inter"
     },
     "nav_menu": [
         {

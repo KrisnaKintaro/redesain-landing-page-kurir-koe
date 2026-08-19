@@ -52,17 +52,73 @@ function initCmsSettingLogic() {
         window.State.data.cms_global.developer.role = inputs.devRole.value;
     };
 
-    [inputs.title, inputs.subtitle, inputs.font, inputs.devName, inputs.devRole].forEach(el => {
+    [inputs.title, inputs.subtitle, inputs.devName, inputs.devRole].forEach(el => {
         el?.addEventListener('input', updateCmsState);
+    });
+
+    // Terapin font pas pertama kali form ke-render
+    if (typeof applyCmsFont === 'function') applyCmsFont(inputs.font?.value);
+
+    // Font diketik bebas (bukan dropdown lagi) -> debounce dulu sebelum fetch ke Google Fonts,
+    // biar ga nembak request tiap 1 huruf diketik
+    let fontDebounceTimer = null;
+    inputs.font?.addEventListener('input', (e) => {
+        updateCmsState();
+        clearTimeout(fontDebounceTimer);
+        fontDebounceTimer = setTimeout(() => {
+            if (typeof applyCmsFont === 'function') applyCmsFont(e.target.value);
+        }, 500);
     });
 
     inputs.primary?.addEventListener('input', (e) => {
         inputs.primaryHex.textContent = e.target.value.toUpperCase();
         updateCmsState();
+        // Live preview: langsung terapin ke CSS variable, ga usah nunggu save/reload
+        if (typeof applyThemeColor === 'function') applyThemeColor(window.State.data.cms_global.theme);
     });
     inputs.accent?.addEventListener('input', (e) => {
         inputs.accentHex.textContent = e.target.value.toUpperCase();
         updateCmsState();
+        if (typeof applyThemeColor === 'function') applyThemeColor(window.State.data.cms_global.theme);
+    });
+
+    // ==============================================================
+    // RESET WARNA TEMA KE DEFAULT (root) + LANGSUNG PERSIST KE content.json
+    // ==============================================================
+    const DEFAULT_CMS_THEME = { primary: '#0054B7', accent: '#FAD812' };
+
+    document.getElementById('btn-reset-cms-theme')?.addEventListener('click', async () => {
+        const confirmed = await showConfirmModal({
+            title: 'Reset Warna Tema CMS?',
+            message: 'Warna Primary & Accent bakal balik ke default, dan langsung kesimpen ke server (content.json).',
+            confirmText: 'Ya, Reset',
+            cancelText: 'Batal',
+            variant: 'danger'
+        });
+        if (!confirmed) return;
+
+        // 1. Balikin value input & label hex ke default
+        if (inputs.primary && inputs.primaryHex) {
+            inputs.primary.value = DEFAULT_CMS_THEME.primary;
+            inputs.primaryHex.textContent = DEFAULT_CMS_THEME.primary.toUpperCase();
+        }
+        if (inputs.accent && inputs.accentHex) {
+            inputs.accent.value = DEFAULT_CMS_THEME.accent;
+            inputs.accentHex.textContent = DEFAULT_CMS_THEME.accent.toUpperCase();
+        }
+
+        // 2. Sync ke state lokal
+        updateCmsState();
+
+        // 3. Live preview instan
+        if (typeof applyThemeColor === 'function') {
+            applyThemeColor(window.State.data.cms_global.theme);
+        }
+
+        // 4. Langsung persist ke content.json (bukan cuma nunggu tombol Save manual)
+        if (typeof window.activeCmsSaveHandler === 'function') {
+            window.activeCmsSaveHandler();
+        }
     });
 
     let pendingLogoFile = null;
@@ -82,12 +138,46 @@ function initCmsSettingLogic() {
     };
 
     if (inputs.logoDrop && inputs.logoInput) {
-        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(evt => inputs.logoDrop.addEventListener(evt, e => { e.preventDefault(); e.stopPropagation(); }, false));
-        ['dragenter', 'dragover'].forEach(evt => inputs.logoDrop.addEventListener(evt, () => inputs.logoDrop.classList.add('drag-active-zone'), false));
-        ['dragleave', 'drop'].forEach(evt => inputs.logoDrop.addEventListener(evt, () => inputs.logoDrop.classList.remove('drag-active-zone'), false));
-        inputs.logoDrop.addEventListener('drop', (e) => { if (e.dataTransfer.files.length) handleImageUpload(e.dataTransfer.files[0]); });
-        inputs.logoInput.addEventListener('change', (e) => handleImageUpload(e.target.files[0]));
+    // 1. Proteksi window (Cegah gambar kebuka di tab baru kalau user meleset drop-nya)
+    // Bonus: Pake flag window.hasDragProtection biar gak memory leak kalau dirender ulang SPA
+    if (!window.hasDragProtection) {
+        ['dragover', 'drop'].forEach(evt => {
+            window.addEventListener(evt, (e) => e.preventDefault(), false);
+        });
+        window.hasDragProtection = true;
     }
+
+    // 2. Tempel event LANGSUNG ke input-nya (karena dia yang posisinya paling depan / z-10)
+    ['dragenter', 'dragover'].forEach(evt => {
+        inputs.logoInput.addEventListener(evt, (e) => {
+            e.preventDefault(); // Wajib dipanggil biar browser ngizinin Drop
+            e.stopPropagation(); // Biar gak nembus ke proteksi window
+            inputs.logoDrop.classList.add('drag-active-zone');
+        });
+    });
+
+    ['dragleave', 'drop'].forEach(evt => {
+        inputs.logoInput.addEventListener(evt, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            inputs.logoDrop.classList.remove('drag-active-zone');
+        });
+    });
+
+    // 3. Tangkap file pas user selesai nge-drop manual
+    inputs.logoInput.addEventListener('drop', (e) => {
+        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            handleImageUpload(e.dataTransfer.files[0]);
+        }
+    });
+
+    // 4. Tangkap file pas area diklik biasa (native browser)
+    inputs.logoInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files.length > 0) {
+            handleImageUpload(e.target.files[0]);
+        }
+    });
+}
 
     // ==============================================================
     // DAFTARKAN FUNGSI SIMPAN KE GLOBAL EVENT BUS
@@ -120,6 +210,33 @@ function initCmsSettingLogic() {
                 if(dSub) dSub.textContent = inputs.subtitle.value;
                 if(dDevName) dDevName.textContent = inputs.devName.value;
                 if(dDevRole) dDevRole.textContent = inputs.devRole.value;
+
+                // ==========================================================
+                // AUTO SYNC BIAR GA PERLU CTRL+F5
+                // ==========================================================
+
+                // 1. Server balikin cms_global paling update (termasuk logo_url baru
+                //    kalau extension-nya berubah pas upload) -> replace state lokal
+                if (result.cms_global) {
+                    window.State.data.cms_global = result.cms_global;
+                }
+
+                // 2. Terapin ulang tema warna ke CSS variable (jaga-jaga kalau ada
+                //    proses lain yang sempet reset)
+                if (typeof applyThemeColor === 'function') {
+                    applyThemeColor(window.State.data.cms_global.theme);
+                }
+
+                // 3. Cache-busting buat semua <img> yang nunjukin logo CMS, soalnya
+                //    browser suka nge-cache gambar lama walau nama file sama
+                const freshLogoUrl = window.State.data.cms_global.logo_url;
+                if (freshLogoUrl) {
+                    const bustedUrl = freshLogoUrl + '?v=' + Date.now();
+                    document.querySelectorAll('img[src*="logo_cms_kurir_koe"]').forEach(img => {
+                        img.src = bustedUrl;
+                    });
+                    if (inputs.logoPrev) inputs.logoPrev.src = bustedUrl;
+                }
 
             } else throw new Error(result.message);
         })

@@ -41,3 +41,16 @@ html {
     opacity: 1;
     transform: translateY(0); /* Balik ke posisi asli */
 }
+
+/* --- Visual Feedback Drag & Drop (Upload Logo CMS) --- */
+.drag-active-zone {
+    border-color: var(--color-primary, #0054B7) !important;
+    background-color: rgba(0, 84, 183, 0.06) !important;
+    transform: scale(1.02);
+    transition: all 0.15s ease-out;
+}
+
+.drag-active-zone .drag-zone-icon {
+    color: var(--color-primary, #0054B7);
+    transform: scale(1.1) translateY(-4px);
+}

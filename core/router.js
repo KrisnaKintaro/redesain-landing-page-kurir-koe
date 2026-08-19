@@ -13,7 +13,15 @@ const router = async () => {
     const app = document.getElementById('app');
     let path = window.location.hash.slice(1) || '/'; 
     const renderPage = routes[path] || routes['/'];
-    
+
+    if (path === '/admin') {
+        const cmsGlobal = window.State.get('cms_global');
+        if (typeof applyThemeColor === 'function') applyThemeColor(cmsGlobal?.theme);
+        if (typeof applyCmsFont === 'function') applyCmsFont(cmsGlobal?.font_family);
+    } else {
+        if (typeof applyThemeColor === 'function') applyThemeColor(window.State.get('theme'));
+    }
+
     // Loading Screen
     app.innerHTML = `
         <div class="h-screen w-full flex flex-col items-center justify-center bg-gray-50 fade-in">

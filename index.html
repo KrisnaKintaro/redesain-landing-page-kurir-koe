@@ -3,19 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- Meta Title & Description Dinamis -->
     <title id="meta-title">Loading...</title>
     <meta id="meta-desc" name="description" content="Loading..." />
-    
+
     <!-- Favicon Dinamis -->
-    <link id="meta-favicon" rel="icon" type="image/webp" href="./assets/images/logo_kurir_koefav.webp" />
-    
+    <link
+      id="meta-favicon"
+      rel="icon"
+      type="image/webp"
+      href="./assets/images/logo_kurir_koefav.webp"
+    />
+
     <!-- Google Fonts Dinamis -->
-    <link id="meta-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-    
+    <link
+      id="meta-font"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+
     <!-- FontAwesome Icons CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <!-- Tailwind CSS CDN & Config -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,8 +36,8 @@
         theme: {
           extend: {
             colors: {
-              primary: "#0054B7",
-              accent: "#FAD812",
+              primary: "var(--color-primary, #0054B7)",
+              accent: "var(--color-accent, #FAD812)",
               light: "#F8F9FA",
             },
             fontFamily: {
@@ -68,7 +80,7 @@
 
     <!-- How It Works -->
     <!-- <script src="./components/landing_page/how_it_works/how_it_works.js"></script>  -->
-     
+
     <!-- Benefits -->
     <script src="./components/landing_page/benefits/benefits.js"></script>
 

@@ -169,6 +169,34 @@ if (isset($_FILES['partnership_image']) && $_FILES['partnership_image']['error']
 }
 
 // ==============================================================
+// PROSES UPLOAD CTA IMAGE
+// ==============================================================
+if (isset($_FILES['cta_image']) && $_FILES['cta_image']['error'] === UPLOAD_ERR_OK) {
+    $originalExt = strtolower(pathinfo($_FILES['cta_image']['name'], PATHINFO_EXTENSION));
+    if (in_array($originalExt, $allowedExt)) {
+        $baseName = 'cta_illustration';
+        $newFileName = $baseName . '.' . $originalExt;
+        $uploadPath = $uploadDir . $newFileName;
+        
+        $oldFiles = glob($uploadDir . $baseName . '.*');
+        if ($oldFiles) {
+            foreach ($oldFiles as $oldFile) {
+                if (strtolower($oldFile) !== strtolower($uploadPath)) @unlink($oldFile);
+            }
+        }
+        
+        if (move_uploaded_file($_FILES['cta_image']['tmp_name'], $uploadPath)) {
+            if (!isset($existingData['cta']) || !is_array($existingData['cta'])) {
+                $existingData['cta'] = [];
+            }
+            $existingData['cta']['image_url'] = './assets/images/' . $newFileName;
+            $isUpdated = true;
+            $response['cta'] = $existingData['cta']; 
+        }
+    }
+}
+
+// ==============================================================
 // 3. TULIS SEKALI AJA KE content.json (SETELAH semua proses selesai)
 // ==============================================================
 if ($isUpdated) {

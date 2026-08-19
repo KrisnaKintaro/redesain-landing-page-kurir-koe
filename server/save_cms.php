@@ -141,6 +141,34 @@ if (isset($_FILES['hero_image']) && $_FILES['hero_image']['error'] === UPLOAD_ER
 }
 
 // ==============================================================
+// PROSES UPLOAD PARTNERSHIP IMAGE
+// ==============================================================
+if (isset($_FILES['partnership_image']) && $_FILES['partnership_image']['error'] === UPLOAD_ERR_OK) {
+    $originalExt = strtolower(pathinfo($_FILES['partnership_image']['name'], PATHINFO_EXTENSION));
+    if (in_array($originalExt, $allowedExt)) {
+        $baseName = 'partnership_illustration';
+        $newFileName = $baseName . '.' . $originalExt;
+        $uploadPath = $uploadDir . $newFileName;
+        
+        $oldFiles = glob($uploadDir . $baseName . '.*');
+        if ($oldFiles) {
+            foreach ($oldFiles as $oldFile) {
+                if (strtolower($oldFile) !== strtolower($uploadPath)) @unlink($oldFile);
+            }
+        }
+        
+        if (move_uploaded_file($_FILES['partnership_image']['tmp_name'], $uploadPath)) {
+            if (!isset($existingData['partnership']) || !is_array($existingData['partnership'])) {
+                $existingData['partnership'] = [];
+            }
+            $existingData['partnership']['image_url'] = './assets/images/' . $newFileName;
+            $isUpdated = true;
+            $response['partnership'] = $existingData['partnership']; 
+        }
+    }
+}
+
+// ==============================================================
 // 3. TULIS SEKALI AJA KE content.json (SETELAH semua proses selesai)
 // ==============================================================
 if ($isUpdated) {

@@ -1,300 +1,670 @@
 <div class="max-w-5xl mx-auto workspace-anim">
-    <div class="mb-8 cms-card-anim">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">Pengaturan Navbar Master</h2>
-        <p class="text-gray-500 mt-2 text-sm sm:text-base">Atur menu navigasi, teks drawer mobile, tombol aksi (Login & Download), dan modal login.</p>
+  <div class="mb-8 cms-card-anim">
+    <h2
+      class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight"
+    >
+      Pengaturan Navbar Master
+    </h2>
+    <p class="text-gray-500 mt-2 text-sm sm:text-base">
+      Atur menu navigasi, teks drawer mobile, tombol aksi (Login & Download),
+      dan modal login.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+    <!-- KOLOM KIRI (Drawer & Buttons) -->
+    <div class="lg:col-span-5 space-y-6">
+      <!-- Card Mobile Drawer -->
+      <div
+        class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-1"
+      >
+        <h3
+          class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-5 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-mobile-screen-button text-primary"></i> Mobile
+          Drawer Brand
+        </h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-bold text-gray-700 mb-2"
+              >Teks 1 (Aksen)</label
+            >
+            <input
+              type="text"
+              id="set-nav-drawer-1"
+              class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 font-semibold"
+              placeholder="Contoh: Kurir"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-bold text-gray-700 mb-2"
+              >Teks 2 (Primary)</label
+            >
+            <input
+              type="text"
+              id="set-nav-drawer-2"
+              class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 font-semibold"
+              placeholder="Contoh: Koe"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Action Buttons -->
+      <div
+        class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-2"
+      >
+        <h3
+          class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-5 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-hand-pointer text-accent"></i> Tombol Aksi
+        </h3>
+
+        <div class="space-y-5">
+          <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+            <label
+              class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-3"
+              >Tombol Login</label
+            >
+            <input
+              type="text"
+              id="set-nav-login-label"
+              class="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 font-semibold mb-2"
+              placeholder="Label, cth: Masuk"
+            />
+          </div>
+
+          <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+            <label
+              class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-3"
+              >Tombol Download</label
+            >
+            <input
+              type="text"
+              id="set-nav-dl-label"
+              class="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 font-semibold mb-3"
+              placeholder="Label, cth: Download App"
+            />
+
+            <label class="block text-[11px] font-bold text-gray-500 mb-1"
+              >Target Section ID</label
+            >
+            <select
+              id="set-nav-dl-target"
+              class="w-full bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 cursor-pointer"
+            >
+              <option value="hero">Hero Section</option>
+              <option value="stats">Stats Section</option>
+              <option value="services">Services</option>
+              <option value="how-it-works">How It Works</option>
+              <option value="benefits">Benefits</option>
+              <option value="partnership">Partnership</option>
+              <option value="testimonial">Testimonial</option>
+              <option value="cta">Call to Action (CTA)</option>
+              <option value="footer">Footer / Contact Us</option>
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-        
-        <!-- KOLOM KIRI (Drawer & Buttons) -->
-        <div class="lg:col-span-5 space-y-6">
-            
-            <!-- Card Mobile Drawer -->
-            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-1">
-                <h3 class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-5 flex items-center gap-2">
-                    <i class="fa-solid fa-mobile-screen-button text-primary"></i> Mobile Drawer Brand
-                </h3>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Teks 1 (Aksen)</label>
-                        <input type="text" id="set-nav-drawer-1" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 font-semibold" placeholder="Contoh: Kurir">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Teks 2 (Primary)</label>
-                        <input type="text" id="set-nav-drawer-2" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 font-semibold" placeholder="Contoh: Koe">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card Action Buttons -->
-            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-2">
-                <h3 class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-5 flex items-center gap-2">
-                    <i class="fa-solid fa-hand-pointer text-accent"></i> Tombol Aksi
-                </h3>
-                
-                <div class="space-y-5">
-                    <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
-                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Tombol Login</label>
-                        <input type="text" id="set-nav-login-label" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 font-semibold mb-2" placeholder="Label, cth: Masuk">
-                    </div>
-
-                    <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
-                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Tombol Download</label>
-                        <input type="text" id="set-nav-dl-label" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 font-semibold mb-3" placeholder="Label, cth: Download App">
-                        
-                        <label class="block text-[11px] font-bold text-gray-500 mb-1">Target Section ID</label>
-                        <select id="set-nav-dl-target" class="w-full bg-white border border-gray-200 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 cursor-pointer">
-                            <option value="hero">Hero Section</option>
-                            <option value="stats">Stats Section</option>
-                            <option value="services">Services</option>
-                            <option value="how-it-works">How It Works</option>
-                            <option value="benefits">Benefits</option>
-                            <option value="partnership">Partnership</option>
-                            <option value="testimonial">Testimonial</option>
-                            <option value="cta">Call to Action (CTA)</option>
-                            <option value="footer">Footer / Contact Us</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
+    <!-- KOLOM KANAN (List Menu Dinamis) -->
+    <div class="lg:col-span-7">
+      <div
+        class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md h-full cms-card-anim cms-delay-3"
+      >
+        <div
+          class="flex items-center justify-between border-b border-gray-100 pb-4 mb-5"
+        >
+          <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+            <i class="fa-solid fa-list text-primary"></i> Navigasi Menu
+          </h3>
+          <button
+            type="button"
+            id="btn-add-nav-menu"
+            class="text-xs font-bold bg-blue-50 text-primary hover:bg-primary hover:text-white px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 shadow-sm"
+          >
+            <i class="fa-solid fa-plus"></i> Tambah Menu
+          </button>
         </div>
 
-        <!-- KOLOM KANAN (List Menu Dinamis) -->
-        <div class="lg:col-span-7">
-            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md h-full cms-card-anim cms-delay-3">
-                <div class="flex items-center justify-between border-b border-gray-100 pb-4 mb-5">
-                    <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
-                        <i class="fa-solid fa-list text-primary"></i> Navigasi Menu
-                    </h3>
-                    <button type="button" id="btn-add-nav-menu" class="text-xs font-bold bg-blue-50 text-primary hover:bg-primary hover:text-white px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 shadow-sm">
-                        <i class="fa-solid fa-plus"></i> Tambah Menu
-                    </button>
-                </div>
-                
-                <p class="text-xs text-gray-400 mb-4"><i class="fa-solid fa-circle-info"></i> Gunakan class icon dari <b>FontAwesome</b> (cth: <code>fa-house</code>).</p>
-                
-                <div id="nav-menu-list-container" class="space-y-3 max-h-[460px] overflow-y-auto pr-2 cms-scrollbar">
-                    <!-- Item menu bakal disuntik JS ke sini -->
-                </div>
-            </div>
+        <p class="text-xs text-gray-400 mb-4">
+          <i class="fa-solid fa-circle-info"></i> Gunakan class icon dari
+          <b>FontAwesome</b> (cth: <code>fa-house</code>).
+        </p>
+
+        <div
+          id="nav-menu-list-container"
+          class="space-y-3 max-h-[460px] overflow-y-auto pr-2 cms-scrollbar"
+        >
+          <!-- Item menu bakal disuntik JS ke sini -->
         </div>
-
-        <!-- BARIS BAWAH FULL WIDTH (Card Login Modal) -->
-        <div class="lg:col-span-12">
-            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-4">
-                <h3 class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-6 flex items-center gap-2">
-                    <i class="fa-solid fa-fingerprint text-blue-500"></i> Pengaturan Modal Login
-                </h3>
-                
-                <div class="space-y-6 max-h-[600px] overflow-y-auto pr-2 cms-scrollbar">
-                    
-                    <!-- Row 1: Judul Utama -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div>
-                            <label class="block text-xs font-bold text-gray-500 mb-1">Judul Modal Utama</label>
-                            <input type="text" id="set-mod-opt-title" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none text-gray-800 font-bold">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-gray-500 mb-1">Sub Judul Modal</label>
-                            <input type="text" id="set-mod-opt-sub" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none text-gray-800">
-                        </div>
-                    </div>
-
-                    <!-- Row 2: Setup Form Teks Default -->
-                    <div class="p-5 border border-dashed border-gray-300 rounded-xl bg-gray-50/50">
-                        <h4 class="text-xs font-bold text-primary uppercase tracking-widest mb-4">Teks Form General</h4>
-                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Email Label</label>
-                                <input type="text" id="set-mod-em-lbl" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Email Placeholder</label>
-                                <input type="text" id="set-mod-em-ph" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Pass Label</label>
-                                <input type="text" id="set-mod-pw-lbl" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Pass Placeholder</label>
-                                <input type="text" id="set-mod-pw-ph" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Captcha Label</label>
-                                <input type="text" id="set-mod-cap-lbl" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Captcha Placeholder</label>
-                                <input type="text" id="set-mod-cap-ph" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Teks Remember Me</label>
-                                <input type="text" id="set-mod-rem-txt" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Teks Loading</label>
-                                <input type="text" id="set-mod-load-txt" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Teks Tombol Submit</label>
-                                <input type="text" id="set-mod-sub-txt" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Teks Kembali (Back)</label>
-                                <input type="text" id="set-mod-back-txt" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Row 3: Alerts / Notifikasi -->
-                    <div class="p-5 border border-dashed border-red-200 rounded-xl bg-red-50/20 mb-6">
-                        <h4 class="text-xs font-bold text-red-500 uppercase tracking-widest mb-4">Pesan Notifikasi (Alerts)</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Email Empty</label>
-                                <input type="text" id="set-alt-em-emp" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-red-300">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Email Invalid</label>
-                                <input type="text" id="set-alt-em-inv" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-red-300">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Password Empty</label>
-                                <input type="text" id="set-alt-pw-emp" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-red-300">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Captcha Empty</label>
-                                <input type="text" id="set-alt-cap-emp" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-red-300">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-gray-500 mb-1">Captcha Wrong</label>
-                                <input type="text" id="set-alt-cap-wrg" class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-red-300">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-bold text-green-600 mb-1">Login Success ({role})</label>
-                                <input type="text" id="set-alt-success" class="w-full bg-white border border-green-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-green-400">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Row 4: Setup Per Role (Menyamping) -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <!-- Karyawan -->
-                        <div class="p-5 border-l-4 border-blue-500 rounded-r-xl bg-blue-50/30">
-                            <h4 class="text-sm font-bold text-blue-700 mb-3">Portal Karyawan</h4>
-                            <div class="space-y-3">
-                                <div class="grid grid-cols-2 gap-3">
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-gray-500 mb-1">Judul Opsi (Pilihan)</label>
-                                        <input type="text" id="set-kar-opt-title" class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-semibold" placeholder="Karyawan">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-gray-500 mb-1">Sub Judul Opsi</label>
-                                        <input type="text" id="set-kar-opt-sub" class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500" placeholder="Kurir & Operasional">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-gray-500 mb-1">Judul Form Login</label>
-                                        <input type="text" id="set-kar-thm-title" class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-semibold" placeholder="Karyawan Login">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-gray-500 mb-1">URL Redirect</label>
-                                        <input type="text" id="set-kar-thm-url" class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-[10px] font-bold text-gray-500 mb-1">Teks Bawah Judul Form (Subtitle)</label>
-                                    <input type="text" id="set-kar-thm-sub" class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500" placeholder="Welcome to the Employee Portal...">
-                                </div>
-                                <div class="border-t border-blue-200/50 pt-3 mt-3">
-                                    <h5 class="text-[10px] font-bold text-blue-600 uppercase">Styling (Class CSS)</h5>
-                                    <p class="text-[10px] text-gray-500 mb-2">Gunakan class Tailwind CSS untuk menyesuaikan tampilan elemen</p>
-                                    <div class="grid grid-cols-2 gap-3">
-                                        <div>
-                                            <label class="block text-[9px] font-bold text-gray-500 mb-1">Icon Role</label>
-                                            <input type="text" id="set-kar-icon" class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-mono">
-                                        </div>
-                                        <div>
-                                            <label class="block text-[9px] font-bold text-gray-500 mb-1">CSS Icon BG</label>
-                                            <input type="text" id="set-kar-css-bg" class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-mono">
-                                        </div>
-                                        <div>
-                                            <label class="block text-[9px] font-bold text-gray-500 mb-1">CSS Input</label>
-                                            <input type="text" id="set-kar-css-inp" class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-mono">
-                                        </div>
-                                        <div>
-                                            <label class="block text-[9px] font-bold text-gray-500 mb-1">CSS Checkbox</label>
-                                            <input type="text" id="set-kar-css-chk" class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-mono">
-                                        </div>
-                                        <div class="col-span-2">
-                                            <label class="block text-[9px] font-bold text-gray-500 mb-1">CSS Button Submit</label>
-                                            <input type="text" id="set-kar-css-btn" class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-mono">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Admin -->
-                        <div class="p-5 border-l-4 border-yellow-500 rounded-r-xl bg-yellow-50/30">
-                            <h4 class="text-sm font-bold text-yellow-700 mb-3">Portal Admin</h4>
-                            <div class="space-y-3">
-                                <div class="grid grid-cols-2 gap-3">
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-gray-500 mb-1">Judul Opsi (Pilihan)</label>
-                                        <input type="text" id="set-adm-opt-title" class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-semibold" placeholder="Admin">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-gray-500 mb-1">Sub Judul Opsi</label>
-                                        <input type="text" id="set-adm-opt-sub" class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500" placeholder="Manajemen & Sistem">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-gray-500 mb-1">Judul Form Login</label>
-                                        <input type="text" id="set-adm-thm-title" class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-semibold" placeholder="Admin Login">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[10px] font-bold text-gray-500 mb-1">URL Redirect</label>
-                                        <input type="text" id="set-adm-thm-url" class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-[10px] font-bold text-gray-500 mb-1">Teks Bawah Judul Form (Subtitle)</label>
-                                    <input type="text" id="set-adm-thm-sub" class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500" placeholder="Welcome back! Please login...">
-                                </div>
-                                <div class="border-t border-yellow-200/50 pt-3 mt-3">
-                                    <h5 class="text-[10px] font-bold text-blue-600 uppercase">Styling (Class CSS)</h5>
-                                    <p class="text-[10px] text-gray-500 mb-2">Gunakan class Tailwind CSS untuk menyesuaikan tampilan elemen</p>
-                                    <div class="grid grid-cols-2 gap-3">
-                                        <div>
-                                            <label class="block text-[9px] font-bold text-gray-500 mb-1">Icon Role</label>
-                                            <input type="text" id="set-adm-icon" class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-mono">
-                                        </div>
-                                        <div>
-                                            <label class="block text-[9px] font-bold text-gray-500 mb-1">CSS Icon BG</label>
-                                            <input type="text" id="set-adm-css-bg" class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-mono">
-                                        </div>
-                                        <div>
-                                            <label class="block text-[9px] font-bold text-gray-500 mb-1">CSS Input</label>
-                                            <input type="text" id="set-adm-css-inp" class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-mono">
-                                        </div>
-                                        <div>
-                                            <label class="block text-[9px] font-bold text-gray-500 mb-1">CSS Checkbox</label>
-                                            <input type="text" id="set-adm-css-chk" class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-mono">
-                                        </div>
-                                        <div class="col-span-2">
-                                            <label class="block text-[9px] font-bold text-gray-500 mb-1">CSS Button Submit</label>
-                                            <input type="text" id="set-adm-css-btn" class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-mono">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
+      </div>
     </div>
+
+    <!-- BARIS BAWAH FULL WIDTH (Card Login Modal) -->
+    <div class="lg:col-span-12">
+      <div
+        class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-4"
+      >
+        <h3
+          class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-6 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-fingerprint text-blue-500"></i> Pengaturan Modal
+          Login
+        </h3>
+
+        <div class="space-y-6 max-h-[600px] overflow-y-auto pr-2 cms-scrollbar">
+          <!-- Row 1: Judul Utama -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs font-bold text-gray-500 mb-1"
+                >Judul Modal Utama</label
+              >
+              <input
+                type="text"
+                id="set-mod-opt-title"
+                class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none text-gray-800 font-bold"
+              />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-gray-500 mb-1"
+                >Sub Judul Modal</label
+              >
+              <input
+                type="text"
+                id="set-mod-opt-sub"
+                class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none text-gray-800"
+              />
+            </div>
+          </div>
+
+          <!-- Row 2: Setup Form Teks Default -->
+          <div
+            class="p-5 border border-dashed border-gray-300 rounded-xl bg-gray-50/50"
+          >
+            <h4
+              class="text-xs font-bold text-primary uppercase tracking-widest mb-4"
+            >
+              Teks Form General
+            </h4>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Email Label</label
+                >
+                <input
+                  type="text"
+                  id="set-mod-em-lbl"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Email Placeholder</label
+                >
+                <input
+                  type="text"
+                  id="set-mod-em-ph"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Pass Label</label
+                >
+                <input
+                  type="text"
+                  id="set-mod-pw-lbl"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Pass Placeholder</label
+                >
+                <input
+                  type="text"
+                  id="set-mod-pw-ph"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Captcha Label</label
+                >
+                <input
+                  type="text"
+                  id="set-mod-cap-lbl"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Captcha Placeholder</label
+                >
+                <input
+                  type="text"
+                  id="set-mod-cap-ph"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Teks Remember Me</label
+                >
+                <input
+                  type="text"
+                  id="set-mod-rem-txt"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Teks Loading</label
+                >
+                <input
+                  type="text"
+                  id="set-mod-load-txt"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Teks Tombol Submit</label
+                >
+                <input
+                  type="text"
+                  id="set-mod-sub-txt"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Teks Kembali (Back)</label
+                >
+                <input
+                  type="text"
+                  id="set-mod-back-txt"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-primary"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3: Alerts / Notifikasi -->
+          <div
+            class="p-5 border border-dashed border-red-200 rounded-xl bg-red-50/20 mb-6"
+          >
+            <h4
+              class="text-xs font-bold text-red-500 uppercase tracking-widest mb-4"
+            >
+              Pesan Notifikasi (Alerts)
+            </h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Email Empty</label
+                >
+                <input
+                  type="text"
+                  id="set-alt-em-emp"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-red-300"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Email Invalid</label
+                >
+                <input
+                  type="text"
+                  id="set-alt-em-inv"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-red-300"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Password Empty</label
+                >
+                <input
+                  type="text"
+                  id="set-alt-pw-emp"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-red-300"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Captcha Empty</label
+                >
+                <input
+                  type="text"
+                  id="set-alt-cap-emp"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-red-300"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                  >Captcha Wrong</label
+                >
+                <input
+                  type="text"
+                  id="set-alt-cap-wrg"
+                  class="w-full bg-white border border-gray-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-red-300"
+                />
+              </div>
+              <div>
+                <label class="block text-[10px] font-bold text-green-600 mb-1"
+                  >Login Success ({role})</label
+                >
+                <input
+                  type="text"
+                  id="set-alt-success"
+                  class="w-full bg-white border border-green-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-green-400"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 4: Setup Per Role (Menyamping) -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Karyawan -->
+            <div
+              class="p-5 border-l-4 border-blue-500 rounded-r-xl bg-blue-50/30"
+            >
+              <h4 class="text-sm font-bold text-blue-700 mb-3">
+                Portal Karyawan
+              </h4>
+              <div class="space-y-3">
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label
+                      class="block text-[10px] font-bold text-gray-500 mb-1"
+                      >Judul Opsi (Pilihan)</label
+                    >
+                    <input
+                      type="text"
+                      id="set-kar-opt-title"
+                      class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-semibold"
+                      placeholder="Karyawan"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-[10px] font-bold text-gray-500 mb-1"
+                      >Sub Judul Opsi</label
+                    >
+                    <input
+                      type="text"
+                      id="set-kar-opt-sub"
+                      class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500"
+                      placeholder="Kurir & Operasional"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-[10px] font-bold text-gray-500 mb-1"
+                      >Judul Form Login</label
+                    >
+                    <input
+                      type="text"
+                      id="set-kar-thm-title"
+                      class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-semibold"
+                      placeholder="Karyawan Login"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-[10px] font-bold text-gray-500 mb-1"
+                      >URL Redirect</label
+                    >
+                    <input
+                      type="text"
+                      id="set-kar-thm-url"
+                      class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                    >Teks Bawah Judul Form (Subtitle)</label
+                  >
+                  <input
+                    type="text"
+                    id="set-kar-thm-sub"
+                    class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500"
+                    placeholder="Welcome to the Employee Portal..."
+                  />
+                </div>
+                <div class="border-t border-blue-200/50 pt-3 mt-3">
+                  <h5 class="text-[10px] font-bold text-blue-600 uppercase">
+                    Styling (Class CSS)
+                  </h5>
+                  <p class="text-[10px] text-gray-500 mb-2">
+                    Gunakan class Tailwind CSS untuk menyesuaikan tampilan
+                    elemen
+                  </p>
+                  <div class="grid grid-cols-2 gap-3">
+                    <div>
+                      <label
+                        class="block text-[9px] font-bold text-gray-500 mb-1"
+                        >Icon Role</label
+                      >
+                      <div class="flex items-center gap-2">
+                        <div
+                          id="prev-kar-icon-bg"
+                          class="w-7 h-7 rounded-md flex items-center justify-center shrink-0 shadow-sm border border-blue-100"
+                        >
+                          <i
+                            id="prev-kar-icon"
+                            class="fa-solid fa-user-group text-sm"
+                          ></i>
+                        </div>
+                        <input
+                          type="text"
+                          id="set-kar-icon"
+                          class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-mono"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        class="block text-[9px] font-bold text-gray-500 mb-1"
+                        >CSS Icon BG</label
+                      >
+                      <input
+                        type="text"
+                        id="set-kar-css-bg"
+                        class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-mono"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-[9px] font-bold text-gray-500 mb-1"
+                        >CSS Input</label
+                      >
+                      <input
+                        type="text"
+                        id="set-kar-css-inp"
+                        class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-mono"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-[9px] font-bold text-gray-500 mb-1"
+                        >CSS Checkbox</label
+                      >
+                      <input
+                        type="text"
+                        id="set-kar-css-chk"
+                        class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-mono"
+                      />
+                    </div>
+                    <div class="col-span-2">
+                      <label
+                        class="block text-[9px] font-bold text-gray-500 mb-1"
+                        >CSS Button Submit</label
+                      >
+                      <input
+                        type="text"
+                        id="set-kar-css-btn"
+                        class="w-full bg-white border border-blue-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-blue-500 font-mono"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Admin -->
+            <div
+              class="p-5 border-l-4 border-yellow-500 rounded-r-xl bg-yellow-50/30"
+            >
+              <h4 class="text-sm font-bold text-yellow-700 mb-3">
+                Portal Admin
+              </h4>
+              <div class="space-y-3">
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label
+                      class="block text-[10px] font-bold text-gray-500 mb-1"
+                      >Judul Opsi (Pilihan)</label
+                    >
+                    <input
+                      type="text"
+                      id="set-adm-opt-title"
+                      class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-semibold"
+                      placeholder="Admin"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-[10px] font-bold text-gray-500 mb-1"
+                      >Sub Judul Opsi</label
+                    >
+                    <input
+                      type="text"
+                      id="set-adm-opt-sub"
+                      class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500"
+                      placeholder="Manajemen & Sistem"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-[10px] font-bold text-gray-500 mb-1"
+                      >Judul Form Login</label
+                    >
+                    <input
+                      type="text"
+                      id="set-adm-thm-title"
+                      class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-semibold"
+                      placeholder="Admin Login"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-[10px] font-bold text-gray-500 mb-1"
+                      >URL Redirect</label
+                    >
+                    <input
+                      type="text"
+                      id="set-adm-thm-url"
+                      class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-[10px] font-bold text-gray-500 mb-1"
+                    >Teks Bawah Judul Form (Subtitle)</label
+                  >
+                  <input
+                    type="text"
+                    id="set-adm-thm-sub"
+                    class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500"
+                    placeholder="Welcome back! Please login..."
+                  />
+                </div>
+                <div class="border-t border-yellow-200/50 pt-3 mt-3">
+                  <h5 class="text-[10px] font-bold text-blue-600 uppercase">
+                    Styling (Class CSS)
+                  </h5>
+                  <p class="text-[10px] text-gray-500 mb-2">
+                    Gunakan class Tailwind CSS untuk menyesuaikan tampilan
+                    elemen
+                  </p>
+                  <div class="grid grid-cols-2 gap-3">
+                    <div>
+                      <label
+                        class="block text-[9px] font-bold text-gray-500 mb-1"
+                        >Icon Role</label
+                      >
+                      <div class="flex items-center gap-2">
+                        <div
+                          id="prev-adm-icon-bg"
+                          class="w-7 h-7 rounded-md flex items-center justify-center shrink-0 shadow-sm border border-yellow-100"
+                        >
+                          <i
+                            id="prev-adm-icon"
+                            class="fa-solid fa-shield-halved text-sm"
+                          ></i>
+                        </div>
+                        <input
+                          type="text"
+                          id="set-adm-icon"
+                          class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-mono"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        class="block text-[9px] font-bold text-gray-500 mb-1"
+                        >CSS Icon BG</label
+                      >
+                      <input
+                        type="text"
+                        id="set-adm-css-bg"
+                        class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-mono"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-[9px] font-bold text-gray-500 mb-1"
+                        >CSS Input</label
+                      >
+                      <input
+                        type="text"
+                        id="set-adm-css-inp"
+                        class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-mono"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-[9px] font-bold text-gray-500 mb-1"
+                        >CSS Checkbox</label
+                      >
+                      <input
+                        type="text"
+                        id="set-adm-css-chk"
+                        class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-mono"
+                      />
+                    </div>
+                    <div class="col-span-2">
+                      <label
+                        class="block text-[9px] font-bold text-gray-500 mb-1"
+                        >CSS Button Submit</label
+                      >
+                      <input
+                        type="text"
+                        id="set-adm-css-btn"
+                        class="w-full bg-white border border-yellow-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-yellow-500 font-mono"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

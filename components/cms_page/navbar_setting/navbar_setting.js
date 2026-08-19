@@ -72,7 +72,13 @@ function initNavbarSettingLogic() {
         admCssBg: document.getElementById('set-adm-css-bg'),
         admCssInp: document.getElementById('set-adm-css-inp'),
         admCssChk: document.getElementById('set-adm-css-chk'),
-        admCssBtn: document.getElementById('set-adm-css-btn')
+        admCssBtn: document.getElementById('set-adm-css-btn'),
+
+        // Preview Elements
+        prevKarIcon: document.getElementById('prev-kar-icon'),
+        prevKarIconBg: document.getElementById('prev-kar-icon-bg'),
+        prevAdmIcon: document.getElementById('prev-adm-icon'),
+        prevAdmIconBg: document.getElementById('prev-adm-icon-bg')
     };
 
     const menuContainer = document.getElementById('nav-menu-list-container');
@@ -131,7 +137,12 @@ function initNavbarSettingLogic() {
     if(inputs.admCssInp) inputs.admCssInp.value = loginModalData.form?.themes?.admin?.css_input || "";
     if(inputs.admCssChk) inputs.admCssChk.value = loginModalData.form?.themes?.admin?.css_checkbox || "";
     if(inputs.admCssBtn) inputs.admCssBtn.value = loginModalData.form?.themes?.admin?.css_btn || "";
+    // Tembak Data Initial Preview Icon & Background
+    if(inputs.prevKarIcon) inputs.prevKarIcon.className = `fa-solid ${inputs.karIcon.value || 'fa-user-group'} text-sm`;
+    if(inputs.prevKarIconBg) inputs.prevKarIconBg.className = `w-7 h-7 rounded-md flex items-center justify-center shrink-0 shadow-sm border border-blue-100 ${inputs.karCssBg.value}`;
 
+    if(inputs.prevAdmIcon) inputs.prevAdmIcon.className = `fa-solid ${inputs.admIcon.value || 'fa-shield-halved'} text-sm`;
+    if(inputs.prevAdmIconBg) inputs.prevAdmIconBg.className = `w-7 h-7 rounded-md flex items-center justify-center shrink-0 shadow-sm border border-yellow-100 ${inputs.admCssBg.value}`;
 
     // 3. Logic Render List Menu Dinamis (Tetap sama)
     const renderMenuList = () => {
@@ -211,6 +222,30 @@ function initNavbarSettingLogic() {
         });
     }
 
+    // Event Listener Live Preview Icon & Background Karyawan
+    if (inputs.karIcon) {
+        inputs.karIcon.addEventListener('input', (e) => {
+            if (inputs.prevKarIcon) inputs.prevKarIcon.className = `fa-solid ${e.target.value} text-sm`;
+        });
+    }
+    if (inputs.karCssBg) {
+        inputs.karCssBg.addEventListener('input', (e) => {
+            if (inputs.prevKarIconBg) inputs.prevKarIconBg.className = `w-7 h-7 rounded-md flex items-center justify-center shrink-0 shadow-sm border border-blue-100 ${e.target.value}`;
+        });
+    }
+
+    // Event Listener Live Preview Icon & Background Admin
+    if (inputs.admIcon) {
+        inputs.admIcon.addEventListener('input', (e) => {
+            if (inputs.prevAdmIcon) inputs.prevAdmIcon.className = `fa-solid ${e.target.value} text-sm`;
+        });
+    }
+    if (inputs.admCssBg) {
+        inputs.admCssBg.addEventListener('input', (e) => {
+            if (inputs.prevAdmIconBg) inputs.prevAdmIconBg.className = `w-7 h-7 rounded-md flex items-center justify-center shrink-0 shadow-sm border border-yellow-100 ${e.target.value}`;
+        });
+    }
+    
     // 5. Daftarkan Fungsi Save ke Tombol Global Navbar CMS
     window.activeCmsSaveHandler = () => {
         

@@ -29,10 +29,11 @@ async function loadCmsWorkspace(targetId) {
           initGlobalSettingLogic();
         }
         break;
-      case "setting-landing":
-        workspace.innerHTML = renderPlaceholder(
-          "Pengaturan Global Landing Page",
-        );
+      case "comp-navbar":
+        if (typeof renderNavbarSetting === "function") {
+          workspace.innerHTML = await renderNavbarSetting();
+          initNavbarSettingLogic();
+        }
         break;
       case "comp-hero":
         workspace.innerHTML = renderPlaceholder("Hero Section Component");

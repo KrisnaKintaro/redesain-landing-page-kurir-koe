@@ -52,7 +52,7 @@
         "description": "Kirim paket ke seluruh pelosok dengan mudah, cepat, dan aman bersama Kurir Koe.",
         "btn_primary": {
             "label": "Mulai Sekarang",
-            "target": "services"
+            "target": "cta"
         },
         "btn_secondary": {
             "label": "Gabung Mitra",

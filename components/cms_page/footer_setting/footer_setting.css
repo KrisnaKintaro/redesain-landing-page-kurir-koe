@@ -1,0 +1,8 @@
+.drag-active-zone {
+    border-color: #0054B7 !important;
+    background-color: rgba(0, 84, 183, 0.05) !important;
+}
+.drag-active-zone .drag-zone-icon {
+    color: #0054B7;
+    transform: scale(1.1) translateY(-4px);
+}

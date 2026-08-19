@@ -1,0 +1,157 @@
+<div class="max-w-5xl mx-auto workspace-anim">
+    <div class="mb-8 cms-card-anim">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">Pengaturan Footer Master</h2>
+        <p class="text-gray-500 mt-2 text-sm sm:text-base">Atur informasi brand, grup link navigasi bawah, kontak, peta, dan copyright.</p>
+    </div>
+
+    <div class="grid grid-cols-1 xl:grid-cols-12 gap-6 lg:gap-8">
+        
+        <!-- KOLOM KIRI (Brand, Contact, Maps) -->
+        <div class="xl:col-span-6 space-y-6">
+            
+            <!-- Card Brand Info & Socials -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-1">
+                <h3 class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-5 flex items-center gap-2">
+                    <i class="fa-solid fa-briefcase text-primary"></i> Brand Info & Social Media
+                </h3>
+                
+                <div id="set-ft-drop-zone" class="relative group border-2 border-dashed border-gray-300 rounded-xl p-4 text-center bg-gray-50 transition-all cursor-pointer flex flex-col items-center justify-center min-h-[140px] mb-4">
+                    <input type="file" id="set-ft-img-input" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" accept="image/png, image/webp, image/jpeg">
+                    <img id="set-ft-img-preview" src="" class="absolute inset-0 w-full h-full object-contain p-2 opacity-50 group-hover:opacity-20 transition-opacity z-0">
+                    <div class="relative z-10 flex flex-col items-center pointer-events-none">
+                        <i class="fa-solid fa-cloud-arrow-up text-xl text-primary mb-1 drag-zone-icon transition-transform"></i>
+                        <p class="text-[10px] font-bold text-gray-700">Upload Logo Footer (PNG/WEBP)</p>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="block text-[11px] font-bold text-gray-500 mb-1">Deskripsi Brand Footer</label>
+                    <textarea id="set-ft-desc" rows="3" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none text-gray-800 resize-none"></textarea>
+                </div>
+
+                <div class="border-t border-gray-100 pt-4">
+                    <div class="flex items-center justify-between mb-3">
+                        <label class="block text-[11px] font-bold text-gray-500">Social Media Links</label>
+                        <button type="button" id="btn-add-soc" class="text-[10px] font-bold bg-blue-50 text-primary px-2 py-1 rounded-md hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa-solid fa-plus"></i> Tambah Sosmed
+                        </button>
+                    </div>
+                    <div id="soc-list-container" class="space-y-2 max-h-[200px] overflow-y-auto pr-1 cms-scrollbar"></div>
+                </div>
+            </div>
+
+            <!-- Card Contact Us -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-2">
+                <h3 class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-5 flex items-center gap-2">
+                    <i class="fa-solid fa-headset text-accent"></i> Hubungi Kami (Contact)
+                </h3>
+                
+                <div class="mb-4">
+                    <label class="block text-[11px] font-bold text-gray-500 mb-1">Judul Seksi Kontak</label>
+                    <input type="text" id="set-ft-ct-title" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none font-bold">
+                </div>
+
+                <div class="p-4 border border-green-200 bg-green-50/30 rounded-xl mb-4">
+                    <h4 class="text-[10px] font-bold text-green-600 mb-2 uppercase flex items-center gap-1"><i class="fa-brands fa-whatsapp"></i> WhatsApp</h4>
+                    <div class="grid grid-cols-2 gap-3 mb-2">
+                        <div>
+                            <label class="block text-[9px] font-bold text-gray-500 mb-1">Label</label>
+                            <input type="text" id="set-ft-wa-lbl" class="w-full bg-white border border-green-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-green-400">
+                        </div>
+                        <div>
+                            <label class="block text-[9px] font-bold text-gray-500 mb-1">Nomor (Format URL)</label>
+                            <input type="text" id="set-ft-wa-num" class="w-full bg-white border border-green-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-green-400 font-mono" placeholder="0812...">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[9px] font-bold text-gray-500 mb-1">Teks Tampilan (Display)</label>
+                        <input type="text" id="set-ft-wa-disp" class="w-full bg-white border border-green-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-green-400" placeholder="+62 81-...">
+                    </div>
+                </div>
+
+                <div class="p-4 border border-red-200 bg-red-50/30 rounded-xl">
+                    <h4 class="text-[10px] font-bold text-red-500 mb-2 uppercase flex items-center gap-1"><i class="fa-solid fa-envelope"></i> Email</h4>
+                    <div class="grid grid-cols-2 gap-3 mb-2">
+                        <div>
+                            <label class="block text-[9px] font-bold text-gray-500 mb-1">Label</label>
+                            <input type="text" id="set-ft-em-lbl" class="w-full bg-white border border-red-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-red-400">
+                        </div>
+                        <div>
+                            <label class="block text-[9px] font-bold text-gray-500 mb-1">Alamat Email</label>
+                            <input type="text" id="set-ft-em-addr" class="w-full bg-white border border-red-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-red-400">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[9px] font-bold text-gray-500 mb-1">Subject Default</label>
+                        <input type="text" id="set-ft-em-subj" class="w-full bg-white border border-red-200 rounded-md px-2 py-1.5 text-xs outline-none focus:border-red-400">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Maps -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-3">
+                <h3 class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-5 flex items-center gap-2">
+                    <i class="fa-solid fa-map-location-dot text-blue-500"></i> Google Maps
+                </h3>
+                <div class="space-y-3">
+                    <div>
+                        <label class="block text-[11px] font-bold text-gray-500 mb-1">Embed URL (src iframe)</label>
+                        <input type="text" id="set-ft-map-url" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-xs outline-none focus:border-primary font-mono" placeholder="https://maps.google.com/maps?...">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold text-gray-500 mb-1">Nama Tempat (Label)</label>
+                        <input type="text" id="set-ft-map-lbl" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm outline-none focus:border-primary font-bold">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold text-gray-500 mb-1">Alamat Lengkap</label>
+                        <textarea id="set-ft-map-addr" rows="2" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-xs outline-none focus:border-primary resize-none"></textarea>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- KOLOM KANAN (Link Groups & Copyright) -->
+        <div class="xl:col-span-6 space-y-6">
+            
+            <!-- Card Link Groups (Nested Arrays) -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md h-[600px] flex flex-col cms-card-anim cms-delay-4">
+                <div class="flex items-center justify-between border-b border-gray-100 pb-4 mb-5 shrink-0">
+                    <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-primary"></i> Grup Link Navigasi
+                    </h3>
+                    <button type="button" id="btn-add-group" class="text-xs font-bold bg-blue-50 text-primary hover:bg-primary hover:text-white px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 shadow-sm">
+                        <i class="fa-solid fa-folder-plus"></i> Tambah Grup
+                    </button>
+                </div>
+                
+                <div id="link-groups-container" class="space-y-4 overflow-y-auto pr-2 cms-scrollbar flex-1">
+                    <!-- Grup Link bakal disuntik ke sini -->
+                </div>
+            </div>
+
+            <!-- Card Copyright -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-5">
+                <h3 class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-5 flex items-center gap-2">
+                    <i class="fa-solid fa-copyright text-gray-500"></i> Copyright & Legal
+                </h3>
+                
+                <div class="mb-4">
+                    <label class="block text-[11px] font-bold text-gray-500 mb-1">Teks Copyright (Gunakan <code>{year}</code> untuk tahun otomatis)</label>
+                    <input type="text" id="set-ft-copy-txt" class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none text-gray-800">
+                </div>
+
+                <div class="border-t border-gray-100 pt-4">
+                    <div class="flex items-center justify-between mb-3">
+                        <label class="block text-[11px] font-bold text-gray-500">Legal Links (Privasi, S&K)</label>
+                        <button type="button" id="btn-add-copy-link" class="text-[10px] font-bold bg-gray-100 text-gray-600 px-2 py-1 rounded-md hover:bg-gray-300 transition-colors">
+                            <i class="fa-solid fa-plus"></i> Tambah Link
+                        </button>
+                    </div>
+                    <div id="copy-links-container" class="space-y-2 max-h-[150px] overflow-y-auto pr-1 cms-scrollbar"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

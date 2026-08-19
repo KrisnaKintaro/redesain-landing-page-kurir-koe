@@ -24,7 +24,6 @@ async function renderBrandInfo() {
     // Inject teks deskripsi & jalankan Auto Scale Font
     if (elDesc && data.description) {
         elDesc.textContent = data.description;
-        
         // Toleransi sekitar 140 karakter sebelum dikecilkan
         autoScaleFont(elDesc, 140, "text-sm sm:text-base", "text-xs sm:text-sm");
     }
@@ -36,7 +35,8 @@ async function renderBrandInfo() {
             a.href = soc.link;
             a.target = "_blank";
             
-            a.className = "w-10 h-10 rounded-full bg-accent/30 text-primary flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-300 shadow-sm";
+            // REVISI: Gunakan bg-blue-100 text-primary (biru muda 30-40%) dan hover:bg-accent (kuning)
+            a.className = "w-10 h-10 rounded-full bg-blue-100 text-primary flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-300 shadow-sm border border-blue-200/50 hover:border-accent";
             
             a.innerHTML = `<i class="fa-brands ${soc.icon}"></i>`;
             elSocials.appendChild(a);

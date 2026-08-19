@@ -1,22 +1,3 @@
-/**
- * assets/js/global.js
- * Kumpulan fungsi utility yang bisa dipanggil dari seluruh komponen
- */
-
-// Fungsi untuk load file HTML komponen secara asynchronous
-async function fetchHTML(path) {
-    try {
-        const response = await fetch(path);
-        if (!response.ok) {
-            throw new Error(`Gagal memuat: ${path}`);
-        }
-        return await response.text();
-    } catch (error) {
-        console.error("Error fetching component:", error);
-        return `<div class="p-4 text-red-500">Error loading component from ${path}</div>`;
-    }
-}
-
 // Opsional: Fungsi bantuan buat generate ID unik (berguna kalau bikin elemet dinamis)
 function generateId() {
     return Math.random().toString(36).substr(2, 9);
@@ -131,6 +112,98 @@ function applyGlobalMeta() {
         // Nge-override settingan default Tailwind biar font langsung berubah
         document.body.style.fontFamily = `"${meta.font_family}", sans-serif`;
     }
+}
+
+function showConfirmModal({
+    title = 'Konfirmasi',
+    message = '',
+    confirmText = 'Ya, Lanjutkan',
+    cancelText = 'Batal',
+    variant = 'primary'
+} = {}) {
+    return new Promise((resolve) => {
+        // Bersihin kalau kebetulan ada modal lain yang masih nyangkut
+        document.getElementById('global-confirm-modal')?.remove();
+
+        const isDanger = variant === 'danger';
+        const iconBg = isDanger ? 'bg-red-50 text-red-500' : 'bg-blue-50 text-primary';
+        const iconClass = isDanger ? 'fa-triangle-exclamation' : 'fa-circle-question';
+        const confirmBtnClass = isDanger
+            ? 'bg-red-500 hover:bg-red-600 shadow-[0_5px_15px_rgba(239,68,68,0.3)]'
+            : 'bg-primary hover:bg-blue-800 shadow-[0_5px_15px_rgba(0,84,183,0.3)]';
+
+        const overlay = document.createElement('div');
+        overlay.id = 'global-confirm-modal';
+        overlay.className = 'fixed inset-0 z-[9999] flex items-center justify-center bg-gray-900/60 backdrop-blur-sm px-4 fade-in';
+
+        overlay.innerHTML = `
+            <div class="bg-white rounded-3xl p-6 sm:p-7 w-full max-w-sm shadow-2xl">
+                <div class="w-12 h-12 rounded-2xl ${iconBg} flex items-center justify-center mb-4">
+                    <i class="fa-solid ${iconClass} text-lg"></i>
+                </div>
+                <h3 class="text-lg font-extrabold text-gray-900 mb-1.5">${title}</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-6">${message}</p>
+                <div class="flex items-center justify-end gap-2.5">
+                    <button type="button" id="global-confirm-cancel" class="px-4 py-2.5 rounded-xl font-bold text-sm text-gray-500 hover:bg-gray-100 transition-all">${cancelText}</button>
+                    <button type="button" id="global-confirm-ok" class="px-5 py-2.5 rounded-xl font-bold text-sm text-white transition-all hover:-translate-y-0.5 ${confirmBtnClass}">${confirmText}</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        const cleanup = (result) => {
+            overlay.remove();
+            resolve(result);
+        };
+
+        // Klik area gelap di luar card = dianggap cancel
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) cleanup(false); });
+        overlay.querySelector('#global-confirm-cancel').addEventListener('click', () => cleanup(false));
+        overlay.querySelector('#global-confirm-ok').addEventListener('click', () => cleanup(true));
+    });
+}
+
+/**
+ * Fungsi buat nerapin warna tema (primary/accent) via CSS Variable.
+ * Dipake berdua sama landing page (theme) & CMS console (cms_global.theme),
+ * tinggal beda objek yang dikirim tergantung route lagi di mana.
+ * @param {{primary?: string, accent?: string}} themeObj
+ */
+function applyThemeColor(themeObj) {
+    if (!themeObj) return;
+    const root = document.documentElement;
+    if (themeObj.primary) root.style.setProperty('--color-primary', themeObj.primary);
+    if (themeObj.accent) root.style.setProperty('--color-accent', themeObj.accent);
+}
+
+/**
+ * Fungsi buat load & terapin Google Font secara dinamis khusus scope CMS Console
+ * (Cuma ngefek ke div#app, ga ganggu font landing page yang diatur applyGlobalMeta)
+ * @param {string} fontName - Nama font, harus persis sama kayak nama di Google Fonts
+ */
+function applyCmsFont(fontName) {
+    const cleanName = (fontName || '').trim();
+    if (!cleanName) return;
+
+    // Bangun URL Google Fonts secara dinamis dari nama font yang diinput
+    const fontUrlName = cleanName.replace(/\s+/g, '+');
+    const fontUrl = `https://fonts.googleapis.com/css2?family=${fontUrlName}:wght@300;400;500;600;700;800&display=swap`;
+
+    let linkTag = document.getElementById('cms-dynamic-font');
+    if (!linkTag) {
+        linkTag = document.createElement('link');
+        linkTag.id = 'cms-dynamic-font';
+        linkTag.rel = 'stylesheet';
+        document.head.appendChild(linkTag);
+    }
+    if (linkTag.getAttribute('href') !== fontUrl) {
+        linkTag.setAttribute('href', fontUrl);
+    }
+
+    // Terapin ke scope CMS Console aja (div#app), landing page ga kesenggol
+    const appEl = document.getElementById('app');
+    if (appEl) appEl.style.fontFamily = `"${cleanName}", sans-serif`;
 }
 
 /**

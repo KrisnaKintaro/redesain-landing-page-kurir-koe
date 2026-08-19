@@ -77,6 +77,12 @@ async function loadCmsWorkspace(targetId) {
           initCtaSettingLogic();
         }
         break;
+      case "comp-footer":
+        if (typeof renderFooterSetting === "function") {
+          workspace.innerHTML = await renderFooterSetting();
+          initFooterSettingLogic();
+        }
+        break;
       default:
         workspace.innerHTML = renderPlaceholder(`Komponen ${targetId}`);
         break;

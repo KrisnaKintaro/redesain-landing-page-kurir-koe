@@ -197,6 +197,34 @@ if (isset($_FILES['cta_image']) && $_FILES['cta_image']['error'] === UPLOAD_ERR_
 }
 
 // ==============================================================
+// PROSES UPLOAD FOOTER LOGO
+// ==============================================================
+if (isset($_FILES['footer_logo']) && $_FILES['footer_logo']['error'] === UPLOAD_ERR_OK) {
+    $originalExt = strtolower(pathinfo($_FILES['footer_logo']['name'], PATHINFO_EXTENSION));
+    if (in_array($originalExt, $allowedExt)) {
+        $baseName = 'logo_kurir_koe'; 
+        $newFileName = $baseName . '.' . $originalExt;
+        $uploadPath = $uploadDir . $newFileName;
+        
+        $oldFiles = glob($uploadDir . $baseName . '.*');
+        if ($oldFiles) {
+            foreach ($oldFiles as $oldFile) {
+                if (strtolower($oldFile) !== strtolower($uploadPath)) @unlink($oldFile);
+            }
+        }
+        
+        if (move_uploaded_file($_FILES['footer_logo']['tmp_name'], $uploadPath)) {
+            if (!isset($existingData['footer_brand']) || !is_array($existingData['footer_brand'])) {
+                $existingData['footer_brand'] = [];
+            }
+            $existingData['footer_brand']['logo_url'] = './assets/images/' . $newFileName;
+            $isUpdated = true;
+            $response['footer_brand'] = $existingData['footer_brand']; 
+        }
+    }
+}
+
+// ==============================================================
 // 3. TULIS SEKALI AJA KE content.json (SETELAH semua proses selesai)
 // ==============================================================
 if ($isUpdated) {

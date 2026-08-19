@@ -59,6 +59,12 @@ async function loadCmsWorkspace(targetId) {
           initBenefitsSettingLogic();
         }
         break;
+      case "comp-partnership":
+        if (typeof renderPartnershipSetting === "function") {
+          workspace.innerHTML = await renderPartnershipSetting();
+          initPartnershipSettingLogic();
+        }
+        break;
       default:
         workspace.innerHTML = renderPlaceholder(`Komponen ${targetId}`);
         break;

@@ -1,0 +1,83 @@
+<div class="max-w-5xl mx-auto workspace-anim">
+    <div class="mb-8 cms-card-anim">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">Pengaturan Partnership</h2>
+        <p class="text-gray-500 mt-2 text-sm sm:text-base">Atur copywriting, ilustrasi kemitraan, dan opsi kontak pendaftaran (WA/Email).</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+        
+        <!-- KOLOM KIRI (Header & Upload Image) -->
+        <div class="lg:col-span-5 space-y-6">
+            
+            <!-- Card Copywriting -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-1">
+                <h3 class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-5 flex items-center gap-2">
+                    <i class="fa-solid fa-pen-nib text-primary"></i> Teks Header
+                </h3>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Tagline</label>
+                    <input type="text" id="set-prt-tagline" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 font-semibold" placeholder="Contoh: Gabung Mitra">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Judul Utama</label>
+                    <input type="text" id="set-prt-title" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 font-extrabold" placeholder="Contoh: Tumbuh & Sukses Bersama Kami">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Deskripsi</label>
+                    <textarea id="set-prt-desc" rows="4" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 leading-relaxed resize-none" placeholder="Pilih peran yang paling sesuai..."></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Label Aksi Global</label>
+                    <input type="text" id="set-prt-action" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 font-semibold" placeholder="Contoh: Daftar Langsung Via:">
+                </div>
+            </div>
+
+            <!-- Card Ilustrasi Partnership -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-2">
+                <h3 class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-5 flex items-center gap-2">
+                    <i class="fa-solid fa-image text-accent"></i> Ilustrasi Kemitraan
+                </h3>
+                
+                <div id="set-prt-drop-zone" class="relative group border-2 border-dashed border-gray-300 rounded-2xl p-6 text-center bg-gray-50 transition-all cursor-pointer flex flex-col items-center justify-center min-h-[220px]">
+                    <input type="file" id="set-prt-img-input" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" accept="image/png, image/webp, image/jpeg">
+                    <img id="set-prt-img-preview" src="" class="absolute inset-0 w-full h-full object-contain p-4 opacity-50 group-hover:opacity-20 transition-opacity z-0">
+                    
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div class="w-12 h-12 bg-white rounded-full shadow-md text-primary flex items-center justify-center mb-3 drag-zone-icon transition-transform duration-300">
+                            <i class="fa-solid fa-cloud-arrow-up text-xl"></i>
+                        </div>
+                        <p class="text-xs font-bold text-gray-700">Drag & Drop Gambar Ilustrasi</p>
+                        <p class="text-[10px] text-gray-400 mt-1">Format: WEBP/PNG</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- KOLOM KANAN (List Opsi Kemitraan) -->
+        <div class="lg:col-span-7">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md h-full cms-card-anim cms-delay-3">
+                <div class="flex items-center justify-between border-b border-gray-100 pb-4 mb-5">
+                    <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                        <i class="fa-solid fa-handshake text-primary"></i> Opsi Kemitraan
+                    </h3>
+                    <button type="button" id="btn-add-prt-opt" class="text-xs font-bold bg-blue-50 text-primary hover:bg-primary hover:text-white px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 shadow-sm">
+                        <i class="fa-solid fa-plus"></i> Tambah Opsi
+                    </button>
+                </div>
+                
+                <p class="text-xs text-gray-400 mb-4"><i class="fa-solid fa-circle-info"></i> Masukkan nomor WA tujuan dengan format <code>08...</code> atau <code>628...</code></p>
+                
+                <!-- Wadah List Dinamis -->
+                <div id="prt-list-container" class="space-y-4 max-h-[750px] overflow-y-auto pr-2 cms-scrollbar">
+                    <!-- Item opsi bakal disuntik JS ke sini -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

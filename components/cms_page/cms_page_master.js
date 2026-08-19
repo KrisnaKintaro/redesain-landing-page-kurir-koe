@@ -47,6 +47,12 @@ async function loadCmsWorkspace(targetId) {
           initStatsSettingLogic();
         }
         break;
+      case "comp-services":
+        if (typeof renderServicesSetting === "function") {
+          workspace.innerHTML = await renderServicesSetting();
+          initServicesSettingLogic();
+        }
+        break;
       default:
         workspace.innerHTML = renderPlaceholder(`Komponen ${targetId}`);
         break;

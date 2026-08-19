@@ -50,6 +50,12 @@
 
     <!-- Global CSS -->
     <link rel="stylesheet" href="./assets/css/global.css" />
+
+    <!-- CMS Master CSS (animasi topbar/sidebar/card) -->
+    <!-- Di-link statis di sini, JANGAN cuma andelin auto-detect fetchHTML(), -->
+    <!-- soalnya itu nyuntik <link> tapi ga nunggu CSS-nya kelar download -->
+    <!-- sebelum HTML-nya di-render -> animasi card suka ketinggalan / gak jalan. -->
+    <link rel="stylesheet" href="./components/cms_page/cms_page_master.css" />
   </head>
   <body class="bg-light font-sans text-gray-800 antialiased">
     <!-- SPA Root Container: Semua komponen bakal di-inject ke dalam div ini -->
@@ -114,6 +120,8 @@
     <script src="./components/cms_page/cms_setting/cms_setting.js"></script>
     <!-- Global Setting -->
     <script src="./components/cms_page/global_setting/global_setting.js"></script>
+    <!-- Navbar Setting -->
+    <script src="./components/cms_page/navbar_setting/navbar_setting.js"></script>
     <script src="./components/cms_page/cms_page_master.js"></script>
 
     <!-- Core Logic (State & Router) -->

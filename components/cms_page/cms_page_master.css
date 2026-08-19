@@ -5,8 +5,9 @@
 /* 1. Animasi Topbar Turun */
 .anim-topbar {
     opacity: 0;
-    animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Diperlama jadi 0.8s */
+    animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
 @keyframes slideDown {
     0% { opacity: 0; transform: translateY(-20px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -15,9 +16,10 @@
 /* 2. Animasi Tombol Simpan Muncul Berlahan & Nge-Pop */
 .anim-save-btn {
     opacity: 0;
-    animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Diperlama jadi 0.8s */
-    animation-delay: 0.7s; /* Delay ditambah biar munculnya nunggu topbar kelar */
+    animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: 0.7s;
 }
+
 @keyframes popIn {
     0% { opacity: 0; transform: scale(0.8); }
     100% { opacity: 1; transform: scale(1); }
@@ -26,12 +28,13 @@
 /* 3. Animasi Header & Footer Sidebar */
 .anim-sidebar-header {
     opacity: 0;
-    animation: slideRightFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Diperlama jadi 0.8s */
+    animation: slideRightFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
 .anim-sidebar-footer {
     opacity: 0;
-    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Diperlama jadi 0.8s */
-    animation-delay: 1.4s; /* Nunggu semua menu kelar muncul baru dia nongol di bawah */
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 1.4s;
 }
 
 /* 4. Animasi Staggered Menu Sidebar (Satu per satu dari Kiri) */
@@ -43,7 +46,7 @@
 /* Tembak semua anak langsung di dalam tag <nav id="cms-nav-menu"> */
 #cms-nav-menu > * {
     opacity: 0;
-    animation: slideRightFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Per menu 0.6s */
+    animation: slideRightFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Bikin jeda otomatis (Staggered Effect) yang lebih renggang dan santai */
@@ -63,8 +66,9 @@
 
 /* Animasi Entrance Workspace (Konten Utama di Kanan) */
 .workspace-anim {
-    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Diperlama jadi 0.8s */
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
 @keyframes fadeUp {
     0% { opacity: 0; transform: translateY(15px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -73,15 +77,35 @@
 /* Custom Scrollbar CMS (Tetep Sama) */
 .cms-scrollbar::-webkit-scrollbar { width: 6px; }
 .cms-scrollbar::-webkit-scrollbar-track { background: transparent; }
-.cms-scrollbar::-webkit-scrollbar-thumb { 
-    background-color: rgba(0, 0, 0, 0.15); 
-    border-radius: 10px; 
+.cms-scrollbar::-webkit-scrollbar-thumb {
+     background-color: rgba(0, 0, 0, 0.15);
+     border-radius: 10px;
 }
-.cms-scrollbar::-webkit-scrollbar-thumb:hover { 
-    background-color: rgba(0, 0, 0, 0.3); 
+.cms-scrollbar::-webkit-scrollbar-thumb:hover {
+     background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* Transisi mulus buat Main Workspace saat Sidebar di-toggle */
 .main-workspace-transition {
-    transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Toggle diperlambat dikit */
+    transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ==============================================================
+   ANIMASI KOTAK (CARD) WORKSPACE CMS
+   ============================================================== */
+.cms-card-anim {
+    opacity: 0;
+    /* Durasi 0.7s (minimal 0.5s) dengan kurva yang super smooth */
+    animation: cmsCardPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cmsCardPop {
+    0% { opacity: 0; transform: translateY(25px) scale(0.96); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Staggered Delays biar munculnya tek.. tek.. tek.. bergantian */
+.cms-delay-1 { animation-delay: 0.15s; }
+.cms-delay-2 { animation-delay: 0.3s; }
+.cms-delay-3 { animation-delay: 0.45s; }
+.cms-delay-4 { animation-delay: 0.6s; }

@@ -83,6 +83,36 @@ if (isset($_FILES['cms_logo']) && $_FILES['cms_logo']['error'] === UPLOAD_ERR_OK
 }
 
 // ==============================================================
+// PROSES UPLOAD FAVICON LANDING PAGE
+// ==============================================================
+if (isset($_FILES['favicon_file']) && $_FILES['favicon_file']['error'] === UPLOAD_ERR_OK) {
+    $originalExt = strtolower(pathinfo($_FILES['favicon_file']['name'], PATHINFO_EXTENSION));
+    if (in_array($originalExt, $allowedExt)) {
+        $baseName = 'logo_kurir_koefav';
+        $newFileName = $baseName . '.' . $originalExt;
+        $uploadPath = $uploadDir . $newFileName;
+        
+        // Hapus favicon lama
+        $oldFiles = glob($uploadDir . $baseName . '.*');
+        if ($oldFiles) {
+            foreach ($oldFiles as $oldFile) {
+                if (strtolower($oldFile) !== strtolower($uploadPath)) @unlink($oldFile);
+            }
+        }
+        
+        if (move_uploaded_file($_FILES['favicon_file']['tmp_name'], $uploadPath)) {
+            if (!isset($existingData['global_meta']) || !is_array($existingData['global_meta'])) {
+                $existingData['global_meta'] = [];
+            }
+            // Update value JSON di memory
+            $existingData['global_meta']['favicon_url'] = './assets/images/' . $newFileName;
+            $isUpdated = true;
+            $response['global_meta'] = $existingData['global_meta']; // Balikin buat di-sync frontend
+        }
+    }
+}
+
+// ==============================================================
 // 3. TULIS SEKALI AJA KE content.json (SETELAH semua proses selesai)
 // ==============================================================
 if ($isUpdated) {

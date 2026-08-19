@@ -1,0 +1,259 @@
+<div class="max-w-5xl mx-auto workspace-anim">
+  <div class="mb-8 cms-card-anim">
+    <h2
+      class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight"
+    >
+      Pengaturan Hero Section
+    </h2>
+    <p class="text-gray-500 mt-2 text-sm sm:text-base">
+      Atur teks sambutan, tombol call-to-action, social proof, dan ilustrasi
+      utama.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+    <!-- KOLOM KIRI (Teks & Tombol) -->
+    <div class="lg:col-span-7 space-y-6">
+      <!-- Card Copywriting -->
+      <div
+        class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-1"
+      >
+        <h3
+          class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-5 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-pen-nib text-primary"></i> Copywriting
+        </h3>
+
+        <div class="mb-4">
+          <label class="block text-sm font-bold text-gray-700 mb-2"
+            >Tagline</label
+          >
+          <input
+            type="text"
+            id="set-hero-tagline"
+            class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 font-semibold"
+            placeholder="🚀 Solusi Pengiriman #1"
+          />
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-sm font-bold text-gray-700 mb-2"
+              >Title 1 (Teks Gelap)</label
+            >
+            <input
+              type="text"
+              id="set-hero-title1"
+              class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 font-semibold"
+              placeholder="Solusi Pengiriman"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-bold text-gray-700 mb-2"
+              >Title 2 (Teks Biru)</label
+            >
+            <input
+              type="text"
+              id="set-hero-title2"
+              class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-primary font-bold"
+              placeholder="Terpercaya!"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-2"
+            >Deskripsi Singkat</label
+          >
+          <textarea
+            id="set-hero-desc"
+            rows="3"
+            class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-gray-800 leading-relaxed resize-none"
+            placeholder="Kirim paket ke seluruh pelosok..."
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Card Tombol Aksi -->
+      <div
+        class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-2"
+      >
+        <h3
+          class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-5 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-link text-accent"></i> Call To Action (CTA)
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <!-- Tombol Primary -->
+          <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+            <label
+              class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-3"
+              >Tombol Primary</label
+            >
+            <input
+              type="text"
+              id="set-hero-btn1-label"
+              class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none text-gray-800 font-semibold mb-4"
+              placeholder="Label, cth: Mulai Sekarang"
+            />
+
+            <label
+              class="block text-[11px] font-bold text-gray-500 mb-1"
+              title="Pilih bagian halaman yang akan dituju saat tombol diklik"
+            >
+              Target Scroll (Arah Link)
+            </label>
+            <select
+              id="set-hero-btn1-target"
+              class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none text-gray-800 cursor-pointer"
+            >
+              <option value="hero">Hero Section</option>
+              <option value="stats">Stats Section</option>
+              <option value="services">Services</option>
+              <option value="how-it-works">How It Works</option>
+              <option value="benefits">Benefits</option>
+              <option value="partnership">Partnership</option>
+              <option value="testimonial">Testimonial</option>
+              <option value="cta">Call to Action (CTA)</option>
+              <option value="footer">Footer / Contact Us</option>
+            </select>
+          </div>
+
+          <!-- Tombol Secondary -->
+          <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+            <label
+              class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-3"
+              >Tombol Secondary</label
+            >
+            <input
+              type="text"
+              id="set-hero-btn2-label"
+              class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none text-gray-800 font-semibold mb-4"
+              placeholder="Label, cth: Gabung Mitra"
+            />
+
+            <label
+              class="block text-[11px] font-bold text-gray-500 mb-1"
+              title="Pilih bagian halaman yang akan dituju saat tombol diklik"
+            >
+              Target Scroll (Arah Link)
+            </label>
+            <select
+              id="set-hero-btn2-target"
+              class="w-full bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none text-gray-800 cursor-pointer"
+            >
+              <option value="hero">Hero Section</option>
+              <option value="stats">Stats Section</option>
+              <option value="services">Services</option>
+              <option value="how-it-works">How It Works</option>
+              <option value="benefits">Benefits</option>
+              <option value="partnership">Partnership</option>
+              <option value="testimonial">Testimonial</option>
+              <option value="cta">Call to Action (CTA)</option>
+              <option value="footer">Footer / Contact Us</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KOLOM KANAN (Social Proof & Upload Image) -->
+    <div class="lg:col-span-5 space-y-6">
+      <!-- Card Ilustrasi Hero -->
+      <div
+        class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md cms-card-anim cms-delay-3"
+      >
+        <h3
+          class="text-lg font-bold text-gray-800 border-b border-gray-100 pb-4 mb-5 flex items-center gap-2"
+        >
+          <i class="fa-solid fa-image text-primary"></i> Ilustrasi Hero
+        </h3>
+
+        <div
+          id="set-hero-drop-zone"
+          class="relative group border-2 border-dashed border-gray-300 rounded-2xl p-6 text-center bg-gray-50 transition-all cursor-pointer flex flex-col items-center justify-center min-h-[220px]"
+        >
+          <input
+            type="file"
+            id="set-hero-img-input"
+            class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+            accept="image/png, image/webp, image/jpeg"
+          />
+          <img
+            id="set-hero-img-preview"
+            src=""
+            class="absolute inset-0 w-full h-full object-contain p-4 opacity-50 group-hover:opacity-20 transition-opacity z-0"
+          />
+
+          <div class="relative z-10 flex flex-col items-center">
+            <div
+              class="w-12 h-12 bg-white rounded-full shadow-md text-primary flex items-center justify-center mb-3 drag-zone-icon"
+            >
+              <i class="fa-solid fa-cloud-arrow-up text-xl"></i>
+            </div>
+            <p class="text-xs font-bold text-gray-700">
+              Drag & Drop Gambar Ilustrasi
+            </p>
+            <p class="text-[10px] text-gray-400 mt-1">Format: WEBP/PNG</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Social Proof -->
+      <div
+        class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md h-full cms-card-anim cms-delay-4"
+      >
+        <div
+          class="flex items-center justify-between border-b border-gray-100 pb-4 mb-5"
+        >
+          <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+            <i class="fa-solid fa-users text-green-500"></i> Social Proof
+          </h3>
+          <button
+            type="button"
+            id="btn-add-hero-avatar"
+            class="text-xs font-bold bg-green-50 text-green-600 hover:bg-green-500 hover:text-white px-2.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 shadow-sm"
+          >
+            <i class="fa-solid fa-plus"></i> Avatar
+          </button>
+        </div>
+
+        <div class="grid grid-cols-12 gap-3 mb-4">
+          <div class="col-span-9">
+            <label class="block text-[11px] font-bold text-gray-500 mb-1"
+              >Teks Pelanggan</label
+            >
+            <input
+              type="text"
+              id="set-hero-sp-text"
+              class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none text-gray-800"
+            />
+          </div>
+          <div class="col-span-3">
+            <label class="block text-[11px] font-bold text-gray-500 mb-1"
+              >Rating</label
+            >
+            <input
+              type="number"
+              id="set-hero-sp-rating"
+              min="1"
+              max="5"
+              class="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm text-center focus:ring-2 focus:ring-primary/20 outline-none text-gray-800 font-bold"
+            />
+          </div>
+        </div>
+
+        <label class="block text-[11px] font-bold text-gray-500 mb-2"
+          >Daftar Link Avatar (URL)</label
+        >
+        <div
+          id="hero-avatars-container"
+          class="space-y-2 max-h-[150px] overflow-y-auto pr-2 cms-scrollbar"
+        >
+          <!-- Input Avatar Dinamis Disuntik ke Sini -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

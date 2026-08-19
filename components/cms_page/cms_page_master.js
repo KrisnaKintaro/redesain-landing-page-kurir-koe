@@ -36,7 +36,10 @@ async function loadCmsWorkspace(targetId) {
         }
         break;
       case "comp-hero":
-        workspace.innerHTML = renderPlaceholder("Hero Section Component");
+        if (typeof renderHeroSetting === "function") {
+          workspace.innerHTML = await renderHeroSetting();
+          initHeroSettingLogic();
+        }
         break;
       default:
         workspace.innerHTML = renderPlaceholder(`Komponen ${targetId}`);

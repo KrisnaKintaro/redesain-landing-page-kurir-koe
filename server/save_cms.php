@@ -113,6 +113,34 @@ if (isset($_FILES['favicon_file']) && $_FILES['favicon_file']['error'] === UPLOA
 }
 
 // ==============================================================
+// PROSES UPLOAD HERO IMAGE
+// ==============================================================
+if (isset($_FILES['hero_image']) && $_FILES['hero_image']['error'] === UPLOAD_ERR_OK) {
+    $originalExt = strtolower(pathinfo($_FILES['hero_image']['name'], PATHINFO_EXTENSION));
+    if (in_array($originalExt, $allowedExt)) {
+        $baseName = 'hero_illustration';
+        $newFileName = $baseName . '.' . $originalExt;
+        $uploadPath = $uploadDir . $newFileName;
+        
+        $oldFiles = glob($uploadDir . $baseName . '.*');
+        if ($oldFiles) {
+            foreach ($oldFiles as $oldFile) {
+                if (strtolower($oldFile) !== strtolower($uploadPath)) @unlink($oldFile);
+            }
+        }
+        
+        if (move_uploaded_file($_FILES['hero_image']['tmp_name'], $uploadPath)) {
+            if (!isset($existingData['hero']) || !is_array($existingData['hero'])) {
+                $existingData['hero'] = [];
+            }
+            $existingData['hero']['image_url'] = './assets/images/' . $newFileName;
+            $isUpdated = true;
+            $response['hero'] = $existingData['hero']; // Balikin biar front-end nge-sync gambarnya
+        }
+    }
+}
+
+// ==============================================================
 // 3. TULIS SEKALI AJA KE content.json (SETELAH semua proses selesai)
 // ==============================================================
 if ($isUpdated) {

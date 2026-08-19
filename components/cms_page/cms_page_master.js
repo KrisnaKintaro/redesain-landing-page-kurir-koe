@@ -65,6 +65,12 @@ async function loadCmsWorkspace(targetId) {
           initPartnershipSettingLogic();
         }
         break;
+      case "comp-testimonial":
+        if (typeof renderTestimonialSetting === "function") {
+          workspace.innerHTML = await renderTestimonialSetting();
+          initTestimonialSettingLogic();
+        }
+        break;
       default:
         workspace.innerHTML = renderPlaceholder(`Komponen ${targetId}`);
         break;

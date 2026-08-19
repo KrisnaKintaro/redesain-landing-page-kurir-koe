@@ -41,6 +41,12 @@ async function loadCmsWorkspace(targetId) {
           initHeroSettingLogic();
         }
         break;
+      case "comp-stats":
+        if (typeof renderStatsSetting === "function") {
+          workspace.innerHTML = await renderStatsSetting();
+          initStatsSettingLogic();
+        }
+        break;
       default:
         workspace.innerHTML = renderPlaceholder(`Komponen ${targetId}`);
         break;

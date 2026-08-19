@@ -47,8 +47,8 @@
     },
     "hero": {
         "tagline": "\ud83d\ude80 Solusi Pengiriman #1",
-        "title_1": "Solusi Pengiriman",
-        "title_2": "Terpercaya!",
+        "title_1": "Hidup",
+        "title_2": "Jokowi!",
         "description": "Kirim paket ke seluruh pelosok dengan mudah, cepat, dan aman bersama Kurir Koe.",
         "btn_primary": {
             "label": "Mulai Sekarang",
@@ -71,8 +71,8 @@
     },
     "stats": [
         {
-            "nilai": "10Jt+",
-            "label": "Paket Terkirim",
+            "nilai": "100Gg+",
+            "label": "Paket Terkirims",
             "icon": "fa-box-open"
         },
         {

@@ -1,0 +1,24 @@
+<div class="max-w-5xl mx-auto workspace-anim">
+    <div class="mb-8 cms-card-anim">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">Pengaturan Stats Section</h2>
+        <p class="text-gray-500 mt-2 text-sm sm:text-base">Atur statistik pencapaian, angka, dan ikon yang ditampilkan di landing page.</p>
+    </div>
+
+    <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 transition-all hover:shadow-md h-full cms-card-anim cms-delay-1">
+        <div class="flex items-center justify-between border-b border-gray-100 pb-4 mb-5">
+            <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                <i class="fa-solid fa-chart-simple text-primary"></i> Data Statistik
+            </h3>
+            <button type="button" id="btn-add-stat" class="text-xs font-bold bg-blue-50 text-primary hover:bg-primary hover:text-white px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 shadow-sm">
+                <i class="fa-solid fa-plus"></i> Tambah Stat
+            </button>
+        </div>
+        
+        <p class="text-xs text-gray-400 mb-6"><i class="fa-solid fa-circle-info"></i> Sistem akan otomatis menambahkan tanda plus (<code>+</code>) di akhir angka pada tampilan website.</p>
+        
+        <!-- Wadah List Stats Dinamis -->
+        <div id="stats-list-container" class="space-y-4 max-h-[500px] overflow-y-auto pr-2 cms-scrollbar">
+            <!-- Item stats bakal disuntik JS ke sini -->
+        </div>
+    </div>
+</div>
